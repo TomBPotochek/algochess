@@ -1,4 +1,14 @@
+#Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse
 /bin/
 .project
 .classpath
+.settings
 
+# Maven
+target
