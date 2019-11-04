@@ -1,4 +1,4 @@
-package fiuba.algo3.algochess;
+package test.java.fiuba.algo3.algochess;
 
 import org.junit.Assert;
 import org.junit.Test;

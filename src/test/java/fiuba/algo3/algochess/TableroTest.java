@@ -1,4 +1,4 @@
-package fiuba.algo3.algochess;
+package test.java.fiuba.algo3.algochess;
 
 public class TableroTest {
 

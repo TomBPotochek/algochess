@@ -1,4 +1,4 @@
-package fiuba.algo3.algochess;
+package main.java.fiuba.algo3.algochess;
 
 public class UnidadMovible extends Unidad {
 
