@@ -1,4 +1,4 @@
-package main.java.fiuba.algo3.algochess;
+package fiuba.algo3.algochess;
 
 public class Catapulta extends Unidad {
     public Catapulta() {

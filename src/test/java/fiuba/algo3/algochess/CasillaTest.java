@@ -1,4 +1,4 @@
-package test.java.fiuba.algo3.algochess;
+package fiuba.algo3.algochess;
 
 public class CasillaTest {
 

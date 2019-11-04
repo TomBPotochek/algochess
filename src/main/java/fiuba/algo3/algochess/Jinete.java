@@ -1,4 +1,4 @@
-package main.java.fiuba.algo3.algochess;
+package fiuba.algo3.algochess;
 
 public class Jinete extends UnidadMovible {
     public Jinete() {
