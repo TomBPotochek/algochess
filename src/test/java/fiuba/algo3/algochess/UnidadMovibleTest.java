@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 public class UnidadMovibleTest {
     
 	@Test
-    public void test01UnidadMoviblePuedeMoverseEnTodasLasDirecciones() {
+    public void test01UnidadMoviblePuedeMoverseAUnCasilleroAdyecenteNoOcupado() {
 		Posicion posInicialMock = mock(Posicion.class);
         Posicion posFinalMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);

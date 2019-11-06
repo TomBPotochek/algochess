@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Posicion {
     private int posX;
     private int posY;
-//    private Boolean sectorAliado;
 
     public Posicion(int coordenadaX, int coordenadaY) {
         posX = coordenadaX;
@@ -19,7 +18,9 @@ public class Posicion {
     }
 
     public boolean esAdyacente(Posicion otraPosicion) {
-        return true;
+        
+    	return (Math.abs(this.posX - otraPosicion.obtenerCoordenadaX()) < 2 ) && 
+    			(Math.abs(this.posY - otraPosicion.obtenerCoordenadaY()) < 2 );
     }
     
     @Override
