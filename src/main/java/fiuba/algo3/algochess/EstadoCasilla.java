@@ -8,7 +8,5 @@ public abstract class EstadoCasilla {
 	
 	public abstract EstadoCasillaLibre quitarUnidad();
 	
-	public Unidad obtenerUnidad() {
-		return this.unidad;
-	}
+	public abstract Unidad obtenerUnidad();
 }

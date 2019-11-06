@@ -10,8 +10,13 @@ public class EstadoCasillaLibre extends EstadoCasilla {
 
 	@Override
 	public EstadoCasillaLibre quitarUnidad() {
-		throw new CasillaLibreException;
+		throw new CasillaLibreException();
 		
+	}
+	
+	@Override
+	public Unidad obtenerUnidad() {
+		throw new CasillaLibreException();
 	}
 
 }

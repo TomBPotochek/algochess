@@ -8,7 +8,7 @@ public class EstadoCasillaOcupada extends EstadoCasilla {
 
 	@Override
 	public EstadoCasillaOcupada colocarUnidad(Unidad unidad) {
-		throw new CasillaOcupadaException;
+		throw new CasillaOcupadaException();
 		
 	}
 
@@ -16,6 +16,11 @@ public class EstadoCasillaOcupada extends EstadoCasilla {
 	public EstadoCasillaLibre quitarUnidad() {
 		return new EstadoCasillaLibre();
 		
+	}
+	
+	@Override
+	public Unidad obtenerUnidad() {
+		return this.unidad;
 	}
 	
 }
