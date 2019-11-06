@@ -3,7 +3,7 @@ package fiuba.algo3.algochess;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.fiuba.algo3.algochess.*; //mas facil que poner cada una
+import fiuba.algo3.algochess.*; //mas facil que poner cada una
 
 public class UnidadMovibleTest {
     @Test

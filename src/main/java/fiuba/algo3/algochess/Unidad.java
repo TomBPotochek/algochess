@@ -5,9 +5,21 @@ public class Unidad {
     protected int vidaRestante;
     protected int costo;
     protected Posicion posicion;
+    protected int danioAtaqueCuerpoACuerpo;
+    protected int danioAtaqueADistancia;
 
+    //este idealmente no deberia usarse. Seria mejor sacarlo
     public Posicion obtenerPosicion() {
         return posicion;
     }
-
+    
+    public void recibirDanio(int danio) {
+    	
+    	this.vidaRestante -= danio;
+    	
+    	if (this.vidaRestante <= 0) {
+    		throw new UnidadEstaDestruidaException();
+    	}
+    }
 }
+
