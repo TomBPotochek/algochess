@@ -35,10 +35,10 @@ public class Tablero {
     	Unidad unidad = casillaOrigen.quitar();
     	
     	try {
-    		casillaDestino.colocar(unidad);    //Problema: si este tira excepcion, la unidad ya se quito de casillaOrigen
+    		casillaDestino.mover(unidad);    //Problema: si este tira excepcion, la unidad ya se quito de casillaOrigen
     	}
     	catch (CasillaOcupadaException ex) {
-    		casillaOrigen.colocar(unidad);
+    		casillaOrigen.mover(unidad);
     		throw new CasillaOcupadaException();
     	}
     	
