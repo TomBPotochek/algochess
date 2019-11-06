@@ -1,11 +1,9 @@
-package test.java.fiuba.algo3.algochess;
+package fiuba.algo3.algochess;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import main.java.fiuba.algo3.algochess.*;
 
-import main.java.fiuba.algo3.algochess.*;
 
 class SoldadoTest {
 

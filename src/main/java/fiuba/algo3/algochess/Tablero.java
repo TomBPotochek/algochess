@@ -15,4 +15,9 @@ public class Tablero {
 
     public void colocarUnidadEnPosicion(UnidadMovible unidadMovible, Posicion posicionSiguiente) {
     }
+
+	public void moverUnidad(Posicion posicion, Posicion nuevaPosicion) {
+		// TODO Auto-generated method stub
+		
+	}
 }

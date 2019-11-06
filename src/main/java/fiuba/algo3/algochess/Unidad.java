@@ -8,7 +8,12 @@ public class Unidad {
     protected int danioAtaqueCuerpoACuerpo;
     protected int danioAtaqueADistancia;
 
-    //este idealmente no deberia usarse. Seria mejor sacarlo
+    public Unidad(Posicion posicionInicial) {
+
+    	this.posicion = posicionInicial;
+	}
+
+	//este idealmente no deberia usarse. Seria mejor sacarlo
     public Posicion obtenerPosicion() {
         return posicion;
     }
@@ -18,7 +23,7 @@ public class Unidad {
     	this.vidaRestante -= danio;
     	
     	if (this.vidaRestante <= 0) {
-    		throw new UnidadEstaDestruidaException();
+    		throw new UnidadDestruidaException();
     	}
     }
 }
