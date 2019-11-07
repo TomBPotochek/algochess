@@ -44,5 +44,9 @@ public abstract class Unidad {
 		else
 			this.vidaRestante = this.vidaInicial;
 	}
+
+	public boolean estaMuerto() {
+        return vidaRestante > 0;
+    }
 }
 

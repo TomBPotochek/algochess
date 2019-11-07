@@ -1,7 +1,11 @@
 package fiuba.algo3.algochess;
 
+import sun.awt.Mutex;
+
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.Iterator;
 
 public class Jugador {
 	
@@ -44,6 +48,15 @@ public class Jugador {
 		this.guardarUnidad(tablero, catapulta, posicion);
 	}
 
-
+	public void actualizarUnidadesMuertas() {
+		Iterator iter = unidades.iterator();
+		Unidad unidad;
+		while(iter.hasNext()) {
+			unidad = (Unidad) iter.next();
+			if(unidad.estaMuerto()) {
+				iter.remove();
+			}
+		}
+	}
 
 }
