@@ -31,5 +31,9 @@ public class Unidad {
 
     	return vidaRestante;
     }
+
+    public int obtenerCosto() {
+        return costo;
+    }
 }
 

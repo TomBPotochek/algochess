@@ -1,6 +1,4 @@
-package main.java.fiuba.algo3.algochess;
-
-import javafx.scene.control.Tab;
+package fiuba.algo3.algochess;
 
 import java.util.HashSet;
 import java.util.Set;
