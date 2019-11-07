@@ -58,4 +58,21 @@ public class UnidadMovibleTest {
     	});	
 
     }
+    
+    // Test de integracion
+    @Test
+    public void test04UnidadMoviblePuedeMoverseEnTodasLasDirecciones() {
+
+    	Posicion posInicial = new Posicion(2,3);
+    	UnidadMovible soldado = new Soldado(posInicial);
+
+        Posicion posFinal = new Posicion(3,3);
+    	Tablero tablero = new Tablero(20);
+    	
+    	tablero.colocarUnidad(soldado, posInicial);
+  
+    	soldado.mover(posFinal, tablero);
+    	
+    	assertTrue(tablero.obtenerCasilla(posFinal).quitar().equals(soldado));
+    }
 }
