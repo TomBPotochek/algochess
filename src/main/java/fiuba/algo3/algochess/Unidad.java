@@ -1,6 +1,6 @@
 package fiuba.algo3.algochess;
 
-public class Unidad {
+public abstract class Unidad {
     protected int vidaInicial;
     protected int vidaRestante;
     protected int costo;

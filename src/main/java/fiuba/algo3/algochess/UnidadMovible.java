@@ -1,6 +1,6 @@
 package fiuba.algo3.algochess;
 
-public class UnidadMovible extends Unidad {
+public abstract class UnidadMovible extends Unidad {
 
 	UnidadMovible(Posicion posicionInicial) {
 		
