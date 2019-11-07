@@ -22,12 +22,11 @@ public class JugadorTest {
         jugador.comprarJinete(tablero, posicion); // 20pts
 
         assertThrows(PuntosInsuficientesException.class, () -> {
-
             jugador.comprarCatapulta(tablero, posicion);
         });
 
     }
 
-    
+
 
 }

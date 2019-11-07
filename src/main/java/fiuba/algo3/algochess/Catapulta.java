@@ -28,11 +28,11 @@ public class Catapulta extends Unidad implements Atacante {
 
 	@Override
 	public void atacarADistanciaCorta(Unidad unaUnidad) {
-		// tirar excepcion
+		throw new AtaqueInvalidoException();
 	}
 	@Override
 	public void atacarADistanciaMedia(Unidad unaUnidad) {
-		// tirar excepciones
+		throw new AtaqueInvalidoException();
 	}
 	@Override
 	public void atacarADistanciaLarga(Unidad unaUnidad) {

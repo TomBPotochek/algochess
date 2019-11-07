@@ -36,11 +36,11 @@ public class Soldado extends UnidadMovible implements Atacante{
 	}
 	@Override
 	public void atacarADistanciaMedia(Unidad unaUnidad) {
-		// tirar excepcion
+		throw new AtaqueInvalidoException();
 	}
 	@Override
 	public void atacarADistanciaLarga(Unidad unaUnidad) {
-		// tirar excepcion
+		throw new AtaqueInvalidoException();
 	}
 
 

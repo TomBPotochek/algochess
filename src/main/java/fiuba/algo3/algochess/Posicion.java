@@ -28,7 +28,7 @@ public class Posicion {
         int distancia = Math.abs(this.posX - otraPosicion.obtenerCoordenadaX()) +
                 Math.abs(this.posY - otraPosicion.obtenerCoordenadaY());
         if(distancia < 3) return new DistanciaCorta();
-        else if(distancia < 5) return new DistanciaMedia();
+        else if(distancia < 6) return new DistanciaMedia();
         else return new DistanciaLarga();
     }
     
