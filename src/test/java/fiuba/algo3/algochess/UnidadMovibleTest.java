@@ -19,7 +19,7 @@ public class UnidadMovibleTest {
 
 		when(posInicialMock.esAdyacente(posFinalMock)).thenReturn(true);
 
-        Curandero unidad = new Curandero(posInicialMock);
+        Curandero unidad = new Curandero(posInicialMock, "jugador1");
 
         unidad.mover(posFinalMock, tableroMock);
         assertTrue(posFinalMock.equals(unidad.getPosicion()));
@@ -31,7 +31,7 @@ public class UnidadMovibleTest {
     	Posicion posInicialMock = mock(Posicion.class);
         Posicion posFinalMock = mock(Posicion.class);    
     	Tablero tableroMock = mock(Tablero.class);
-    	UnidadMovible jinete = new Jinete(posInicialMock);
+    	UnidadMovible jinete = new Jinete(posInicialMock, "jugador1");
     	
     	when(posInicialMock.esAdyacente(posFinalMock)).thenReturn(true);
     	doThrow(CasillaOcupadaException.class).when(tableroMock).moverUnidad(posInicialMock, posFinalMock);
@@ -39,7 +39,7 @@ public class UnidadMovibleTest {
     	assertThrows(CasillaOcupadaException.class, () -> {
 
     		jinete.mover(posFinalMock, tableroMock);
-    	});	
+    	});
     }
     
     @Test
@@ -48,7 +48,7 @@ public class UnidadMovibleTest {
     	Posicion posInicialMock = mock(Posicion.class);
         Posicion posFinalMock = mock(Posicion.class);    
     	Tablero tableroMock = mock(Tablero.class);
-    	UnidadMovible soldado = new Soldado(posInicialMock);
+    	UnidadMovible soldado = new Soldado(posInicialMock, "jugador1");
     	
     	when(posInicialMock.esAdyacente(posFinalMock)).thenReturn(false);
    

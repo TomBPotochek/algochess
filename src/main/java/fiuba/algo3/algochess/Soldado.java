@@ -2,9 +2,9 @@ package fiuba.algo3.algochess;
 
 public class Soldado extends UnidadMovible implements Atacante{
 
-	public Soldado(Posicion unaPosicion) {
+	public Soldado(Posicion unaPosicion, String equipo) {
 		
-		super(unaPosicion);
+		super(unaPosicion, equipo);
 		
 		this.vidaInicial = 100;
 		this.vidaRestante = 100;

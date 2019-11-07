@@ -5,8 +5,8 @@ public class Curandero extends UnidadMovible {
     private int vidaInicial;
     private int vidaRestante;
 
-    public Curandero(Posicion unaPosicion) {
-    	super(unaPosicion);
+    public Curandero(Posicion unaPosicion, String equipo) {
+    	super(unaPosicion, equipo);
 
     	this.curacion = 15;
     	this.vidaInicial = 75;

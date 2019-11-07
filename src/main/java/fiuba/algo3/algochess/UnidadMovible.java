@@ -2,9 +2,9 @@ package fiuba.algo3.algochess;
 
 public class UnidadMovible extends Unidad {
 
-	UnidadMovible(Posicion posicionInicial) {
+	UnidadMovible(Posicion posicionInicial, String equipo) {
 		
-		super(posicionInicial);
+		super(posicionInicial, equipo);
 	}
 	
 	public void mover(Posicion nuevaPosicion, Tablero tablero) throws MovimientoInvalidoException, CasillaOcupadaException {

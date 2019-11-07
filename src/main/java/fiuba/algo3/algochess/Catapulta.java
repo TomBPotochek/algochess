@@ -1,9 +1,9 @@
 package fiuba.algo3.algochess;
 
 public class Catapulta extends Unidad implements Atacante {
-    public Catapulta(Posicion unaPosicion) {
+    public Catapulta(Posicion unaPosicion, String equipo) {
 
-    	super(unaPosicion);
+    	super(unaPosicion, equipo);
   
     	this.vidaInicial = 50;
         this.vidaRestante = vidaInicial;

@@ -13,8 +13,8 @@ class SoldadoTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
-		Soldado unSoldadoAliado = new Soldado(unaPosicionMock);
-		Soldado unSoldadoEnemigo = new Soldado(otraPosicionMock);
+		Soldado unSoldadoAliado = new Soldado(unaPosicionMock, "jugador1");
+		Soldado unSoldadoEnemigo = new Soldado(otraPosicionMock, "jugador2");
 		
 		unSoldadoAliado.atacar(unSoldadoEnemigo, tableroMock);
 		
