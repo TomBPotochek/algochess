@@ -19,6 +19,7 @@ public class Jugador {
 
 	public void guardarUnidad(Tablero tablero, Unidad unidad, Posicion posicion) {
 		if(!this.tienePuntosSuficientes(unidad.obtenerCosto())) throw new PuntosInsuficientesException();
+		puntos -= unidad.obtenerCosto();
 		unidades.add(unidad);
 		tablero.colocarUnidad(unidad, posicion);
 	}
