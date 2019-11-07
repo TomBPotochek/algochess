@@ -1,5 +1,7 @@
 package fiuba.algo3.algochess;
 
+import static java.lang.Math.min;
+
 public abstract class Unidad {
     protected int vidaInicial;
     protected int vidaRestante;
@@ -37,12 +39,13 @@ public abstract class Unidad {
     }
 
 	public void recibirVida(int vida) {
-		
-		if (this.vidaRestante + vida < this.vidaInicial)
-			this.vidaRestante += vida;
-		
-		else
-			this.vidaRestante = this.vidaInicial;
+
+        this.vidaRestante = min(this.vidaRestante + vida, this.vidaInicial);
+//		if (this.vidaRestante + vida < this.vidaInicial)
+//			this.vidaRestante += vida;
+//
+//		else
+//			this.vidaRestante = this.vidaInicial;
 	}
 
 	public boolean estaMuerto() {

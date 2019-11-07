@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 public class JugadorTest {
     @Test
@@ -27,4 +27,5 @@ public class JugadorTest {
         });
 
     }
+
 }
