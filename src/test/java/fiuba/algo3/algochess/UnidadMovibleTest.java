@@ -22,7 +22,7 @@ public class UnidadMovibleTest {
         Curandero unidad = new Curandero(posInicialMock, "jugador1");
 
         unidad.mover(posFinalMock, tableroMock);
-        assertTrue(posFinalMock.equals(unidad.getPosicion()));
+        assertTrue(posFinalMock.equals(unidad.obtenerPosicion()));
     }
     
     @Test
@@ -57,5 +57,22 @@ public class UnidadMovibleTest {
     		soldado.mover(posFinalMock, tableroMock);
     	});	
 
+    }
+    
+    // Test de integracion
+    @Test
+    public void test04UnidadMoviblePuedeMoverseEnTodasLasDirecciones() {
+
+    	Posicion posInicial = new Posicion(2,3);
+    	UnidadMovible soldado = new Soldado(posInicial, "jugador1");
+
+        Posicion posFinal = new Posicion(3,3);
+    	Tablero tablero = new Tablero(20, "jugador1", "jugador2");
+    	
+    	tablero.colocarUnidad(soldado, posInicial);
+  
+    	soldado.mover(posFinal, tablero);
+    	
+    	assertTrue(tablero.obtenerCasilla(posFinal).quitar().equals(soldado));
     }
 }

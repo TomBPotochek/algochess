@@ -11,7 +11,7 @@ public class TableroTest {
 	
 	@Test
 	public void testInicializacionCorrectaDeTablero() {
-		Tablero tablero = new Tablero(8);
+		Tablero tablero = new Tablero(8, "jugador1", "jugador2");
 		
 		
 		for (int i = 1; i < 9; i++) {
@@ -28,7 +28,7 @@ public class TableroTest {
 	
 	@Test
 	public void testSeColocaUnidadAliadaEnSectorAliadoConExito() {
-		Tablero tablero = new Tablero(6);
+		Tablero tablero = new Tablero(6, "jugador1", "jugador2");
 		
 		Posicion posicion = new Posicion(1,1);
 		
@@ -44,7 +44,7 @@ public class TableroTest {
 
 	@Test
 	public void testSeColocaUnidadAliadaEnSectorEnemigoFalla() {
-		Tablero tablero = new Tablero(6);
+		Tablero tablero = new Tablero(6, "jugador1", "jugador2");
 		/*
 		Unidad unidadMock = mock(Soldado.class);
 		when(unidadMock.esAliada(String equipo)).thenReturn(false);
@@ -66,7 +66,7 @@ public class TableroTest {
 	
 	@Test
 	public void testColocarUnidadEnCasilleroOcupadoFalla() {
-		Tablero tablero = new Tablero(6);
+		Tablero tablero = new Tablero(6, "jugador1", "jugador2");
 		
 		Posicion posicion = new Posicion(1,1);
 		

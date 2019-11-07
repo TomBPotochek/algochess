@@ -1,6 +1,6 @@
 package fiuba.algo3.algochess;
 
-public class UnidadMovible extends Unidad {
+public abstract class UnidadMovible extends Unidad {
 
 	UnidadMovible(Posicion posicionInicial, String equipo) {
 		
@@ -21,9 +21,14 @@ public class UnidadMovible extends Unidad {
     	
     	this.posicion = nuevaPosicion;
     }
-    
-    public Posicion getPosicion() {
-    	
-    	return this.posicion;
-    }
+
+    //catapulta no puede recibir vida. solo las unidades movibles
+	public void recibirVida(int vida) {
+		
+		if (this.vidaRestante + vida < this.vidaInicial)
+			this.vidaRestante += vida;
+		
+		else
+			this.vidaRestante = this.vidaInicial;
+	}
 }

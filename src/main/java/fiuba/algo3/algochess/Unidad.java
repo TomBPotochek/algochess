@@ -1,6 +1,6 @@
 package fiuba.algo3.algochess;
 
-public class Unidad {
+public abstract class Unidad {
     protected int vidaInicial;
     protected int vidaRestante;
     protected int costo;
@@ -36,6 +36,15 @@ public class Unidad {
     
     public boolean esAliada(String otroEquipo) {
     	return (this.equipo == otroEquipo);
+	}
+
+    public int obtenerCosto() {
+        return costo;
+    }
+
+	public boolean estaMuerto() {
+        return vidaRestante > 0;
+
     }
 }
 

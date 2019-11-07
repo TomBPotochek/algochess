@@ -6,10 +6,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
-class SoldadoTest {
+public class SoldadoTest {
 
 	@Test
-	void testSoldadoAtacaUnidadEnemigaYSeLeRestaLaVidaCorrespondiente() {
+	public void testSoldadoAtacaUnidadEnemigaYSeLeRestaLaVidaCorrespondiente() {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
