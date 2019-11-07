@@ -13,8 +13,8 @@ public class CuranderoTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 
-		Curandero unCuranderoAliado = new Curandero(unaPosicionMock);
-		Jinete unJineteAliado = new Jinete(otraPosicionMock);
+		Curandero unCuranderoAliado = new Curandero(unaPosicionMock, "jugador1");
+		Jinete unJineteAliado = new Jinete(otraPosicionMock, "jugador1");
 
 		unJineteAliado.recibirDanio(20);
 		unCuranderoAliado.curar(unJineteAliado);
