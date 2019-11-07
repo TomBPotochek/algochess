@@ -49,7 +49,7 @@ public abstract class Unidad {
 	}
 
 	public boolean estaMuerto() {
-        return vidaRestante > 0;
+        return vidaRestante <= 0;
     }
 }
 
