@@ -7,7 +7,7 @@ public class Jinete extends UnidadMovible implements Atacante {
     	
 		this.vidaInicial = 100;
 		this.vidaRestante = vidaInicial;
-		this.costo = 5;
+		this.costo = 3;
 	    this.danioAtaqueCuerpoACuerpo = 5;
 	    this.danioAtaqueADistancia = 15;
     }
