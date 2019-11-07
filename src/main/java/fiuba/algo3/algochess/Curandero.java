@@ -14,6 +14,12 @@ public class Curandero extends UnidadMovible {
     	this.costo = 2;
     }
 
+	public void curar(Unidad unidadAliada) {
+		
+		unidadAliada.recibirVida(this.curacion);
+		
+	}
+
 
 //    public void curar(Unidad herido) {
 //        herido.curarse(curacion);

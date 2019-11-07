@@ -35,5 +35,14 @@ public abstract class Unidad {
     public int obtenerCosto() {
         return costo;
     }
+
+	public void recibirVida(int vida) {
+		
+		if (this.vidaRestante + vida < this.vidaInicial)
+			this.vidaRestante += vida;
+		
+		else
+			this.vidaRestante = this.vidaInicial;
+	}
 }
 
