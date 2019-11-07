@@ -1,9 +1,9 @@
 package fiuba.algo3.algochess;
 
 public class Jinete extends UnidadMovible implements Atacante {
-    public Jinete(Posicion unaPosicion) {
+    public Jinete(Posicion unaPosicion, String equipo) {
     	
-    	super(unaPosicion);
+    	super(unaPosicion, equipo);
     	
 		this.vidaInicial = 100;
 		this.vidaRestante = vidaInicial;

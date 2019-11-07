@@ -9,7 +9,7 @@ import static org.mockito.Mockito.*;
 public class JugadorTest {
     @Test
     public void test01JugadorPuedeComprarUnidadesHastaQuedarseSinPuntos() {
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador("jugador1");
         Tablero tablero = mock(Tablero.class);
         Posicion posicion = mock(Posicion.class);
 

@@ -14,8 +14,8 @@ public class JineteTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
-		Jinete unJineteAliado = new Jinete(unaPosicionMock);
-		Jinete unJineteEnemigo = new Jinete(otraPosicionMock);
+		Jinete unJineteAliado = new Jinete(unaPosicionMock, "jugador1");
+		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, "jugador2");
 		
 		unJineteAliado.atacar(unJineteEnemigo, tableroMock);
 		

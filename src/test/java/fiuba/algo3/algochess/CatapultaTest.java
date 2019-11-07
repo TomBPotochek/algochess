@@ -13,8 +13,8 @@ public class CatapultaTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
-		Catapulta unaCatapultaAliada = new Catapulta(unaPosicionMock);
-		Soldado unSoldadoEnemigo = new Soldado(otraPosicionMock);
+		Catapulta unaCatapultaAliada = new Catapulta(unaPosicionMock, "jugador1");
+		Soldado unSoldadoEnemigo = new Soldado(otraPosicionMock, "jugador2");
 		
 		unaCatapultaAliada.atacar(unSoldadoEnemigo, tableroMock);
 		

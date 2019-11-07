@@ -9,10 +9,12 @@ public abstract class Unidad {
     protected Posicion posicion;
     protected int danioAtaqueCuerpoACuerpo;
     protected int danioAtaqueADistancia;
+    protected String equipo;
 
-    public Unidad(Posicion posicionInicial) {
+    public Unidad(Posicion posicionInicial, String equipo) {
 
     	this.posicion = posicionInicial;
+    	this.equipo = equipo;
 	}
 
 	//este idealmente no deberia usarse. Seria mejor sacarlo
@@ -34,18 +36,21 @@ public abstract class Unidad {
     	return vidaRestante;
     }
 
+    public boolean esAliada(String otroEquipo) {
+    	return (this.equipo == otroEquipo);
+	}
+
     public int obtenerCosto() {
         return costo;
     }
 
 	public void recibirVida(int vida) {
-
-        this.vidaRestante = min(this.vidaRestante + vida, this.vidaInicial);
-//		if (this.vidaRestante + vida < this.vidaInicial)
-//			this.vidaRestante += vida;
-//
-//		else
-//			this.vidaRestante = this.vidaInicial;
+		
+		if (this.vidaRestante + vida < this.vidaInicial)
+			this.vidaRestante += vida;
+		
+		else
+			this.vidaRestante = this.vidaInicial;
 	}
 
 	public boolean estaMuerto() {

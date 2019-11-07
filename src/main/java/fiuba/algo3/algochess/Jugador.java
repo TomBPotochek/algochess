@@ -9,12 +9,14 @@ import java.util.Iterator;
 
 public class Jugador {
 	
+	private String equipo;
 	private int puntos;
 	private Set<Unidad> unidades;
 
-	public Jugador() {
+	public Jugador(String equipo) {
 		puntos = 20;
 		unidades = new HashSet<>();
+		this.equipo = equipo;
 	}
 
 	private boolean tienePuntosSuficientes(int costo) {
@@ -29,22 +31,22 @@ public class Jugador {
 	}
 
 	public void comprarSoldado(Tablero tablero, Posicion posicion) {
-		Soldado soldado = new Soldado(posicion);
+		Soldado soldado = new Soldado(posicion, this.equipo);
 		this.guardarUnidad(tablero, soldado, posicion);
 	}
 
 	public void comprarJinete(Tablero tablero, Posicion posicion) {
-		Jinete jinete = new Jinete(posicion);
+		Jinete jinete = new Jinete(posicion, this.equipo);
 		this.guardarUnidad(tablero, jinete, posicion);
 	}
 
 	public void comprarCurandero(Tablero tablero, Posicion posicion) {
-		Curandero curandero = new Curandero(posicion);
+		Curandero curandero = new Curandero(posicion, this.equipo);
 		this.guardarUnidad(tablero, curandero, posicion);
 	}
 
 	public void comprarCatapulta(Tablero tablero, Posicion posicion) {
-		Catapulta catapulta = new Catapulta(posicion);
+		Catapulta catapulta = new Catapulta(posicion, this.equipo);
 		this.guardarUnidad(tablero, catapulta, posicion);
 	}
 
