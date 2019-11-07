@@ -1,6 +1,6 @@
 package fiuba.algo3.algochess;
 
-public class Jinete extends UnidadMovible {
+public class Jinete extends UnidadMovible implements Atacante {
     public Jinete(Posicion unaPosicion) {
     	
     	super(unaPosicion);
@@ -19,4 +19,10 @@ public class Jinete extends UnidadMovible {
     public void atacarADistancia(Unidad otraUnidad) {
     	otraUnidad.recibirDanio(this.danioAtaqueADistancia);
     }
+
+	@Override
+	public void atacar(Unidad unaUnidad, Tablero tablero) {
+		
+		unaUnidad.recibirDanio(danioAtaqueCuerpoACuerpo);
+	}
 }

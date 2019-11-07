@@ -26,5 +26,10 @@ public class Unidad {
     		throw new UnidadDestruidaException();
     	}
     }
+    
+    public int getVidaRestante() {
+
+    	return vidaRestante;
+    }
 }
 

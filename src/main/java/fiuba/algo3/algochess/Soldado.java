@@ -1,7 +1,7 @@
 package fiuba.algo3.algochess;
 
-public class Soldado extends UnidadMovible {
-	
+public class Soldado extends UnidadMovible implements Atacante{
+
 	public Soldado(Posicion unaPosicion) {
 		
 		super(unaPosicion);
@@ -21,6 +21,12 @@ public class Soldado extends UnidadMovible {
     public void atacarADistancia(Unidad otraUnidad) {
     	otraUnidad.recibirDanio(this.danioAtaqueADistancia);
     }
+
+	@Override
+	public void atacar(Unidad unaUnidad, Tablero tablero) {
+		
+		unaUnidad.recibirDanio(this.danioAtaqueCuerpoACuerpo);
+	}
 	
 
 }

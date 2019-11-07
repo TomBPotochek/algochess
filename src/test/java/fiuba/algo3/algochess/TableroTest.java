@@ -29,13 +29,10 @@ public class TableroTest {
 		
 		boolean lanzoExcepcion = false;
 		
-		try {
-			casilla.colocar(unidadMock);
-		}
-		catch (CasillaInvalidaException ex) { //seria invalida si no es del mismo equipo
-			lanzoExcepcion = true;
-		}
-		
+		/*
+		 * try { casilla.colocar(unidadMock); } catch (CasillaInvalidaException ex) {
+		 * //seria invalida si no es del mismo equipo lanzoExcepcion = true; }
+		 */		
 		assertFalse(lanzoExcepcion);
 	}
 
@@ -53,13 +50,10 @@ public class TableroTest {
 		
 		boolean lanzoExcepcion = false;
 		
-		try {
-			casilla.colocar(unidadMock);
-		}
-		catch (CasillaInvalidaException ex) { //seria invalida si no es del mismo equipo
-			lanzoExcepcion = true;
-		}
-		
+		/*
+		 * try { casilla.colocar(unidadMock); } catch (CasillaInvalidaException ex) {
+		 * //seria invalida si no es del mismo equipo lanzoExcepcion = true; }
+		 */		
 		assertTrue(lanzoExcepcion);
 	}
 	
@@ -76,13 +70,10 @@ public class TableroTest {
 		
 		boolean lanzoExcepcion = false;
 		
-		try {
-			tablero.colocarUnidad(otraUnidad);
-		}
-		catch (CasillaOcupadaException ex) { 
-			lanzoExcepcion = true;
-		}
-		
+		/*
+		 * try { tablero.colocarUnidad(otraUnidad); } catch (CasillaOcupadaException ex)
+		 * { lanzoExcepcion = true; }
+		 */		
 		assertTrue(lanzoExcepcion);
 		
 	}
