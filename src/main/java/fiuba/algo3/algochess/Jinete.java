@@ -22,7 +22,23 @@ public class Jinete extends UnidadMovible implements Atacante {
 
 	@Override
 	public void atacar(Unidad unaUnidad, Tablero tablero) {
-		
+		// este metodo podria ir en otro lado porque es igual para todos los atacantes
+    	Distancia distancia = this.obtenerPosicion().calcularDistancia(unaUnidad.obtenerPosicion());
+		distancia.atacar(this, unaUnidad);
+	}
+
+	@Override
+	public void atacarADistanciaCorta(Unidad unaUnidad) {
+    	// chequear condiciones
 		unaUnidad.recibirDanio(danioAtaqueCuerpoACuerpo);
+	}
+	@Override
+	public void atacarADistanciaMedia(Unidad unaUnidad) {
+    	// chequear condiciones
+		unaUnidad.recibirDanio(danioAtaqueADistancia);
+	}
+	@Override
+	public void atacarADistanciaLarga(Unidad unaUnidad) {
+		throw new AtaqueInvalidoException();
 	}
 }

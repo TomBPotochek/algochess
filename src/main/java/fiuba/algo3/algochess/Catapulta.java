@@ -21,8 +21,22 @@ public class Catapulta extends Unidad implements Atacante {
 
 	@Override
 	public void atacar(Unidad unaUnidad, Tablero tablero) {
-	
+		// este metodo podria ir en otro lado porque es igual para todos los atacantes
+		Distancia distancia = this.obtenerPosicion().calcularDistancia(unaUnidad.obtenerPosicion());
+		distancia.atacar(this, unaUnidad);
+	}
+
+	@Override
+	public void atacarADistanciaCorta(Unidad unaUnidad) {
+		// tirar excepcion
+	}
+	@Override
+	public void atacarADistanciaMedia(Unidad unaUnidad) {
+		// tirar excepciones
+	}
+	@Override
+	public void atacarADistanciaLarga(Unidad unaUnidad) {
+    	// hay atacar recursivamente a las unidades contiguas
 		unaUnidad.recibirDanio(danioAtaqueADistancia);
-		
 	}
 }

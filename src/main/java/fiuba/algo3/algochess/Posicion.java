@@ -22,6 +22,15 @@ public class Posicion {
     	return (Math.abs(this.posX - otraPosicion.obtenerCoordenadaX()) < 2 ) && 
     			(Math.abs(this.posY - otraPosicion.obtenerCoordenadaY()) < 2 );
     }
+
+    public Distancia calcularDistancia(Posicion otraPosicion) {
+        // hay que ver alguna forma mas elegante de convertir este entero a una Distancia
+        int distancia = Math.abs(this.posX - otraPosicion.obtenerCoordenadaX()) +
+                Math.abs(this.posY - otraPosicion.obtenerCoordenadaY());
+        if(distancia < 3) return new DistanciaCorta();
+        else if(distancia < 5) return new DistanciaMedia();
+        else return new DistanciaLarga();
+    }
     
     @Override
     public boolean equals(Object objeto) {

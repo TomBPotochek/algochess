@@ -24,9 +24,25 @@ public class Soldado extends UnidadMovible implements Atacante{
 
 	@Override
 	public void atacar(Unidad unaUnidad, Tablero tablero) {
-		
-		unaUnidad.recibirDanio(this.danioAtaqueCuerpoACuerpo);
+		// este metodo podria ir en otro lado porque es igual para todos los atacantes
+		Distancia distancia = this.obtenerPosicion().calcularDistancia(unaUnidad.obtenerPosicion());
+		distancia.atacar(this, unaUnidad);
 	}
-	
+
+	@Override
+	public void atacarADistanciaCorta(Unidad unaUnidad) {
+		// chequear condiciones
+		unaUnidad.recibirDanio(danioAtaqueCuerpoACuerpo);
+	}
+	@Override
+	public void atacarADistanciaMedia(Unidad unaUnidad) {
+		// tirar excepcion
+	}
+	@Override
+	public void atacarADistanciaLarga(Unidad unaUnidad) {
+		// tirar excepcion
+	}
+
+
 
 }
