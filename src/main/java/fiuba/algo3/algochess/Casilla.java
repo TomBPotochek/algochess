@@ -26,5 +26,9 @@ public class Casilla {
     	return unidad;
     	
     }
+
+    public EstadoCasilla getEstado(){
+    	return this.estado;
+	}
     
 }

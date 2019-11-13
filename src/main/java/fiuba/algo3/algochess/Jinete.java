@@ -13,14 +13,6 @@ public class Jinete extends UnidadMovible implements Atacante {
 	    this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_JINETE;
 	    this.danioAtaqueADistancia = DANIO_DISTANCIA_JINETE;
     }
-    
-//    public void atacarCuerpoACuerpo(Unidad otraUnidad) {
-//    	otraUnidad.recibirDanio(this.danioAtaqueCuerpoACuerpo);
-//    }
-//
-//    public void atacarADistancia(Unidad otraUnidad) {
-//    	otraUnidad.recibirDanio(this.danioAtaqueADistancia);
-//    }
 
 	@Override
 	public void atacar(Unidad unaUnidad, Tablero tablero) {

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Test;
 
-//import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.*;
 
 public class TableroTest {
 	
@@ -45,20 +45,17 @@ public class TableroTest {
 	@Test
 	public void testSeColocaUnidadAliadaEnSectorEnemigoFalla() {
 		Tablero tablero = new Tablero(6, "jugador1", "jugador2");
-		/*
+
 		Unidad unidadMock = mock(Soldado.class);
-		when(unidadMock.esAliada(String equipo)).thenReturn(false);
-		*/
-		
+		when(unidadMock.esAliada("jugador2")).thenReturn(false);
+
 		Posicion posicion = new Posicion(1,4); //4 = 6/2 + 1 entonces es del equipo jugador2
-		
-		Unidad unidad = new Soldado(posicion, "jugador1");
-		
+
 		Casilla casilla = tablero.obtenerCasilla(posicion);
 		
 		boolean lanzoExcepcion = false;
 		
-		try { casilla.colocar(unidad); } 
+		try { casilla.colocar(unidadMock); }
 		catch (CasillaEnemigaException ex) {lanzoExcepcion = true; }
 		 	
 		assertTrue(lanzoExcepcion);

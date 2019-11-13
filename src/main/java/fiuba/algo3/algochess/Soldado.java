@@ -15,14 +15,6 @@ public class Soldado extends UnidadMovible implements Atacante{
 		this.danioAtaqueADistancia = DANIO_DISTANCIA_SOLDADO;
 
 	}
-	
-    public void atacarCuerpoACuerpo(Unidad otraUnidad) {
-    	otraUnidad.recibirDanio(this.danioAtaqueCuerpoACuerpo);
-    }
-    
-    public void atacarADistancia(Unidad otraUnidad) {
-    	otraUnidad.recibirDanio(this.danioAtaqueADistancia);
-    }
 
 	@Override
 	public void atacar(Unidad unaUnidad, Tablero tablero) {

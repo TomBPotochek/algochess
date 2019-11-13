@@ -14,12 +14,6 @@ public class Catapulta extends Unidad implements Atacante {
 		this.danioAtaqueADistancia = DANIO_DISTANCIA_CATAPULTA;
 		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_CATAPULTA;
    }
-    
-    
-    public void atacarADistancia(Unidad otraUnidad) {
-    	otraUnidad.recibirDanio(this.danioAtaqueADistancia);
-    }
-
 
 	@Override
 	public void atacar(Unidad unaUnidad, Tablero tablero) {
