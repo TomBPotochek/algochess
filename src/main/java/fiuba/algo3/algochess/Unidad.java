@@ -9,9 +9,9 @@ public abstract class Unidad {
     protected Posicion posicion;
     protected int danioAtaqueCuerpoACuerpo;
     protected int danioAtaqueADistancia;
-    protected String equipo;
+    protected Equipo equipo;
 
-    public Unidad(Posicion posicionInicial, String equipo) {
+    public Unidad(Posicion posicionInicial, Equipo equipo) {
 
     	this.posicion = posicionInicial;
     	this.equipo = equipo;
@@ -36,7 +36,7 @@ public abstract class Unidad {
     	return vidaRestante;
     }
 
-    public boolean esAliada(String otroEquipo) {
+    public boolean esAliada(Equipo otroEquipo) {
     	return (this.equipo == otroEquipo);
 	}
 

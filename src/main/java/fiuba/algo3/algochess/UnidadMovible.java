@@ -2,7 +2,7 @@ package fiuba.algo3.algochess;
 
 public abstract class UnidadMovible extends Unidad {
 
-	UnidadMovible(Posicion posicionInicial, String equipo) {
+	UnidadMovible(Posicion posicionInicial, Equipo equipo) {
 		
 		super(posicionInicial, equipo);
 	}

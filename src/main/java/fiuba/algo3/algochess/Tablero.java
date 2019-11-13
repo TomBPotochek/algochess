@@ -7,7 +7,7 @@ public class Tablero {
 	private HashMap<Posicion, Casilla> tablero = new HashMap<Posicion, Casilla>();
 	
 	//tamanio debe ser par para poder dividir el tablero en 2
-	public Tablero(int tamanio, String equipo1, String equipo2) {
+	public Tablero(int tamanio, Equipo equipo1, Equipo equipo2) {
 		for(int i = 1; i < tamanio +1; i++) {
 			
 			//esta separado en 2 for() porque despues deberian ser distintos las casillas de cada equipo

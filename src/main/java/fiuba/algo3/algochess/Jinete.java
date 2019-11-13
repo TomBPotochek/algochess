@@ -3,7 +3,7 @@ package fiuba.algo3.algochess;
 import static fiuba.algo3.algochess.ProveedorConstantes.*;
 
 public class Jinete extends UnidadMovible implements Atacante {
-    public Jinete(Posicion unaPosicion, String equipo) {
+    public Jinete(Posicion unaPosicion, Equipo equipo) {
     	
     	super(unaPosicion, equipo);
     	

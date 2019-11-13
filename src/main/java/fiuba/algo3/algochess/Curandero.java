@@ -5,7 +5,7 @@ import static fiuba.algo3.algochess.ProveedorConstantes.*;
 public class Curandero extends UnidadMovible {
     private int curacion;
 
-    public Curandero(Posicion unaPosicion, String equipo) {
+    public Curandero(Posicion unaPosicion, Equipo equipo) {
     	super(unaPosicion, equipo);
 
     	this.curacion = CURACION_CURANDERO;

@@ -16,9 +16,11 @@ public class CatapultaTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
 		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaCorta());
-		Catapulta unCatapultaAliado = new Catapulta(unaPosicionMock, "jugador1");
-		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicionMock, "jugador2");
+		Catapulta unCatapultaAliado = new Catapulta(unaPosicionMock, unEquipoMock);
+		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicionMock, otroEquipoMock);
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 
@@ -32,9 +34,11 @@ public class CatapultaTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
 		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaMedia());
-		Catapulta unCatapultaAliado = new Catapulta(unaPosicionMock, "jugador1");
-		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicionMock, "jugador2");
+		Catapulta unCatapultaAliado = new Catapulta(unaPosicionMock, unEquipoMock);
+		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicionMock, otroEquipoMock);
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 
@@ -49,9 +53,11 @@ public class CatapultaTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
 		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaLarga());
-		Catapulta unCatapultaAliado = new Catapulta(unaPosicionMock, "jugador1");
-		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicionMock, "jugador2");
+		Catapulta unCatapultaAliado = new Catapulta(unaPosicionMock, unEquipoMock);
+		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicionMock, otroEquipoMock);
 
 		unCatapultaAliado.atacar(unCatapultaEnemigo, tableroMock);
 

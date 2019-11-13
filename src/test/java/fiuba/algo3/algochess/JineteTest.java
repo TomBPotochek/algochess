@@ -16,9 +16,11 @@ public class JineteTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
 		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaCorta());
-		Jinete unJineteAliado = new Jinete(unaPosicionMock, "jugador1");
-		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, "jugador2");
+		Jinete unJineteAliado = new Jinete(unaPosicionMock, unEquipoMock);
+		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, otroEquipoMock);
 		
 		unJineteAliado.atacar(unJineteEnemigo, tableroMock);
 		
@@ -31,9 +33,11 @@ public class JineteTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
 		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaMedia());
-		Jinete unJineteAliado = new Jinete(unaPosicionMock, "jugador1");
-		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, "jugador2");
+		Jinete unJineteAliado = new Jinete(unaPosicionMock, unEquipoMock);
+		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, otroEquipoMock);
 
 		unJineteAliado.atacar(unJineteEnemigo, tableroMock);
 
@@ -46,9 +50,11 @@ public class JineteTest {
 		Posicion unaPosicionMock = mock(Posicion.class);
 		Posicion otraPosicionMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
 		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaLarga());
-		Jinete unJineteAliado = new Jinete(unaPosicionMock, "jugador1");
-		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, "jugador2");
+		Jinete unJineteAliado = new Jinete(unaPosicionMock, unEquipoMock);
+		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, otroEquipoMock);
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 

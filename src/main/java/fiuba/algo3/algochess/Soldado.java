@@ -4,7 +4,7 @@ import static fiuba.algo3.algochess.ProveedorConstantes.*;
 
 public class Soldado extends UnidadMovible implements Atacante{
 
-	public Soldado(Posicion unaPosicion, String equipo) {
+	public Soldado(Posicion unaPosicion, Equipo equipo) {
 		
 		super(unaPosicion, equipo);
 		

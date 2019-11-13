@@ -16,10 +16,11 @@ public class UnidadMovibleTest {
 		Posicion posInicialMock = mock(Posicion.class);
         Posicion posFinalMock = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
+		Equipo unEquipoMock = mock(Equipo.class);
 
 		when(posInicialMock.esAdyacente(posFinalMock)).thenReturn(true);
 
-        Curandero unidad = new Curandero(posInicialMock, "jugador1");
+        Curandero unidad = new Curandero(posInicialMock, unEquipoMock);
 
         unidad.mover(posFinalMock, tableroMock);
         assertTrue(posFinalMock.equals(unidad.obtenerPosicion()));
@@ -31,7 +32,8 @@ public class UnidadMovibleTest {
     	Posicion posInicialMock = mock(Posicion.class);
         Posicion posFinalMock = mock(Posicion.class);    
     	Tablero tableroMock = mock(Tablero.class);
-    	UnidadMovible jinete = new Jinete(posInicialMock, "jugador1");
+		Equipo unEquipoMock = mock(Equipo.class);
+    	UnidadMovible jinete = new Jinete(posInicialMock, unEquipoMock);
     	
     	when(posInicialMock.esAdyacente(posFinalMock)).thenReturn(true);
     	doThrow(CasillaOcupadaException.class).when(tableroMock).moverUnidad(posInicialMock, posFinalMock);
@@ -48,7 +50,8 @@ public class UnidadMovibleTest {
     	Posicion posInicialMock = mock(Posicion.class);
         Posicion posFinalMock = mock(Posicion.class);    
     	Tablero tableroMock = mock(Tablero.class);
-    	UnidadMovible soldado = new Soldado(posInicialMock, "jugador1");
+		Equipo unEquipoMock = mock(Equipo.class);
+    	UnidadMovible soldado = new Soldado(posInicialMock, unEquipoMock);
     	
     	when(posInicialMock.esAdyacente(posFinalMock)).thenReturn(false);
    
@@ -62,12 +65,14 @@ public class UnidadMovibleTest {
     // Test de integracion
     @Test
     public void test04UnidadMoviblePuedeMoverseEnTodasLasDirecciones() {
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
 
     	Posicion posInicial = new Posicion(2,3);
-    	UnidadMovible soldado = new Soldado(posInicial, "jugador1");
+    	UnidadMovible soldado = new Soldado(posInicial, unEquipoMock);
 
         Posicion posFinal = new Posicion(3,3);
-    	Tablero tablero = new Tablero(20, "jugador1", "jugador2");
+    	Tablero tablero = new Tablero(20, unEquipoMock, otroEquipoMock);
     	
     	tablero.colocarUnidad(soldado, posInicial);
   

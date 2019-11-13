@@ -13,7 +13,8 @@ public class CasillaTest {
 	@Test
 	public void test00CasillaEsCreadoSinNingunaUnidad(){
 
-		Casilla casilla = new Casilla("Un equipo");
+		Equipo unEquipoMock = mock(Equipo.class);
+		Casilla casilla = new Casilla(unEquipoMock);
 
 		assertEquals(casilla.getEstado().getClass(), EstadoCasillaLibre.class);
 
@@ -22,8 +23,9 @@ public class CasillaTest {
 	@Test
 	public void test01CasillaEsOcupadaCuandoSeColocaUnaUnidad(){
 		Unidad unaUnidadMock = mock(Unidad.class);
-		when(unaUnidadMock.esAliada("unEquipo")).thenReturn(Boolean.TRUE);
-		Casilla casilla = new Casilla("unEquipo");
+		Equipo unEquipoMock = mock(Equipo.class);
+		when(unaUnidadMock.esAliada(unEquipoMock)).thenReturn(Boolean.TRUE);
+		Casilla casilla = new Casilla(unEquipoMock);
 
 		casilla.colocar(unaUnidadMock);
 
@@ -36,9 +38,10 @@ public class CasillaTest {
 
 		Unidad unaUnidadMock = mock(Unidad.class);
 		Unidad otraUnidadMock = mock(Unidad.class);
-		when(unaUnidadMock.esAliada("unEquipo")).thenReturn(Boolean.TRUE);
-		when(otraUnidadMock.esAliada("unEquipo")).thenReturn(Boolean.TRUE);
-		Casilla casilla = new Casilla("unEquipo");
+		Equipo unEquipoMock = mock(Equipo.class);
+		when(unaUnidadMock.esAliada(unEquipoMock)).thenReturn(Boolean.TRUE);
+		when(otraUnidadMock.esAliada(unEquipoMock)).thenReturn(Boolean.TRUE);
+		Casilla casilla = new Casilla(unEquipoMock);
 		casilla.colocar(unaUnidadMock);
 
 
@@ -52,8 +55,9 @@ public class CasillaTest {
 	public void test03CasillaTiraErrorCuandoSeIntentaColocarEnUnaCasillaEnemiga(){
 
 		Unidad unaUnidadMock = mock(Unidad.class);
-		when(unaUnidadMock.esAliada("unEquipo")).thenReturn(Boolean.FALSE);
-		Casilla casilla = new Casilla("unEquipo");
+		Equipo unEquipoMock = mock(Equipo.class);
+		when(unaUnidadMock.esAliada(unEquipoMock)).thenReturn(Boolean.FALSE);
+		Casilla casilla = new Casilla(unEquipoMock);
 
 		assertThrows(CasillaEnemigaException.class, () -> {
 

@@ -16,4 +16,5 @@ class ProveedorConstantes {
     static int VIDA_CATAPULTA = 50;
     static int COSTO_CATAPULTA = 5;
     static int DANIO_DISTANCIA_CATAPULTA = 20;
+    static int PUNTOS_INICIALES = 20;
 }

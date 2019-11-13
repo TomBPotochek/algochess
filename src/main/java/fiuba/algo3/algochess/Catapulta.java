@@ -3,7 +3,7 @@ package fiuba.algo3.algochess;
 import static fiuba.algo3.algochess.ProveedorConstantes.*;
 
 public class Catapulta extends Unidad implements Atacante {
-    public Catapulta(Posicion unaPosicion, String equipo) {
+    public Catapulta(Posicion unaPosicion, Equipo equipo) {
 
     	super(unaPosicion, equipo);
   
