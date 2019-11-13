@@ -1,16 +1,18 @@
 package fiuba.algo3.algochess;
 
+import static fiuba.algo3.algochess.ProveedorConstantes.*;
+
 public class Catapulta extends Unidad implements Atacante {
     public Catapulta(Posicion unaPosicion, String equipo) {
 
     	super(unaPosicion, equipo);
   
-    	this.vidaInicial = 50;
+    	this.vidaInicial = VIDA_CATAPULTA;
         this.vidaRestante = vidaInicial;
-        this.costo = 5;
+        this.costo = COSTO_CATAPULTA;
 		this.posicion = unaPosicion;
-		this.danioAtaqueADistancia = 20;
-		this.danioAtaqueCuerpoACuerpo = 0;
+		this.danioAtaqueADistancia = DANIO_DISTANCIA_CATAPULTA;
+		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_CATAPULTA;
    }
     
     

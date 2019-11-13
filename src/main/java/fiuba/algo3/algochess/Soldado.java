@@ -1,16 +1,18 @@
 package fiuba.algo3.algochess;
 
+import static fiuba.algo3.algochess.ProveedorConstantes.*;
+
 public class Soldado extends UnidadMovible implements Atacante{
 
 	public Soldado(Posicion unaPosicion, String equipo) {
 		
 		super(unaPosicion, equipo);
 		
-		this.vidaInicial = 100;
-		this.vidaRestante = 100;
-		this.costo = 1;
-		this.danioAtaqueCuerpoACuerpo = 10;
-		this.danioAtaqueADistancia = 0;
+		this.vidaInicial = VIDA_SOLDADO;
+		this.vidaRestante = vidaInicial;
+		this.costo = COSTO_SOLDADO;
+		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_SOLDADO;
+		this.danioAtaqueADistancia = DANIO_DISTANCIA_SOLDADO;
 
 	}
 	
