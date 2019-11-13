@@ -42,8 +42,9 @@ public class TableroTest {
 		
 		try { tablero.colocarUnidad(unidad, posicion); }
 		catch (CasillaEnemigaException ex) {lanzoExcepcion = true; }
-		 		
+
 		assertFalse(lanzoExcepcion);
+		assertTrue(tablero.obtenerCasilla(posicion).getEstado().obtenerUnidad().equals(unidad));
 	}
 
 	@Test

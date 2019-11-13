@@ -1,6 +1,6 @@
 package fiuba.algo3.algochess;
 
-import sun.awt.Mutex;
+//import sun.awt.Mutex;
 
 import java.util.HashSet;
 import java.util.Iterator;

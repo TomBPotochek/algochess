@@ -4,7 +4,7 @@ public class EstadoCasillaLibre extends EstadoCasilla {
 
 	@Override
 	public EstadoCasillaOcupada colocarUnidad(Unidad unaUnidad) {
-		return new EstadoCasillaOcupada(unidad);
+		return new EstadoCasillaOcupada(unaUnidad);
 		
 	}
 
