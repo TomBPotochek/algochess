@@ -65,19 +65,19 @@ public class UnidadMovibleTest {
     // Test de integracion
     @Test
     public void test04UnidadMoviblePuedeMoverseEnTodasLasDirecciones() {
-		Equipo unEquipoMock = mock(Equipo.class);
-		Equipo otroEquipoMock = mock(Equipo.class);
+		Equipo Equipo1 = new Equipo("Equipo 1");
+		Equipo Equipo2 = new Equipo("Equipo 2");
 
-    	Posicion posInicial = new Posicion(2,3);
-    	UnidadMovible soldado = new Soldado(posInicial, unEquipoMock);
+		Posicion posInicial = new Posicion(2,3);
+	   	UnidadMovible soldado = new Soldado(posInicial, Equipo1);
 
         Posicion posFinal = new Posicion(3,3);
-    	Tablero tablero = new Tablero(20, unEquipoMock, otroEquipoMock);
-    	
+    	Tablero tablero = new Tablero(20, Equipo1, Equipo2);
+
     	tablero.colocarUnidad(soldado, posInicial);
-  
+
     	soldado.mover(posFinal, tablero);
-    	
+
     	assertTrue(tablero.obtenerCasilla(posFinal).quitar().equals(soldado));
     }
 }
