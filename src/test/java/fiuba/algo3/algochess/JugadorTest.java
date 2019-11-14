@@ -4,14 +4,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 public class JugadorTest {
     @Test
     public void test01JugadorPuedeComprarUnidadesHastaQuedarseSinPuntos() {
-        Jugador jugador = new Jugador("jugador1");
+        Equipo unEquipoMock = mock(Equipo.class);
         Tablero tablero = mock(Tablero.class);
         Posicion posicion = mock(Posicion.class);
+        Jugador jugador = new Jugador(unEquipoMock);
 
         jugador.comprarCatapulta(tablero, posicion); // 5pts
         jugador.comprarCatapulta(tablero, posicion); // 10pts
@@ -22,9 +23,11 @@ public class JugadorTest {
         jugador.comprarJinete(tablero, posicion); // 20pts
 
         assertThrows(PuntosInsuficientesException.class, () -> {
-
             jugador.comprarCatapulta(tablero, posicion);
         });
 
     }
+
+
+
 }

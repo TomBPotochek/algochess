@@ -5,13 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Test;
 
-//import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.*;
 
 public class TableroTest {
 	
 	@Test
 	public void testInicializacionCorrectaDeTablero() {
-		Tablero tablero = new Tablero(8, "jugador1", "jugador2");
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
+		Tablero tablero = new Tablero(8, unEquipoMock, otroEquipoMock);
 		
 		
 		for (int i = 1; i < 9; i++) {
@@ -28,11 +30,13 @@ public class TableroTest {
 	
 	@Test
 	public void testSeColocaUnidadAliadaEnSectorAliadoConExito() {
-		Tablero tablero = new Tablero(6, "jugador1", "jugador2");
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
+		Tablero tablero = new Tablero(6, unEquipoMock, otroEquipoMock);
 		
 		Posicion posicion = new Posicion(1,1);
 		
-		Unidad unidad = new Soldado(posicion, "jugador1");
+		Unidad unidad = new Soldado(posicion, unEquipoMock);
 		
 		boolean lanzoExcepcion = false;
 		
@@ -44,21 +48,20 @@ public class TableroTest {
 
 	@Test
 	public void testSeColocaUnidadAliadaEnSectorEnemigoFalla() {
-		Tablero tablero = new Tablero(6, "jugador1", "jugador2");
-		/*
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
+		Tablero tablero = new Tablero(6, unEquipoMock, otroEquipoMock);
+
 		Unidad unidadMock = mock(Soldado.class);
-		when(unidadMock.esAliada(String equipo)).thenReturn(false);
-		*/
-		
+		when(unidadMock.esAliada(otroEquipoMock)).thenReturn(false);
+
 		Posicion posicion = new Posicion(1,4); //4 = 6/2 + 1 entonces es del equipo jugador2
-		
-		Unidad unidad = new Soldado(posicion, "jugador1");
-		
+
 		Casilla casilla = tablero.obtenerCasilla(posicion);
 		
 		boolean lanzoExcepcion = false;
 		
-		try { casilla.colocar(unidad); } 
+		try { casilla.colocar(unidadMock); }
 		catch (CasillaEnemigaException ex) {lanzoExcepcion = true; }
 		 	
 		assertTrue(lanzoExcepcion);
@@ -66,12 +69,14 @@ public class TableroTest {
 	
 	@Test
 	public void testColocarUnidadEnCasilleroOcupadoFalla() {
-		Tablero tablero = new Tablero(6, "jugador1", "jugador2");
+		Equipo unEquipoMock = mock(Equipo.class);
+		Equipo otroEquipoMock = mock(Equipo.class);
+		Tablero tablero = new Tablero(6, unEquipoMock, otroEquipoMock);
 		
 		Posicion posicion = new Posicion(1,1);
 		
-		Unidad unaUnidad = new Curandero(posicion, "jugador1");
-		Unidad otraUnidad = new Soldado(posicion, "jugador1");
+		Unidad unaUnidad = new Curandero(posicion, unEquipoMock);
+		Unidad otraUnidad = new Soldado(posicion, unEquipoMock);
 		
 		tablero.colocarUnidad(unaUnidad, posicion);
 		

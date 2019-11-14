@@ -7,14 +7,16 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Iterator;
 
+import static fiuba.algo3.algochess.ProveedorConstantes.PUNTOS_INICIALES;
+
 public class Jugador {
 	
-	private String equipo;
+	private Equipo equipo;
 	private int puntos;
 	private Set<Unidad> unidades;
 
-	public Jugador(String equipo) {
-		puntos = 20;
+	public Jugador(Equipo equipo) {
+		puntos = PUNTOS_INICIALES;
 		unidades = new HashSet<>();
 		this.equipo = equipo;
 	}

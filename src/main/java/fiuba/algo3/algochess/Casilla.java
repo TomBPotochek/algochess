@@ -2,9 +2,9 @@ package fiuba.algo3.algochess;
 
 public class Casilla {
 	private EstadoCasilla estado;
-	private String equipo;
+	private Equipo equipo;
     
-    public Casilla(String equipo) {
+    public Casilla(Equipo equipo) {
     	this.estado = new EstadoCasillaLibre();
     	this.equipo = equipo;
     }
@@ -26,5 +26,9 @@ public class Casilla {
     	return unidad;
     	
     }
+
+    public EstadoCasilla getEstado(){
+    	return this.estado;
+	}
     
 }

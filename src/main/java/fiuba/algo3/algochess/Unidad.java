@@ -1,5 +1,7 @@
 package fiuba.algo3.algochess;
 
+import static java.lang.Math.min;
+
 public abstract class Unidad {
     protected int vidaInicial;
     protected int vidaRestante;
@@ -7,9 +9,9 @@ public abstract class Unidad {
     protected Posicion posicion;
     protected int danioAtaqueCuerpoACuerpo;
     protected int danioAtaqueADistancia;
-    protected String equipo;
+    protected Equipo equipo;
 
-    public Unidad(Posicion posicionInicial, String equipo) {
+    public Unidad(Posicion posicionInicial, Equipo equipo) {
 
     	this.posicion = posicionInicial;
     	this.equipo = equipo;
@@ -33,8 +35,8 @@ public abstract class Unidad {
 
     	return vidaRestante;
     }
-    
-    public boolean esAliada(String otroEquipo) {
+
+    public boolean esAliada(Equipo otroEquipo) {
     	return (this.equipo == otroEquipo);
 	}
 
@@ -42,9 +44,17 @@ public abstract class Unidad {
         return costo;
     }
 
-	public boolean estaMuerto() {
-        return vidaRestante > 0;
+	public void recibirVida(int vida) {
+		
+		if (this.vidaRestante + vida < this.vidaInicial)
+			this.vidaRestante += vida;
+		
+		else
+			this.vidaRestante = this.vidaInicial;
+	}
 
+	public boolean estaMuerto() {
+        return vidaRestante <= 0;
     }
 }
 
