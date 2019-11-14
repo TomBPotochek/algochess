@@ -11,7 +11,6 @@ public class EstadoCasillaLibre extends EstadoCasilla {
 	@Override
 	public EstadoCasillaLibre quitarUnidad() {
 		throw new CasillaLibreException();
-		
 	}
 	
 	@Override

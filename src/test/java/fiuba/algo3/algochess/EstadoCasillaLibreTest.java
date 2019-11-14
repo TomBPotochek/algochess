@@ -7,8 +7,11 @@ import org.junit.jupiter.api.Test;
 class EstadoCasillaLibreTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+	void test01quitarUnidadEnCasillaLibreNoLanzaExcepcion() {
+		EstadoCasillaLibre estado = new EstadoCasillaLibre();
+		assertThrows(CasillaLibreException.class, () -> {
 
+			estado.quitarUnidad();
+		});
+	}
 }
