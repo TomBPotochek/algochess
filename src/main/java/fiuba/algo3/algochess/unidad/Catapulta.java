@@ -1,6 +1,12 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.unidad;
 
-import static fiuba.algo3.algochess.ProveedorConstantes.*;
+import fiuba.algo3.algochess.distancia.Distancia;
+import fiuba.algo3.algochess.excepciones.AtaqueInvalidoException;
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.tablero.Tablero;
+
+import static fiuba.algo3.algochess.juego.ProveedorConstantes.*;
 
 public class Catapulta extends Unidad implements Atacante {
     public Catapulta(Posicion unaPosicion, Equipo equipo) {

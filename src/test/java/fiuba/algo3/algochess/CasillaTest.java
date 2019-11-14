@@ -1,5 +1,12 @@
 package fiuba.algo3.algochess;
 
+import fiuba.algo3.algochess.excepciones.CasillaEnemigaException;
+import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.tablero.Casilla;
+import fiuba.algo3.algochess.tablero.EstadoCasillaLibre;
+import fiuba.algo3.algochess.tablero.EstadoCasillaOcupada;
+import fiuba.algo3.algochess.unidad.Unidad;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -29,7 +36,7 @@ public class CasillaTest {
 
 		casilla.colocar(unaUnidadMock);
 
-		assertEquals(casilla.getEstado().getClass(),EstadoCasillaOcupada.class);
+		assertEquals(casilla.getEstado().getClass(), EstadoCasillaOcupada.class);
 
 	}
 

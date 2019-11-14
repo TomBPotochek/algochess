@@ -1,4 +1,4 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.juego;
 
 public class Equipo {
     private String nombre;

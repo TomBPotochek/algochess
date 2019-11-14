@@ -1,10 +1,17 @@
 package fiuba.algo3.algochess;
 
-import static org.junit.Assert.*;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.unidad.Curandero;
+import fiuba.algo3.algochess.unidad.Jinete;
+import fiuba.algo3.algochess.unidad.Soldado;
+import fiuba.algo3.algochess.unidad.UnidadMovible;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;

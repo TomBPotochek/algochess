@@ -1,13 +1,16 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.juego;
 
 //import sun.awt.Mutex; //de donde sali� esto?
+
+import fiuba.algo3.algochess.excepciones.PuntosInsuficientesException;
+import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.unidad.*;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.Iterator;
 
-import static fiuba.algo3.algochess.ProveedorConstantes.PUNTOS_INICIALES;
+import static fiuba.algo3.algochess.juego.ProveedorConstantes.PUNTOS_INICIALES;
 
 public class Jugador {
 	

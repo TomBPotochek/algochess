@@ -1,4 +1,7 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.tablero;
+
+import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.unidad.Unidad;
 
 public class EstadoCasillaOcupada extends EstadoCasilla {
 	

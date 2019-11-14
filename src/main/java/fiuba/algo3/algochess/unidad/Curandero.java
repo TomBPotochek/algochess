@@ -1,6 +1,9 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.unidad;
 
-import static fiuba.algo3.algochess.ProveedorConstantes.*;
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Posicion;
+
+import static fiuba.algo3.algochess.juego.ProveedorConstantes.*;
 
 public class Curandero extends UnidadMovible {
     private int curacion;

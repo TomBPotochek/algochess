@@ -1,4 +1,10 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.unidad;
+
+import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.tablero.Tablero;
 
 public abstract class UnidadMovible extends Unidad {
 

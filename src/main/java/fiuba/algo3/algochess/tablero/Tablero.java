@@ -1,4 +1,9 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.tablero;
+
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.unidad.Unidad;
 
 import java.util.HashMap;
 

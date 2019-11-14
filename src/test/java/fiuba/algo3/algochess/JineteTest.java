@@ -6,6 +6,14 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
+import fiuba.algo3.algochess.distancia.DistanciaCorta;
+import fiuba.algo3.algochess.distancia.DistanciaLarga;
+import fiuba.algo3.algochess.distancia.DistanciaMedia;
+import fiuba.algo3.algochess.excepciones.AtaqueInvalidoException;
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.unidad.Jinete;
 import org.junit.Test;
 
 public class JineteTest {

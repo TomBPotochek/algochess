@@ -1,4 +1,9 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.juego;
+
+import fiuba.algo3.algochess.distancia.Distancia;
+import fiuba.algo3.algochess.distancia.DistanciaCorta;
+import fiuba.algo3.algochess.distancia.DistanciaLarga;
+import fiuba.algo3.algochess.distancia.DistanciaMedia;
 
 import java.util.Objects;
 

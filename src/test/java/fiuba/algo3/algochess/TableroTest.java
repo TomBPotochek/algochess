@@ -3,6 +3,16 @@ package fiuba.algo3.algochess;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import fiuba.algo3.algochess.excepciones.CasillaEnemigaException;
+import fiuba.algo3.algochess.excepciones.CasillaLibreException;
+import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.tablero.Casilla;
+import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.unidad.Curandero;
+import fiuba.algo3.algochess.unidad.Soldado;
+import fiuba.algo3.algochess.unidad.Unidad;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;

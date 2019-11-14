@@ -3,6 +3,10 @@ package fiuba.algo3.algochess;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
+import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.unidad.Curandero;
+import fiuba.algo3.algochess.unidad.Jinete;
 import org.junit.Test;
 
 public class CuranderoTest {
