@@ -10,11 +10,6 @@ public abstract class UnidadAtacante extends Unidad implements Atacante {
         super(posicionInicial, equipo);
     }
 
-    public void atacar(Unidad unaUnidad, Tablero tablero) {
-        Distancia distancia = this.obtenerPosicion().calcularDistancia(unaUnidad.obtenerPosicion());
-        distancia.atacar(this, unaUnidad);
-    }
-
     public abstract void atacarADistanciaCorta(Unidad unaUnidad);
     public abstract void atacarADistanciaMedia(Unidad unaUnidad);
     public abstract void atacarADistanciaLarga(Unidad unaUnidad);
