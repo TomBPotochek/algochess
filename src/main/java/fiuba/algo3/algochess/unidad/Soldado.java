@@ -8,7 +8,7 @@ import fiuba.algo3.algochess.tablero.Tablero;
 
 import static fiuba.algo3.algochess.juego.ProveedorConstantes.*;
 
-public class Soldado extends UnidadMovible implements Atacante{
+public class Soldado extends AtacanteMovible {
 
 	public Soldado(Posicion unaPosicion, Equipo equipo) {
 		
@@ -20,13 +20,6 @@ public class Soldado extends UnidadMovible implements Atacante{
 		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_SOLDADO;
 		this.danioAtaqueADistancia = DANIO_DISTANCIA_SOLDADO;
 
-	}
-
-	@Override
-	public void atacar(Unidad unaUnidad, Tablero tablero) {
-		// este metodo podria ir en otro lado porque es igual para todos los atacantes
-		Distancia distancia = this.obtenerPosicion().calcularDistancia(unaUnidad.obtenerPosicion());
-		distancia.atacar(this, unaUnidad);
 	}
 
 	@Override
