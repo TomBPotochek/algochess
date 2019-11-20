@@ -4,6 +4,8 @@ import fiuba.algo3.algochess.distancia.Distancia;
 import fiuba.algo3.algochess.distancia.DistanciaCorta;
 import fiuba.algo3.algochess.distancia.DistanciaLarga;
 import fiuba.algo3.algochess.distancia.DistanciaMedia;
+import fiuba.algo3.algochess.excepciones.PosicionInvalidaException;
+import static fiuba.algo3.algochess.juego.ProveedorConstantes.TAMANIO_TABLERO;
 
 import java.util.Objects;
 
@@ -12,8 +14,11 @@ public class Posicion {
     private int posY;
 
     public Posicion(int coordenadaX, int coordenadaY) {
-        posX = coordenadaX;
-        posY = coordenadaY;
+    	if ((1 <= coordenadaX && coordenadaX <= TAMANIO_TABLERO) && (1 <= coordenadaY && coordenadaY <= TAMANIO_TABLERO)) {
+    		posX = coordenadaX;
+    		posY = coordenadaY;
+    	}
+    	else throw new PosicionInvalidaException("posicion fuera de rango");
     }
     public int obtenerCoordenadaX() {
         return posX;
@@ -30,8 +35,9 @@ public class Posicion {
 
     public Distancia calcularDistancia(Posicion otraPosicion) {
         // hay que ver alguna forma mas elegante de convertir este entero a una Distancia
-        int distancia = Math.abs(this.posX - otraPosicion.obtenerCoordenadaX()) +
-                Math.abs(this.posY - otraPosicion.obtenerCoordenadaY());
+        int ladoA =  Math.abs(this.posX - otraPosicion.obtenerCoordenadaX());
+        int ladoB = Math.abs(this.posY - otraPosicion.obtenerCoordenadaY());
+        int distancia = Math.max(ladoA, ladoB);
         if(distancia < 3) return new DistanciaCorta();
         else if(distancia < 6) return new DistanciaMedia();
         else return new DistanciaLarga();

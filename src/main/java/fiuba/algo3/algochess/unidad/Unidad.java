@@ -50,10 +50,9 @@ public abstract class Unidad {
 
 	public void recibirVida(int vida) {
 		
-		if (this.vidaRestante + vida < this.vidaInicial)
-			this.vidaRestante += vida;
+		this.vidaRestante += vida;
 		
-		else
+		if (this.vidaRestante > this.vidaInicial)
 			this.vidaRestante = this.vidaInicial;
 	}
 

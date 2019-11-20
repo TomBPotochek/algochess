@@ -17,4 +17,5 @@ public class ProveedorConstantes {
     public static int COSTO_CATAPULTA = 5;
     public static int DANIO_DISTANCIA_CATAPULTA = 20;
     public static int PUNTOS_INICIALES = 20;
+    public static int TAMANIO_TABLERO = 20;
 }

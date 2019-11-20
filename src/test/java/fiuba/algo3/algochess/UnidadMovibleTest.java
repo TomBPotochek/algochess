@@ -7,6 +7,7 @@ import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
 import fiuba.algo3.algochess.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algochess.juego.Equipo;
 import fiuba.algo3.algochess.juego.Posicion;
+import static fiuba.algo3.algochess.juego.ProveedorConstantes.TAMANIO_TABLERO;
 import fiuba.algo3.algochess.tablero.Tablero;
 import fiuba.algo3.algochess.unidad.Curandero;
 import fiuba.algo3.algochess.unidad.Jinete;
@@ -18,39 +19,49 @@ import static org.mockito.Mockito.*;
 
 public class UnidadMovibleTest {
     
-	@Test
-    public void test01UnidadMoviblePuedeMoverseAUnCasilleroAdyecenteNoOcupado() {
-		Posicion posInicialMock = mock(Posicion.class);
-        Posicion posFinalMock = mock(Posicion.class);
+	@Test //no se si tiene sentido hacer esta Unitaria
+    public void test01UnidadMoviblePuedeMoverseAUnCasilleroLibre() {
+		Direccion direccion = Direccion.N;
+        Posicion posicion = mock(Posicion.class);
+        
+        when(posicion.obtenerCoordenadaX()).thenReturn(2);
+        when(posicion.obtenerCoordenadaY()).thenReturn(1);
+        
+       // Posicion posAdyacente = mock(Posicion.class);
 		Tablero tableroMock = mock(Tablero.class);
 		Equipo unEquipoMock = mock(Equipo.class);
 
-		when(posInicialMock.esAdyacente(posFinalMock)).thenReturn(true);
+		
+		
 
-        Curandero unidad = new Curandero(posInicialMock, unEquipoMock);
+        Curandero unidad = new Curandero(posicion, unEquipoMock);
 
-        unidad.mover(posFinalMock, tableroMock);
-        assertTrue(posFinalMock.equals(unidad.obtenerPosicion()));
+        unidad.mover(direccion, tableroMock);
+        //assertTrue(posAdyacente.equals(unidad.obtenerPosicion()));
+        assertTrue(unidad.obtenerPosicion().equals(new Posicion(2,2))); 
     }
     
     @Test
     public void test02UnidadMovibleNoPuedeMoverseAUnCasilleroOcupado() {
     	
-    	Posicion posInicialMock = mock(Posicion.class);
-        Posicion posFinalMock = mock(Posicion.class);    
+		Direccion direccion = Direccion.E;
+        Posicion posicion = new Posicion(1,1);
+        Posicion posAdyacente = new Posicion(2,1);   
     	Tablero tableroMock = mock(Tablero.class);
 		Equipo unEquipoMock = mock(Equipo.class);
-    	UnidadMovible jinete = new Jinete(posInicialMock, unEquipoMock);
+    	UnidadMovible jinete = new Jinete(posicion, unEquipoMock);
     	
-    	when(posInicialMock.esAdyacente(posFinalMock)).thenReturn(true);
-    	doThrow(CasillaOcupadaException.class).when(tableroMock).moverUnidad(posInicialMock, posFinalMock);
+    //	when(direccion.calcularPosicionSiguiente(posicion)).thenReturn(posAdyacente);
+    	doThrow(CasillaOcupadaException.class).when(tableroMock).moverUnidad(posicion, posAdyacente);
    
-    	assertThrows(CasillaOcupadaException.class, () -> {
+    	assertThrows(MovimientoInvalidoException.class, () -> {
 
-    		jinete.mover(posFinalMock, tableroMock);
+    		jinete.mover(direccion, tableroMock);
     	});
+    	
+    	assertTrue(jinete.obtenerPosicion().equals(posicion));
     }
-    
+    /*
     @Test
     public void test03UnidadMovibleNoPuedeMoverseAUnCasilleroNoAdyacente() {
 
@@ -68,6 +79,7 @@ public class UnidadMovibleTest {
     	});	
 
     }
+    */
     
     // Test de integracion
     @Test
@@ -75,15 +87,16 @@ public class UnidadMovibleTest {
 		Equipo Equipo1 = new Equipo("Equipo 1");
 		Equipo Equipo2 = new Equipo("Equipo 2");
 
-		Posicion posInicial = new Posicion(2,3);
-	   	UnidadMovible soldado = new Soldado(posInicial, Equipo1);
+		Posicion posicion = new Posicion(2,3);
+		Posicion posFinal = new Posicion(2,4);
+	   	UnidadMovible soldado = new Soldado(posicion, Equipo1);
 
-        Posicion posFinal = new Posicion(3,3);
-    	Tablero tablero = new Tablero(20, Equipo1, Equipo2);
+        Direccion dir = Direccion.N;
+    	Tablero tablero = new Tablero(TAMANIO_TABLERO, Equipo1, Equipo2);
 
-    	tablero.colocarUnidad(soldado, posInicial);
+    	tablero.colocarUnidad(soldado, posicion);
 
-    	soldado.mover(posFinal, tablero);
+    	soldado.mover(dir, tablero);
 
     	assertTrue(tablero.obtenerCasilla(posFinal).quitar().equals(soldado));
     }

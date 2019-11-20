@@ -1,7 +1,9 @@
 package fiuba.algo3.algochess.unidad;
 
+import fiuba.algo3.algochess.Direccion;
 import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
 import fiuba.algo3.algochess.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algochess.excepciones.PosicionInvalidaException;
 import fiuba.algo3.algochess.juego.Equipo;
 import fiuba.algo3.algochess.juego.Posicion;
 import fiuba.algo3.algochess.tablero.Tablero;
@@ -13,15 +15,19 @@ public abstract class UnidadMovible extends Unidad {
 		super(posicionInicial, equipo);
 	}
 	
-	public void mover(Posicion nuevaPosicion, Tablero tablero) throws MovimientoInvalidoException, CasillaOcupadaException {
+	public void mover(Direccion direccion, Tablero tablero) throws MovimientoInvalidoException {
  
-    	if (!this.posicion.esAdyacente(nuevaPosicion))
-    		throw new MovimientoInvalidoException("Las unidades se mueven de a un casillero");
+		try {
+			Posicion nuevaPosicion = direccion.calcularPosicionSiguiente(this.posicion);
     	
-    	tablero.moverUnidad(this.posicion, nuevaPosicion);
+			tablero.moverUnidad(this.posicion, nuevaPosicion);
     	
-    	this.setPosicion(nuevaPosicion);
+			this.setPosicion(nuevaPosicion);
+		} catch (PosicionInvalidaException | CasillaOcupadaException ex) {
+			throw new MovimientoInvalidoException(ex.getMessage());
+		}
     }
+		
 
     private void setPosicion(Posicion nuevaPosicion) {
     	
