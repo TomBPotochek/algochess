@@ -72,6 +72,7 @@ public abstract class Unidad {
 			distancia.atacar(unidad, this.arma);		
 		} catch (UnidadDestruidaException e) {
 			tablero.quitarUnidad(unidad);
+			throw e;
 		}
 	}
 
