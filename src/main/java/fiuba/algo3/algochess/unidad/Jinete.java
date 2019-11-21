@@ -1,15 +1,17 @@
 package fiuba.algo3.algochess.unidad;
 
 import fiuba.algo3.algochess.distancia.Distancia;
+import fiuba.algo3.algochess.distancia.DistanciaCorta;
 import fiuba.algo3.algochess.excepciones.AtaqueInvalidoException;
 import fiuba.algo3.algochess.excepciones.CasillaLibreException;
 import fiuba.algo3.algochess.excepciones.UnidadDestruidaException;
+import fiuba.algo3.algochess.juego.ArcoYFlecha;
 import fiuba.algo3.algochess.juego.Arma;
 import fiuba.algo3.algochess.juego.Equipo;
 import fiuba.algo3.algochess.juego.Espada;
-import fiuba.algo3.algochess.juego.PortaArma;
 import fiuba.algo3.algochess.juego.Posicion;
 import fiuba.algo3.algochess.tablero.EstadoArma;
+import fiuba.algo3.algochess.tablero.EstadoArmaAyF;
 import fiuba.algo3.algochess.tablero.EstadoArmaEspada;
 import fiuba.algo3.algochess.tablero.Tablero;
 
@@ -58,15 +60,17 @@ public class Jinete extends UnidadMovible {
 	}
 	
 	public void ponerAyF() {
-		this.estadoArma.ponerAyF(this);
+		this.setEstado(new EstadoArmaAyF(), new ArcoYFlecha());
 	}
 	
 	public void ponerEspada() {
-		this.estadoArma.ponerEspada(this);
+		this.setEstado(new EstadoArmaEspada(), new Espada());
 	}
 	
 	private void resetEstadoArma() {
-		this.setEstado(new EstadoArmaEspada(), new Espada());
+		this.setEstado(new EstadoArmaEspada(), new ArcoYFlecha());
+		//EstadoArmaEspada se puede cambiar por cualquiera
+		//ArcoYFlecha es el arma por default (caso sin aliados cerca ni enemigos cerca)
 	}
 
 	
@@ -74,8 +78,9 @@ public class Jinete extends UnidadMovible {
 	public void atacar(Unidad unidad, Tablero tablero) {
 		this.resetEstadoArma();
 		
-		Distancia distancia = this.obtenerPosicion().calcularDistancia(unidad.obtenerPosicion());
-		ArrayList<Posicion> posicionesCortas = distancia.obtenerPosicionesCercanas(this.posicion);
+		Distancia distanciaAEnemigo = this.obtenerPosicion().calcularDistancia(unidad.obtenerPosicion());
+		Distancia unaDistanciaCorta = new DistanciaCorta();
+		ArrayList<Posicion> posicionesCortas = unaDistanciaCorta.obtenerPosicionesCercanas(this.posicion);
 		
 		for (Posicion posicionTemp : posicionesCortas) {
 			try {
@@ -88,7 +93,7 @@ public class Jinete extends UnidadMovible {
 		
 		
 		try {
-			distancia.atacar(unidad, this.arma);		
+			distanciaAEnemigo.atacar(unidad, this.arma);		
 		} catch (UnidadDestruidaException e) {
 			tablero.quitarUnidad(unidad);
 		}

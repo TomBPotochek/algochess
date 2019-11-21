@@ -36,5 +36,10 @@ public class Casilla {
     public EstadoCasilla getEstado(){
     	return this.estado;
 	}
+
+	public Unidad getUnidad() {
+		
+		return this.estado.obtenerUnidad();
+	}
     
 }

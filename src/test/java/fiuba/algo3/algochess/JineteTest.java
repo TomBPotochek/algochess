@@ -100,14 +100,14 @@ public class JineteTest {
 	@Test
 	public void testJineteNoPuedeAtacarAEnemigosADistanciaLarga() {
 
-		Posicion unaPosicionMock = mock(Posicion.class);
-		Posicion otraPosicionMock = mock(Posicion.class);
-		Tablero tableroMock = mock(Tablero.class);
-		Equipo unEquipoMock = mock(Equipo.class);
-		Equipo otroEquipoMock = mock(Equipo.class);
-		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaLarga());
-		Jinete unJineteAliado = new Jinete(unaPosicionMock, unEquipoMock);
-		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, otroEquipoMock);
+		Posicion unaPosicionMock = new Posicion(1,1);
+		Posicion otraPosicionMock = new Posicion(20,20);
+		Equipo equipoBueno = new Equipo("bueno");
+		Equipo equipoMalo = new Equipo("malo");
+		Tablero tableroMock = new Tablero(20,equipoBueno, equipoMalo);
+
+		Jinete unJineteAliado = new Jinete(unaPosicionMock, equipoBueno);
+		Jinete unJineteEnemigo = new Jinete(otraPosicionMock, equipoMalo);
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 

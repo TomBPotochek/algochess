@@ -20,5 +20,4 @@ public class EstadoCasillaLibre extends EstadoCasilla {
 	public Unidad obtenerUnidad() {
 		throw new CasillaLibreException();
 	}
-
 }

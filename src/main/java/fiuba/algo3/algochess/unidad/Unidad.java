@@ -4,10 +4,9 @@ import fiuba.algo3.algochess.juego.Equipo;
 import fiuba.algo3.algochess.juego.Arma;
 import fiuba.algo3.algochess.juego.Posicion;
 import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.Direccion;
 import fiuba.algo3.algochess.distancia.Distancia;
 import fiuba.algo3.algochess.excepciones.UnidadDestruidaException;
-
-import static java.lang.Math.min;
 
 public abstract class Unidad {
     protected int vidaInicial;
@@ -66,12 +65,13 @@ public abstract class Unidad {
         return vidaRestante <= 0;
     }
 	
+
 	public void atacar(Unidad unidad, Tablero tablero) {
 		Distancia distancia = this.obtenerPosicion().calcularDistancia(unidad.obtenerPosicion());
 		try {
 			distancia.atacar(unidad, this.arma);		
 		} catch (UnidadDestruidaException e) {
-			;//tablero.quitarUnidad(unidad);
+			tablero.quitarUnidad(unidad);
 		}
 	}
 
@@ -80,5 +80,7 @@ public abstract class Unidad {
 				jinete.ponerEspada();
 	}
 	
+	public void reclutar(Soldado unSoldado, Direccion direccionReclutamiento, Tablero tablero) {}
+
 }
 

@@ -3,6 +3,7 @@ package fiuba.algo3.algochess;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import fiuba.algo3.algochess.distancia.DistanciaCorta;
 import fiuba.algo3.algochess.excepciones.CasillaEnemigaException;
 import fiuba.algo3.algochess.excepciones.CasillaLibreException;
 import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
@@ -54,7 +55,7 @@ public class TableroTest {
 		catch (CasillaEnemigaException ex) {lanzoExcepcion = true; }
 
 		assertFalse(lanzoExcepcion);
-		assertTrue(tablero.obtenerCasilla(posicion).getEstado().obtenerUnidad().equals(unidad));
+		assertEquals(tablero.obtenerCasilla(posicion).getEstado().obtenerUnidad(), (unidad));
 	}
 
 	@Test
@@ -99,5 +100,30 @@ public class TableroTest {
 	
 		assertTrue(lanzoExcepcion);
 		
+	}
+
+	// Test de integracion
+	@Test
+	public void testUnidadMuertaSeQuitaDelTablero() {
+		Equipo unEquipo = new Equipo("Equipo Aliado");
+		Equipo otroEquipo = new Equipo("Equipo Enemigo");
+		Posicion unaPosicion = new Posicion(10, 10);
+		Posicion otraPosicion = new Posicion(10, 11);
+		Soldado soldadoAliado = new Soldado(unaPosicion, unEquipo);
+		Soldado soldadoEnemigo = new Soldado(otraPosicion, otroEquipo);
+		Tablero tablero = new Tablero(20, unEquipo, otroEquipo);
+		tablero.colocarUnidad(soldadoAliado, unaPosicion);
+		tablero.colocarUnidad(soldadoEnemigo, otraPosicion);
+
+		for(int i = 0; i < 10; i++) { // lo ataco 10 veces para que se quede sin vida
+			soldadoAliado.atacar(soldadoEnemigo, tablero);
+		}
+
+		assertThrows(CasillaLibreException.class, () -> {
+
+			tablero.obtenerCasilla(otraPosicion).getEstado().obtenerUnidad();
+		});
+
+
 	}
 }
