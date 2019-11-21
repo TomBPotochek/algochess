@@ -55,15 +55,22 @@ public class Jugador {
 		this.guardarUnidad(tablero, catapulta, posicion);
 	}
 
-	public void actualizarUnidadesMuertas() {
-		Iterator iter = unidades.iterator();
+	public void limpiarUnidadesMuertas() {
+
+		Iterator<Unidad> iter = unidades.iterator();
 		Unidad unidad;
+
 		while(iter.hasNext()) {
 			unidad = (Unidad) iter.next();
 			if(unidad.estaMuerto()) {
 				iter.remove();
 			}
 		}
+	}
+
+	public boolean esPerdedor() {
+		
+		return unidades.isEmpty();
 	}
 
 }

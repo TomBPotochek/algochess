@@ -12,6 +12,18 @@ public enum Direccion {
 	O(-1,0),
 	NO(-1,1);
 	
+	static {
+		N.direccionOpuesta = S;
+		NE.direccionOpuesta = SO;
+		E.direccionOpuesta = O;
+		SE.direccionOpuesta = NO;
+		S.direccionOpuesta = N;
+		SO.direccionOpuesta = NE;
+		O.direccionOpuesta = E;
+		NO.direccionOpuesta = SE;
+	}
+	
+	private Direccion direccionOpuesta;
 	private int dx;
 	private int dy;
 	Direccion(int dx, int dy) {
@@ -25,5 +37,10 @@ public enum Direccion {
 		x += this.dx;
 		y += this.dy;
 		return new Posicion(x,y);
+	}
+	
+	public Direccion direccionOpuesta() {
+		
+		return direccionOpuesta; 
 	}
 }

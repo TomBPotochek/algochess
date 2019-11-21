@@ -63,4 +63,10 @@ public class Tablero {
     public Casilla obtenerCasilla(Posicion posicion) {
     	return this.tablero.get(posicion);
     }
+
+
+	public Unidad obtenerUnidad(Posicion posicion) {
+
+		return this.obtenerCasilla(posicion).getUnidad();
+	}
 }
