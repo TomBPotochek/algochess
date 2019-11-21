@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
-import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
-import fiuba.algo3.algochess.tablero.EstadoCasillaOcupada;
-import fiuba.algo3.algochess.unidad.Unidad;
+import fiuba.algo3.algochess.modelo.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.modelo.tablero.EstadoCasillaOcupada;
+import fiuba.algo3.algochess.modelo.unidad.Unidad;
 import org.junit.jupiter.api.Test;
 
 class EstadoCasillaOcupadaTest {

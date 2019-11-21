@@ -1,10 +1,10 @@
 package fiuba.algo3.algochess;
 
-import fiuba.algo3.algochess.excepciones.PuntosInsuficientesException;
-import fiuba.algo3.algochess.juego.Equipo;
-import fiuba.algo3.algochess.juego.Jugador;
-import fiuba.algo3.algochess.juego.Posicion;
-import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.modelo.excepciones.PuntosInsuficientesException;
+import fiuba.algo3.algochess.modelo.juego.Equipo;
+import fiuba.algo3.algochess.modelo.juego.Jugador;
+import fiuba.algo3.algochess.modelo.juego.Posicion;
+import fiuba.algo3.algochess.modelo.tablero.Tablero;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

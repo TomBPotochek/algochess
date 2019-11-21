@@ -2,7 +2,7 @@ package fiuba.algo3.algochess;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.modelo.juego.Posicion;
 import org.junit.jupiter.api.Test;
 
 class PosicionTest {
