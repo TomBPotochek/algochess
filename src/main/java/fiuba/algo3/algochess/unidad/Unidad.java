@@ -2,9 +2,9 @@ package fiuba.algo3.algochess.unidad;
 
 import fiuba.algo3.algochess.juego.Equipo;
 import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.Direccion;
 import fiuba.algo3.algochess.excepciones.UnidadDestruidaException;
-
-import static java.lang.Math.min;
 
 public abstract class Unidad {
     protected int vidaInicial;
@@ -59,5 +59,7 @@ public abstract class Unidad {
 	public boolean estaMuerto() {
         return vidaRestante <= 0;
     }
+	
+	public void reclutar(Soldado unSoldado, Direccion direccionReclutamiento, Tablero tablero) {}
 }
 

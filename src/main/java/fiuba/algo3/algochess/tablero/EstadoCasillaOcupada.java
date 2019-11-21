@@ -24,6 +24,5 @@ public class EstadoCasillaOcupada extends EstadoCasilla {
 	@Override
 	public Unidad obtenerUnidad() {
 		return this.unidad;
-	}
-	
+	}	
 }
