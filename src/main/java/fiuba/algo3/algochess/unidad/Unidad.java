@@ -1,7 +1,10 @@
 package fiuba.algo3.algochess.unidad;
 
 import fiuba.algo3.algochess.juego.Equipo;
+import fiuba.algo3.algochess.juego.Arma;
 import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.distancia.Distancia;
 import fiuba.algo3.algochess.excepciones.UnidadDestruidaException;
 
 import static java.lang.Math.min;
@@ -14,6 +17,7 @@ public abstract class Unidad {
     protected int danioAtaqueCuerpoACuerpo;
     protected int danioAtaqueADistancia;
     protected Equipo equipo;
+	protected Arma arma;
 
     public Unidad(Posicion posicionInicial, Equipo equipo) {
 
@@ -26,7 +30,7 @@ public abstract class Unidad {
         return posicion;
     }
     
-    public void recibirDanio(int danio) {
+    public void recibirDanio(int danio) throws UnidadDestruidaException {
     	
     	this.vidaRestante -= danio;
     	
@@ -48,6 +52,7 @@ public abstract class Unidad {
         return costo;
     }
 
+    
 	public void recibirVida(int vida) {
 		
 		this.vidaRestante += vida;
@@ -55,9 +60,25 @@ public abstract class Unidad {
 		if (this.vidaRestante > this.vidaInicial)
 			this.vidaRestante = this.vidaInicial;
 	}
+    
 
 	public boolean estaMuerto() {
         return vidaRestante <= 0;
     }
+	
+	public void atacar(Unidad unidad, Tablero tablero) {
+		Distancia distancia = this.obtenerPosicion().calcularDistancia(unidad.obtenerPosicion());
+		try {
+			distancia.atacar(unidad, this.arma);		
+		} catch (UnidadDestruidaException e) {
+			;//tablero.quitarUnidad(unidad);
+		}
+	}
+
+	protected void cambiarEstadoDeUnidad(Jinete jinete) {
+			if (!jinete.esAliada(this.equipo))
+				jinete.ponerEspada();
+	}
+	
 }
 
