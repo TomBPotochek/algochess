@@ -53,7 +53,12 @@ public class Tablero {
     	Casilla casilla = this.tablero.get(posicion);
     	casilla.colocar(unidad);
     }
-    
+
+    public void quitarUnidad(Unidad unaUnidad) {
+		Casilla casilla = this.tablero.get(unaUnidad.obtenerPosicion());
+		casilla.quitar();
+	}
+
     //para testing
     public Casilla obtenerCasilla(Posicion posicion) {
     	return this.tablero.get(posicion);
