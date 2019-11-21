@@ -1,10 +1,13 @@
 package fiuba.algo3.algochess;
 
 import fiuba.algo3.algochess.excepciones.PuntosInsuficientesException;
+import fiuba.algo3.algochess.excepciones.UnidadDestruidaException;
 import fiuba.algo3.algochess.juego.Equipo;
 import fiuba.algo3.algochess.juego.Jugador;
 import fiuba.algo3.algochess.juego.Posicion;
 import fiuba.algo3.algochess.tablero.Tablero;
+import fiuba.algo3.algochess.unidad.Atacante;
+
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,5 +36,48 @@ public class JugadorTest {
     }
 
 
+    @Test
+    public void test02ElJugadorQueSeQuedaSinUnidadesEsElPerdedor() {
+    	
+    	Equipo equipoA = new Equipo("A");
+    	Equipo equipoB = new Equipo("A");
 
+    	Jugador jugadorGanador = new Jugador(equipoA);
+    	Jugador jugadorPerdedor = new Jugador(equipoB);
+
+    	Tablero tablero = new Tablero(20, equipoA, equipoB);
+    	
+    	Posicion posSoldadoGanador1 = new Posicion(2,10);
+    	Posicion posSoldadoGanador2 = new Posicion(5,10);
+    	Posicion posSoldadoPerdedor1 = new Posicion(2,11);
+    	Posicion posSoldadoPerdedor2 = new Posicion(5,11);
+ 
+    	jugadorGanador.comprarSoldado(tablero, posSoldadoGanador1);
+    	jugadorGanador.comprarSoldado(tablero, posSoldadoGanador2);
+    	
+    	jugadorPerdedor.comprarSoldado(tablero, posSoldadoPerdedor1);
+    	jugadorPerdedor.comprarSoldado(tablero, posSoldadoPerdedor2);
+    	
+    	@SuppressWarnings("unused")
+		Atacante soldadoGanador1 = (Atacante) tablero.obtenerUnidad(posSoldadoGanador1);
+		@SuppressWarnings("unused")
+		Atacante soldadoGanador2 = (Atacante) tablero.obtenerUnidad(posSoldadoGanador2);
+    	
+    	for (int i = 0; i < 10; i++) {
+    	
+    		try {
+	    		soldadoGanador1.atacar(tablero.obtenerUnidad(posSoldadoPerdedor1), tablero);
+    		} catch (UnidadDestruidaException ex) {
+    			jugadorPerdedor.limpiarUnidadesMuertas();
+    		}
+    		
+    		try {
+    			soldadoGanador2.atacar(tablero.obtenerUnidad(posSoldadoPerdedor2), tablero);    			
+    		} catch (UnidadDestruidaException ex) {
+    			jugadorPerdedor.limpiarUnidadesMuertas();
+    		}
+    	}
+    
+    	assertEquals(jugadorPerdedor.esPerdedor(), true);
+    }
 }
