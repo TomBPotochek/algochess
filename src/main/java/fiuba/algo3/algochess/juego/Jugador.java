@@ -54,16 +54,23 @@ public class Jugador {
 		Catapulta catapulta = new Catapulta(posicion, this.equipo);
 		this.guardarUnidad(tablero, catapulta, posicion);
 	}
+	
+	public void limpiarUnidadesMuertas() {
 
-	public void actualizarUnidadesMuertas() {
-		Iterator iter = unidades.iterator();
+		Iterator<Unidad> iter = unidades.iterator();
 		Unidad unidad;
+
 		while(iter.hasNext()) {
 			unidad = (Unidad) iter.next();
 			if(unidad.estaMuerto()) {
 				iter.remove();
 			}
 		}
+	 }
+	
+	public boolean esPerdedor() {
+
+		return unidades.isEmpty();
 	}
 
 }
