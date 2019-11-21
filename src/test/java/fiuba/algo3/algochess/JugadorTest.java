@@ -63,12 +63,19 @@ public class JugadorTest {
 		Unidad soldadoGanador2 = tablero.obtenerUnidad(posSoldadoGanador2);
 
     	for (int i = 0; i < 10; i++) {
-	    	soldadoGanador1.atacar(tablero.obtenerUnidad(posSoldadoPerdedor1), tablero);
-
-    		soldadoGanador2.atacar(tablero.obtenerUnidad(posSoldadoPerdedor2), tablero);    			
+    		try {
+    			soldadoGanador1.atacar(tablero.obtenerUnidad(posSoldadoPerdedor1), tablero);
+    		} catch (UnidadDestruidaException e) {
+    			jugadorPerdedor.limpiarUnidadesMuertas();
+    		}
+    		
+    		try {
+    			soldadoGanador2.atacar(tablero.obtenerUnidad(posSoldadoPerdedor2), tablero);
+    		} catch (UnidadDestruidaException e) {
+    			jugadorPerdedor.limpiarUnidadesMuertas();
+    		}
     	}
     	
-    	jugadorPerdedor.limpiarUnidadesMuertas();
 
     	assertEquals(jugadorPerdedor.esPerdedor(), true);
     }
