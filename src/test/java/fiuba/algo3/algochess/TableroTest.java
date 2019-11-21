@@ -7,6 +7,7 @@ import fiuba.algo3.algochess.distancia.DistanciaCorta;
 import fiuba.algo3.algochess.excepciones.CasillaEnemigaException;
 import fiuba.algo3.algochess.excepciones.CasillaLibreException;
 import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.excepciones.UnidadDestruidaException;
 import fiuba.algo3.algochess.juego.Equipo;
 import fiuba.algo3.algochess.juego.Posicion;
 import fiuba.algo3.algochess.tablero.Casilla;
@@ -115,9 +116,14 @@ public class TableroTest {
 		tablero.colocarUnidad(soldadoAliado, unaPosicion);
 		tablero.colocarUnidad(soldadoEnemigo, otraPosicion);
 
-		for(int i = 0; i < 10; i++) { // lo ataco 10 veces para que se quede sin vida
+		for(int i = 0; i < 9; i++) {
 			soldadoAliado.atacar(soldadoEnemigo, tablero);
 		}
+
+		assertThrows(UnidadDestruidaException.class, () -> {
+
+			soldadoAliado.atacar(soldadoEnemigo, tablero); // despues de 10 ataques la unidad muere
+		});
 
 		assertThrows(CasillaLibreException.class, () -> {
 
