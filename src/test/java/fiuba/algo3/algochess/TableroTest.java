@@ -3,18 +3,19 @@ package fiuba.algo3.algochess;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import fiuba.algo3.algochess.distancia.DistanciaCorta;
-import fiuba.algo3.algochess.excepciones.CasillaEnemigaException;
-import fiuba.algo3.algochess.excepciones.CasillaLibreException;
-import fiuba.algo3.algochess.excepciones.CasillaOcupadaException;
-import fiuba.algo3.algochess.excepciones.UnidadDestruidaException;
-import fiuba.algo3.algochess.juego.Equipo;
-import fiuba.algo3.algochess.juego.Posicion;
-import fiuba.algo3.algochess.tablero.Casilla;
-import fiuba.algo3.algochess.tablero.Tablero;
-import fiuba.algo3.algochess.unidad.Curandero;
-import fiuba.algo3.algochess.unidad.Soldado;
-import fiuba.algo3.algochess.unidad.Unidad;
+import fiuba.algo3.algochess.model.distancia.DistanciaCorta;
+import fiuba.algo3.algochess.model.excepciones.CasillaEnemigaException;
+import fiuba.algo3.algochess.model.excepciones.CasillaLibreException;
+import fiuba.algo3.algochess.model.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Casilla;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+import fiuba.algo3.algochess.model.tablero.Tablero;
+import fiuba.algo3.algochess.model.unidad.Curandero;
+import fiuba.algo3.algochess.model.unidad.Soldado;
+import fiuba.algo3.algochess.model.unidad.Unidad;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;

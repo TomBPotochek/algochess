@@ -2,8 +2,9 @@ package fiuba.algo3.algochess;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import fiuba.algo3.algochess.excepciones.CasillaLibreException;
-import fiuba.algo3.algochess.tablero.EstadoCasillaLibre;
+import fiuba.algo3.algochess.model.excepciones.CasillaLibreException;
+import fiuba.algo3.algochess.model.tablero.EstadoCasillaLibre;
+
 import org.junit.jupiter.api.Test;
 
 class EstadoCasillaLibreTest {

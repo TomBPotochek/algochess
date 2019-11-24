@@ -10,8 +10,8 @@ import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.algochess.distancia.*;
-import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.model.distancia.*;
+import fiuba.algo3.algochess.model.tablero.Posicion;
 
 public class DistanciaTest {
 

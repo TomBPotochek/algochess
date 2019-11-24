@@ -1,12 +1,12 @@
 package fiuba.algo3.algochess;
 
-import fiuba.algo3.algochess.excepciones.PuntosInsuficientesException;
-import fiuba.algo3.algochess.excepciones.UnidadDestruidaException;
-import fiuba.algo3.algochess.juego.Equipo;
-import fiuba.algo3.algochess.juego.Jugador;
-import fiuba.algo3.algochess.juego.Posicion;
-import fiuba.algo3.algochess.tablero.Tablero;
-import fiuba.algo3.algochess.unidad.Unidad;
+import fiuba.algo3.algochess.model.excepciones.PuntosInsuficientesException;
+import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.juego.Jugador;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+import fiuba.algo3.algochess.model.tablero.Tablero;
+import fiuba.algo3.algochess.model.unidad.Unidad;
 
 import org.junit.Test;
 

@@ -3,7 +3,8 @@ package fiuba.algo3.algochess;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-import fiuba.algo3.algochess.juego.Posicion;
+import fiuba.algo3.algochess.model.tablero.Direccion;
+import fiuba.algo3.algochess.model.tablero.Posicion;
 
 import static org.mockito.Mockito.*;
 

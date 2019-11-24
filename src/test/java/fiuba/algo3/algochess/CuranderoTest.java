@@ -3,12 +3,13 @@ package fiuba.algo3.algochess;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
-import fiuba.algo3.algochess.distancia.DistanciaCorta;
-import fiuba.algo3.algochess.juego.Equipo;
-import fiuba.algo3.algochess.juego.Posicion;
-import fiuba.algo3.algochess.tablero.Tablero;
-import fiuba.algo3.algochess.unidad.Curandero;
-import fiuba.algo3.algochess.unidad.Jinete;
+import fiuba.algo3.algochess.model.distancia.DistanciaCorta;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+import fiuba.algo3.algochess.model.tablero.Tablero;
+import fiuba.algo3.algochess.model.unidad.Curandero;
+import fiuba.algo3.algochess.model.unidad.Jinete;
+
 import org.junit.Test;
 
 public class CuranderoTest {

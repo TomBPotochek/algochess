@@ -4,11 +4,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.algochess.juego.Equipo;
-import fiuba.algo3.algochess.juego.Posicion;
-import fiuba.algo3.algochess.tablero.Tablero;
-import fiuba.algo3.algochess.unidad.Curandero;
-import fiuba.algo3.algochess.unidad.Soldado;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Direccion;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+import fiuba.algo3.algochess.model.tablero.Tablero;
+import fiuba.algo3.algochess.model.unidad.Curandero;
+import fiuba.algo3.algochess.model.unidad.Soldado;
 
 public class BatallonTest {
 
