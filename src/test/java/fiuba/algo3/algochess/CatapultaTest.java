@@ -15,6 +15,7 @@ import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 import fiuba.algo3.algochess.model.unidad.Catapulta;
 
+import fiuba.algo3.algochess.model.unidad.Curandero;
 import org.junit.Test;
 
 public class CatapultaTest {
@@ -71,6 +72,25 @@ public class CatapultaTest {
 		unCatapultaAliado.atacar(unCatapultaEnemigo, tableroMock);
 
 		assertEquals(unCatapultaEnemigo.getVidaRestante(), 30);
+	}
+
+	@Test
+	public void testCatapultaNoPuedeRecibirVida() {
+		Posicion unaPosicion = mock(Posicion.class);
+		Equipo unEquipo = mock(Equipo.class);
+		Posicion otraPosicion = mock(Posicion.class);
+		Tablero tablero = mock(Tablero.class);
+
+		Curandero unCurandero = new Curandero(unaPosicion, unEquipo);
+		Catapulta unaCatapulta = new Catapulta(otraPosicion, unEquipo);
+
+		when(unaPosicion.calcularDistancia(otraPosicion)).thenReturn(new DistanciaCorta());
+
+		assertThrows(AtaqueInvalidoException.class, () -> {
+
+			unCurandero.atacar(unaCatapulta, tablero);
+		});
+
 	}
 
 }

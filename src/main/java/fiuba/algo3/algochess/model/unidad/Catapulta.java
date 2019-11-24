@@ -22,6 +22,9 @@ public class Catapulta extends Unidad {
 		this.arma = new Piedra();
    }
 
-
+	@Override
+	public void recibirVida(int vida) {
+		throw new AtaqueInvalidoException();
+	}
 	
 }
