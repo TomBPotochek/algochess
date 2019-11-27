@@ -9,7 +9,7 @@ abstract public class EstadoArma {
 	public EstadoArma() {
 		this.arma = new Espada();
 	}
-	K
+
 	public EstadoArma(Arma arma) {
 		this.arma = arma;
 	}*/
