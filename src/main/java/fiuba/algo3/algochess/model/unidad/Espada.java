@@ -23,7 +23,4 @@ public class Espada implements Arma {
 		throw new AtaqueInvalidoException();
 		
 	}
-
-	
-
 }
