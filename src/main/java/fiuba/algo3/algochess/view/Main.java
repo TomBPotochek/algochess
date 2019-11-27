@@ -44,7 +44,7 @@ public class Main extends Application {
 		for(int i = 0; i < 20; i++) {
 		    for(int j = 0; j < 20; j++) {
 		        Button casillero = new Button(Integer.toString(i) + " : " + Integer.toString(j) );
-		        casillero.setPrefSize(50,50);
+		        casillero.setPrefSize(60,60);
                 contenedorTablero.add(casillero , i, j);
             }
         }
