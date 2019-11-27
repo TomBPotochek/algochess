@@ -1,11 +1,12 @@
 package fiuba.algo3.algochess;
 
 import static org.junit.Assert.assertTrue;
-
-import fiuba.algo3.algochess.modelo.Direccion;
 import org.junit.Test;
 
-import fiuba.algo3.algochess.modelo.juego.Posicion;
+import fiuba.algo3.algochess.model.tablero.Direccion;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+
+import static org.mockito.Mockito.*;
 
 public class DireccionTest {
 

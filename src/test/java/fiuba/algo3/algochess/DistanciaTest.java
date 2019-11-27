@@ -6,11 +6,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.algochess.modelo.distancia.*;
-import fiuba.algo3.algochess.modelo.juego.Posicion;
+import fiuba.algo3.algochess.model.distancia.*;
+import fiuba.algo3.algochess.model.tablero.Posicion;
 
 public class DistanciaTest {
 

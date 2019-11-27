@@ -3,16 +3,19 @@ package fiuba.algo3.algochess;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import fiuba.algo3.algochess.modelo.excepciones.CasillaEnemigaException;
-import fiuba.algo3.algochess.modelo.excepciones.CasillaLibreException;
-import fiuba.algo3.algochess.modelo.excepciones.CasillaOcupadaException;
-import fiuba.algo3.algochess.modelo.juego.Equipo;
-import fiuba.algo3.algochess.modelo.juego.Posicion;
-import fiuba.algo3.algochess.modelo.tablero.Casilla;
-import fiuba.algo3.algochess.modelo.tablero.Tablero;
-import fiuba.algo3.algochess.modelo.unidad.Curandero;
-import fiuba.algo3.algochess.modelo.unidad.Soldado;
-import fiuba.algo3.algochess.modelo.unidad.Unidad;
+import fiuba.algo3.algochess.model.distancia.DistanciaCorta;
+import fiuba.algo3.algochess.model.excepciones.CasillaEnemigaException;
+import fiuba.algo3.algochess.model.excepciones.CasillaLibreException;
+import fiuba.algo3.algochess.model.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Casilla;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+import fiuba.algo3.algochess.model.tablero.Tablero;
+import fiuba.algo3.algochess.model.unidad.Curandero;
+import fiuba.algo3.algochess.model.unidad.Soldado;
+import fiuba.algo3.algochess.model.unidad.Unidad;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;
@@ -114,9 +117,14 @@ public class TableroTest {
 		tablero.colocarUnidad(soldadoAliado, unaPosicion);
 		tablero.colocarUnidad(soldadoEnemigo, otraPosicion);
 
-		for(int i = 0; i < 10; i++) { // lo ataco 10 veces para que se quede sin vida
+		for(int i = 0; i < 9; i++) {
 			soldadoAliado.atacar(soldadoEnemigo, tablero);
 		}
+
+		assertThrows(UnidadDestruidaException.class, () -> {
+
+			soldadoAliado.atacar(soldadoEnemigo, tablero); // despues de 10 ataques la unidad muere
+		});
 
 		assertThrows(CasillaLibreException.class, () -> {
 

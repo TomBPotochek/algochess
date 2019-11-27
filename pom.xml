@@ -47,6 +47,13 @@
 	    <version>1.9.5</version>
 	    <scope>test</scope>
 	</dependency>
+
+	<dependency>
+		<groupId>org.openjfx</groupId>
+		<artifactId>javafx-controls</artifactId>
+		<version>13</version>
+	</dependency>
+  
   </dependencies>
 
   <build>
@@ -103,6 +110,15 @@
 	        <check />
             </configuration>
         </plugin>
+	
+	<plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.3</version>
+        <configuration>
+            <mainClass>fiuba.algo3.algochess.view.Main</mainClass>
+        </configuration>
+    </plugin>
       </plugins>
     </pluginManagement>
   </build>

@@ -6,14 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import fiuba.algo3.algochess.modelo.distancia.DistanciaCorta;
-import fiuba.algo3.algochess.modelo.distancia.DistanciaLarga;
-import fiuba.algo3.algochess.modelo.distancia.DistanciaMedia;
-import fiuba.algo3.algochess.modelo.excepciones.AtaqueInvalidoException;
-import fiuba.algo3.algochess.modelo.juego.Equipo;
-import fiuba.algo3.algochess.modelo.juego.Posicion;
-import fiuba.algo3.algochess.modelo.tablero.Tablero;
-import fiuba.algo3.algochess.modelo.unidad.Catapulta;
+import fiuba.algo3.algochess.model.distancia.DistanciaCorta;
+import fiuba.algo3.algochess.model.distancia.DistanciaLarga;
+import fiuba.algo3.algochess.model.distancia.DistanciaMedia;
+import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+import fiuba.algo3.algochess.model.tablero.Tablero;
+import fiuba.algo3.algochess.model.unidad.Catapulta;
+
+import fiuba.algo3.algochess.model.unidad.Curandero;
 import org.junit.Test;
 
 public class CatapultaTest {
@@ -70,6 +72,25 @@ public class CatapultaTest {
 		unCatapultaAliado.atacar(unCatapultaEnemigo, tableroMock);
 
 		assertEquals(unCatapultaEnemigo.getVidaRestante(), 30);
+	}
+
+	@Test
+	public void testCatapultaNoPuedeRecibirVida() {
+		Posicion unaPosicion = mock(Posicion.class);
+		Equipo unEquipo = mock(Equipo.class);
+		Posicion otraPosicion = mock(Posicion.class);
+		Tablero tablero = mock(Tablero.class);
+
+		Curandero unCurandero = new Curandero(unaPosicion, unEquipo);
+		Catapulta unaCatapulta = new Catapulta(otraPosicion, unEquipo);
+
+		when(unaPosicion.calcularDistancia(otraPosicion)).thenReturn(new DistanciaCorta());
+
+		assertThrows(AtaqueInvalidoException.class, () -> {
+
+			unCurandero.atacar(unaCatapulta, tablero);
+		});
+
 	}
 
 }

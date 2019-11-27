@@ -1,14 +1,15 @@
 package fiuba.algo3.algochess;
 
 
-import fiuba.algo3.algochess.modelo.distancia.DistanciaCorta;
-import fiuba.algo3.algochess.modelo.distancia.DistanciaLarga;
-import fiuba.algo3.algochess.modelo.distancia.DistanciaMedia;
-import fiuba.algo3.algochess.modelo.excepciones.AtaqueInvalidoException;
-import fiuba.algo3.algochess.modelo.juego.Equipo;
-import fiuba.algo3.algochess.modelo.juego.Posicion;
-import fiuba.algo3.algochess.modelo.tablero.Tablero;
-import fiuba.algo3.algochess.modelo.unidad.Soldado;
+import fiuba.algo3.algochess.model.distancia.DistanciaCorta;
+import fiuba.algo3.algochess.model.distancia.DistanciaLarga;
+import fiuba.algo3.algochess.model.distancia.DistanciaMedia;
+import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+import fiuba.algo3.algochess.model.tablero.Tablero;
+import fiuba.algo3.algochess.model.unidad.Soldado;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

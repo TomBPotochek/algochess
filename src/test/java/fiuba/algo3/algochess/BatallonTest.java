@@ -2,14 +2,14 @@ package fiuba.algo3.algochess;
 
 import static org.junit.Assert.assertEquals;
 
-import fiuba.algo3.algochess.modelo.Direccion;
 import org.junit.Test;
 
-import fiuba.algo3.algochess.modelo.juego.Equipo;
-import fiuba.algo3.algochess.modelo.juego.Posicion;
-import fiuba.algo3.algochess.modelo.tablero.Tablero;
-import fiuba.algo3.algochess.modelo.unidad.Curandero;
-import fiuba.algo3.algochess.modelo.unidad.Soldado;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Direccion;
+import fiuba.algo3.algochess.model.tablero.Posicion;
+import fiuba.algo3.algochess.model.tablero.Tablero;
+import fiuba.algo3.algochess.model.unidad.Curandero;
+import fiuba.algo3.algochess.model.unidad.Soldado;
 
 public class BatallonTest {
 

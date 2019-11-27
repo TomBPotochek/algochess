@@ -1,12 +1,13 @@
 package fiuba.algo3.algochess;
 
-import fiuba.algo3.algochess.modelo.excepciones.CasillaEnemigaException;
-import fiuba.algo3.algochess.modelo.excepciones.CasillaOcupadaException;
-import fiuba.algo3.algochess.modelo.juego.Equipo;
-import fiuba.algo3.algochess.modelo.tablero.Casilla;
-import fiuba.algo3.algochess.modelo.tablero.EstadoCasillaLibre;
-import fiuba.algo3.algochess.modelo.tablero.EstadoCasillaOcupada;
-import fiuba.algo3.algochess.modelo.unidad.Unidad;
+import fiuba.algo3.algochess.model.excepciones.CasillaEnemigaException;
+import fiuba.algo3.algochess.model.excepciones.CasillaOcupadaException;
+import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Casilla;
+import fiuba.algo3.algochess.model.tablero.EstadoCasillaLibre;
+import fiuba.algo3.algochess.model.tablero.EstadoCasillaOcupada;
+import fiuba.algo3.algochess.model.unidad.Unidad;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
