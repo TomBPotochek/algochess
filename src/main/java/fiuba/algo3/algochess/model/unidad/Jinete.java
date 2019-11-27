@@ -24,30 +24,11 @@ public class Jinete extends UnidadMovible {
 		this.vidaInicial = VIDA_JINETE;
 		this.vidaRestante = vidaInicial;
 		this.costo = COSTO_JINETE;
-		/*
-	    this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_JINETE;
-	    this.danioAtaqueADistancia = DANIO_DISTANCIA_JINETE;
-	    */
 		this.estadoArma = new EstadoArmaEspada();
 		
     }
-    /*
 
-	@Override
-	public void atacarADistanciaCorta(Unidad unaUnidad) {
-    	// chequear condiciones
-		unaUnidad.recibirDanio(danioAtaqueCuerpoACuerpo);
-	}
-	@Override
-	public void atacarADistanciaMedia(Unidad unaUnidad) {
-    	// chequear condiciones
-		unaUnidad.recibirDanio(danioAtaqueADistancia);
-	}
-	@Override
-	public void atacarADistanciaLarga(Unidad unaUnidad) {
-		throw new AtaqueInvalidoException();
-	}*/
-	
+
 	public void setEstado(EstadoArma estadoArma, Arma arma) {
 		this.estadoArma = estadoArma;
 		this.arma = arma;
@@ -63,8 +44,6 @@ public class Jinete extends UnidadMovible {
 	
 	private void resetEstadoArma() {
 		this.setEstado(new EstadoArmaEspada(), new ArcoYFlecha());
-		//EstadoArmaEspada se puede cambiar por cualquiera
-		//ArcoYFlecha es el arma por default (caso sin aliados cerca ni enemigos cerca)
 	}
 
 	
@@ -81,11 +60,10 @@ public class Jinete extends UnidadMovible {
 				Unidad unidadTemp = tablero.obtenerUnidad(posicionTemp);
 				unidadTemp.cambiarEstadoDeUnidad(this);
 			} catch (CasillaLibreException e) {
-				; //no hace nada
+
 			}
 		}
-		
-		
+
 		try {
 			distanciaAEnemigo.atacar(unidad, this.arma);		
 		} catch (UnidadDestruidaException e) {
