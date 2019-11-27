@@ -23,7 +23,6 @@ public abstract class Unidad {
     	this.equipo = equipo;
 	}
 
-	//este idealmente no deberia usarse. Seria mejor sacarlo
     public Posicion obtenerPosicion() {
         return posicion;
     }
