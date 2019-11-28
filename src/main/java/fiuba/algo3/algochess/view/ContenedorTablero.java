@@ -1,8 +1,11 @@
 package fiuba.algo3.algochess.view;
 
+import fiuba.algo3.algochess.controller.CasilleroEventHandler;
 import fiuba.algo3.algochess.model.tablero.Casilla;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -20,7 +23,6 @@ public class ContenedorTablero {
         this.app = app;
         this.contenedor = new GridPane();
         this.tablero = tablero;
-        Posicion posicion;
 
         contenedor.setMaxWidth(600);
         contenedor.setMaxHeight(600);
@@ -32,6 +34,7 @@ public class ContenedorTablero {
         return contenedor;
     }
 
+
     public void actualizar() {
         Posicion posicion;
         for(int i = 1; i <= TAMANIO_TABLERO; i++) {
@@ -42,4 +45,5 @@ public class ContenedorTablero {
             }
         }
     }
+
 }

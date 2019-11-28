@@ -10,6 +10,7 @@ import fiuba.algo3.algochess.view.ContenedorComprarUnidades;
 import fiuba.algo3.algochess.view.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
 public class CasilleroEventHandler implements EventHandler<ActionEvent> {
 
@@ -23,16 +24,7 @@ public class CasilleroEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        try {
-            app.algoChess.comprar(app.contenedorComprarUnidades.obtenerNombreUnidadSeleccionada(), posicion);
-            app.contenedorComprarUnidades.agregarAdvertencia(null);
-        } catch (CasillaEnemigaException e) {
-            app.contenedorComprarUnidades.agregarAdvertencia("No se puede colocar unidades en terreno enemigo");
-        } catch (CasillaOcupadaException e) {
-            app.contenedorComprarUnidades.agregarAdvertencia("No se puede colocar una unidad en una casilla ocupada");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        app.actualizar();
+        app.setPosicionSeleccionada(posicion);
+        ((Button) actionEvent.getSource()).setStyle("-fx-background-color: #4AB43F");
     }
 }

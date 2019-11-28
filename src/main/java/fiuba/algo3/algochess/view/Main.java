@@ -1,6 +1,7 @@
 package fiuba.algo3.algochess.view;
 
 import fiuba.algo3.algochess.model.juego.AlgoChess;
+import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 import javafx.application.Application;
 import javafx.geometry.Orientation;
@@ -15,9 +16,11 @@ import java.lang.reflect.*;
 public class Main extends Application {
 
 	public AlgoChess algoChess;
-	private Stage stage;
     public ContenedorTablero contenedorTablero;
     public ContenedorComprarUnidades contenedorComprarUnidades;
+	private Stage stage;
+    private Posicion posicionSeleccionada;
+
 
 	public static void main(String[] args) {
 
@@ -30,7 +33,7 @@ public class Main extends Application {
 		Tablero tablero = (Tablero) field.get(algoChess);
 
 		FlowPane contenedorPrincipal = new FlowPane(Orientation.HORIZONTAL);
-		contenedorComprarUnidades = new ContenedorComprarUnidades(algoChess);
+		contenedorComprarUnidades = new ContenedorComprarUnidades(this);
 		contenedorTablero = new ContenedorTablero(this, tablero);
 
 		contenedorPrincipal.getChildren().addAll(contenedorComprarUnidades.construir(), contenedorTablero.construir());
@@ -73,5 +76,13 @@ public class Main extends Application {
     public void actualizar() {
 	    contenedorComprarUnidades.actualizar(algoChess);
 	    contenedorTablero.actualizar();
+    }
+
+    public void setPosicionSeleccionada(Posicion posicion) {
+	    this.posicionSeleccionada = posicion;
+    }
+
+    public Posicion getPosicionSeleccionada() {
+	    return this.posicionSeleccionada;
     }
 }
