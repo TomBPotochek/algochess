@@ -76,4 +76,7 @@ public class Jugador {
 		return unidades.isEmpty();
 	}
 
+    public String obtenerNombreDeEquipo() {
+		return equipo.obtenerNombre();
+    }
 }

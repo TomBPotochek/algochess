@@ -1,51 +1,27 @@
-package fiuba.algo3.algochess;
+package fiuba.algo3.algochess.view;
 
-import fiuba.algo3.algochess.controller.CasilleroEventHandler;
 import fiuba.algo3.algochess.model.juego.AlgoChess;
 import fiuba.algo3.algochess.model.tablero.Tablero;
-import fiuba.algo3.algochess.view.ContenedorTablero;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.lang.reflect.*;
 
 public class Main extends Application {
 
-	AlgoChess algoChess;
+	public AlgoChess algoChess;
 	private Stage stage;
+    public ContenedorTablero contenedorTablero;
+    public ContenedorComprarUnidades contenedorComprarUnidades;
 
 	public static void main(String[] args) {
 
 		launch(args);
-	}
-
-
-	public VBox dibujarControles() {
-		VBox contenedorControles = new VBox();
-		Text turnoJugador = new Text("Turno de jugador #");
-		Text puntosJ1 = new Text("Puntos restantes de Jugador1");
-		Text puntosJ2 = new Text("Puntos restantes de Jugador2");
-		Button btnJinete = new Button("Comprar Jinete");
-		Button btnSoldado = new Button("Comprar Soldado");
-		Button btnCatapulta = new Button("Comprar Catapulta");
-		Button btnCurandero = new Button("Comprar Curandero");
-		btnJinete.setMaxWidth(Double.MAX_VALUE);
-		btnSoldado.setMaxWidth(Double.MAX_VALUE);
-		btnCatapulta.setMaxWidth(Double.MAX_VALUE);
-		btnCurandero.setMaxWidth(Double.MAX_VALUE);
-
-		contenedorControles.setPadding(new Insets(5,5,5,5));
-		contenedorControles.setSpacing(10);
-		contenedorControles.getChildren().addAll(turnoJugador, btnJinete, btnSoldado, btnCatapulta, btnCurandero, puntosJ1, puntosJ2);
-
-		return contenedorControles;
 	}
 
 	public Scene dibujarEscenaArmadoJuego() throws Exception {
@@ -54,11 +30,10 @@ public class Main extends Application {
 		Tablero tablero = (Tablero) field.get(algoChess);
 
 		FlowPane contenedorPrincipal = new FlowPane(Orientation.HORIZONTAL);
-		VBox contenedorControles = dibujarControles();
-		GridPane contenedorTablero = (new ContenedorTablero(tablero)).construir();
-		contenedorTablero.setMaxHeight(640);
+		contenedorComprarUnidades = new ContenedorComprarUnidades(algoChess);
+		contenedorTablero = new ContenedorTablero(this, tablero);
 
-		contenedorPrincipal.getChildren().addAll(contenedorControles, contenedorTablero);
+		contenedorPrincipal.getChildren().addAll(contenedorComprarUnidades.construir(), contenedorTablero.construir());
 
 		return new Scene(contenedorPrincipal, 640, 480);
 	}
@@ -90,9 +65,13 @@ public class Main extends Application {
 		stage.setTitle("AlgoChess");
 		Scene escenaSeleccionDeEquipos = dibujarEscenaSeleccionDeEquipos();
 
-		stage.setScene(escenaSeleccionDeEquipos);
+        stage.setScene(escenaSeleccionDeEquipos);
         stage.show();
 	}
 
-	
+
+    public void actualizar() {
+	    contenedorComprarUnidades.actualizar(algoChess);
+	    contenedorTablero.actualizar();
+    }
 }

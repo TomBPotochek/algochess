@@ -6,4 +6,6 @@ public class Equipo {
     public Equipo(String nombre){
         this.nombre = nombre;
     }
+
+    public String obtenerNombre() {return nombre;}
 }
