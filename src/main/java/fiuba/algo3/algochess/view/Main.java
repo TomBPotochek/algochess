@@ -3,11 +3,14 @@ package fiuba.algo3.algochess.view;
 import fiuba.algo3.algochess.model.juego.AlgoChess;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.lang.reflect.*;
@@ -40,10 +43,27 @@ public class Main extends Application {
 
 	public Scene dibujarEscenaSeleccionDeEquipos() {
 		FlowPane contenedorSeleccionEquipos = new FlowPane(Orientation.VERTICAL);
-		TextField inputEquipo1 = new TextField("Nombre del primer equipo");
-		TextField inputEquipo2 = new TextField("Nombre del segundo equipo");
+		TextField inputEquipo1 = new TextField("Nombre jugador 1");
+		TextField inputEquipo2 = new TextField("Nombre jugador 2");
+		
+		Font inputFont = Font.font(35);
+		inputEquipo1.setFont(inputFont);
+		inputEquipo2.setFont(inputFont);
+		
+		inputEquipo1.setPrefSize(400, 80);
+		inputEquipo2.setPrefSize(400, 80);
+		
 		Button btnEquiposSeleccionados = new Button("Listo!");
-		contenedorSeleccionEquipos.getChildren().addAll(inputEquipo1, inputEquipo2, btnEquiposSeleccionados);
+		btnEquiposSeleccionados.setPrefSize(200, 50);
+		btnEquiposSeleccionados.setFont(Font.font(20));
+		HBox input1Box = new HBox(inputEquipo1);
+		HBox input2Box = new HBox(inputEquipo2);
+		Insets paddingTextos = new Insets(10,0,10,0); 
+		input1Box.setPadding(paddingTextos);
+		input2Box.setPadding(paddingTextos);
+
+		contenedorSeleccionEquipos.setAlignment(Pos.CENTER);
+		contenedorSeleccionEquipos.getChildren().addAll(input1Box, input2Box, btnEquiposSeleccionados);
 
 		btnEquiposSeleccionados.setOnAction(e -> {
 			algoChess = new AlgoChess(inputEquipo1.getText(), inputEquipo2.getText());
@@ -54,6 +74,7 @@ public class Main extends Application {
 				ex.printStackTrace();
 			}
 			stage.setScene(escenaArmadoDeJuego);
+			stage.setMaximized(true);
 		});
 		return new Scene(contenedorSeleccionEquipos, 640, 480);
 	}
@@ -66,6 +87,7 @@ public class Main extends Application {
 		Scene escenaSeleccionDeEquipos = dibujarEscenaSeleccionDeEquipos();
 
         stage.setScene(escenaSeleccionDeEquipos);
+        stage.setMaximized(true);
         stage.show();
 	}
 
