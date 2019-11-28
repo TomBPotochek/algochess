@@ -16,6 +16,7 @@ import fiuba.algo3.algochess.model.tablero.Tablero;
 import fiuba.algo3.algochess.model.unidad.Catapulta;
 
 import fiuba.algo3.algochess.model.unidad.Curandero;
+import fiuba.algo3.algochess.model.unidad.Soldado;
 import org.junit.Test;
 
 public class CatapultaTest {
@@ -60,17 +61,14 @@ public class CatapultaTest {
 	@Test
 	public void testCatapultaAtacaUnidadEnemigaADistanciaLargaYSeLeRestaLaVidaCorrespondiente() {
 
-		Posicion unaPosicionMock = mock(Posicion.class);
-		Posicion otraPosicionMock = mock(Posicion.class);
-		Tablero tableroMock = mock(Tablero.class);
-		Equipo unEquipoMock = mock(Equipo.class);
-		Equipo otroEquipoMock = mock(Equipo.class);
-		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaLarga());
-		Catapulta unCatapultaAliado = new Catapulta(unaPosicionMock, unEquipoMock);
-		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicionMock, otroEquipoMock);
-
-		unCatapultaAliado.atacar(unCatapultaEnemigo, tableroMock);
-
+		Posicion unaPosicion = new Posicion(2, 3);
+		Posicion otraPosicion = new Posicion(7, 9);
+		Equipo unEquipo = new Equipo("equipo1");
+		Equipo otroEquipo = new Equipo("equipo2");
+		Tablero tablero = new Tablero(20, unEquipo, otroEquipo) ;
+		Catapulta unCatapultaAliado = new Catapulta(unaPosicion, unEquipo);
+		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicion, otroEquipo);
+		unCatapultaAliado.atacar(unCatapultaEnemigo, tablero);
 		assertEquals(unCatapultaEnemigo.getVidaRestante(), 30);
 	}
 
@@ -90,6 +88,52 @@ public class CatapultaTest {
 
 			unCurandero.atacar(unaCatapulta, tablero);
 		});
+
+	}
+
+	@Test
+	public void testCatapultaQuemaALosDemasSiEstanContiguos() {
+
+		Posicion unaPosicion = new Posicion(2, 3);
+		Posicion otraPosicion = new Posicion(17, 19);
+		Posicion segundaPosicion = new Posicion(17, 18);
+		Posicion terceraPosicion = new Posicion(17, 17);
+		Equipo unEquipo = new Equipo("equipo1");
+		Equipo otroEquipo = new Equipo("equipo2");
+		Tablero tablero = new Tablero(20, unEquipo, otroEquipo) ;
+		Catapulta unCatapultaAliado = new Catapulta(unaPosicion, unEquipo);
+		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicion, otroEquipo);
+		Soldado unSoldadoEnemigo = new Soldado(segundaPosicion, otroEquipo);
+		Soldado otroSoldadoEnemigo = new Soldado(terceraPosicion, otroEquipo);
+		tablero.colocarUnidad(unCatapultaEnemigo,otraPosicion);
+		tablero.colocarUnidad(unSoldadoEnemigo, segundaPosicion);
+		tablero.colocarUnidad(otroSoldadoEnemigo, terceraPosicion);
+		unCatapultaAliado.atacar(unCatapultaEnemigo, tablero);
+
+		assertEquals(otroSoldadoEnemigo.getVidaRestante(), 80);
+
+	}
+
+	@Test
+	public void testCatapultaSoloQuemaUnaVezAUnaUnidadEnemiga() {
+
+		Posicion unaPosicion = new Posicion(2, 3);
+		Posicion otraPosicion = new Posicion(17, 19);
+		Posicion segundaPosicion = new Posicion(17, 18);
+		Posicion terceraPosicion = new Posicion(17, 17);
+		Equipo unEquipo = new Equipo("equipo1");
+		Equipo otroEquipo = new Equipo("equipo2");
+		Tablero tablero = new Tablero(20, unEquipo, otroEquipo) ;
+		Catapulta unCatapultaAliado = new Catapulta(unaPosicion, unEquipo);
+		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicion, otroEquipo);
+		Soldado unSoldadoEnemigo = new Soldado(segundaPosicion, otroEquipo);
+		Soldado otroSoldadoEnemigo = new Soldado(terceraPosicion, otroEquipo);
+		tablero.colocarUnidad(unCatapultaEnemigo,otraPosicion);
+		tablero.colocarUnidad(unSoldadoEnemigo, segundaPosicion);
+		tablero.colocarUnidad(otroSoldadoEnemigo, terceraPosicion);
+		unCatapultaAliado.atacar(unCatapultaEnemigo, tablero);
+
+		assertEquals(unCatapultaEnemigo.getVidaRestante(), 30);
 
 	}
 
