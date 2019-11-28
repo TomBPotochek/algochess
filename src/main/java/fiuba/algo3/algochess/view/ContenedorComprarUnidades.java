@@ -1,6 +1,5 @@
 package fiuba.algo3.algochess.view;
 
-import com.sun.source.doctree.TextTree;
 import fiuba.algo3.algochess.controller.ComprarUnidadEventHandler;
 import fiuba.algo3.algochess.model.juego.AlgoChess;
 import javafx.geometry.Insets;

@@ -19,7 +19,8 @@ public class Piedra implements Arma {
 
 	@Override
 	public void ataqueLargo(Unidad unaUnidad) {
-		unaUnidad.recibirDanio(DANIO_DISTANCIA_CATAPULTA);
+//		unaUnidad.quemar();
+//		unaUnidad.recibirDanio(DANIO_DISTANCIA_CATAPULTA);
 		//esto no contempla el danio recursivo de catapulta
 
 	}

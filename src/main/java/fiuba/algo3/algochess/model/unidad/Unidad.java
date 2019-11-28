@@ -16,11 +16,13 @@ public abstract class Unidad {
     protected int danioAtaqueADistancia;
     protected Equipo equipo;
 	protected Arma arma;
+	protected estaQuemado quemado;
 
     public Unidad(Posicion posicionInicial, Equipo equipo) {
 
     	this.posicion = posicionInicial;
     	this.equipo = equipo;
+    	this.quemado = new NoQuemado();
 	}
 
     public Posicion obtenerPosicion() {
@@ -67,7 +69,7 @@ public abstract class Unidad {
 	public void atacar(Unidad unidad, Tablero tablero) {
 		Distancia distancia = this.obtenerPosicion().calcularDistancia(unidad.obtenerPosicion());
 		try {
-			distancia.atacar(unidad, this.arma);		
+			distancia.atacar(unidad, this.arma);
 		} catch (UnidadDestruidaException e) {
 			tablero.quitarUnidad(unidad);
 			throw e;
@@ -81,5 +83,14 @@ public abstract class Unidad {
 	
 	public void reclutar(Soldado unSoldado, Direccion direccionReclutamiento, Tablero tablero) {}
 
+	public void quemar(Tablero tablero){
+    	quemado.quemar(this, tablero);
+    	this.quemado = new NoQuemado();
+	}
+
+	public void cambiarEstadoQuemado(){
+    	quemado = new Quemado();
+	}
 }
+
 
