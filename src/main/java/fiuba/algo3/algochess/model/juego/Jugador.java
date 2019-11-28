@@ -33,9 +33,9 @@ public class Jugador {
 
 	public void guardarUnidad(Tablero tablero, Unidad unidad, Posicion posicion) {
 		if(!this.tienePuntosSuficientes(unidad.obtenerCosto())) throw new PuntosInsuficientesException();
-		puntos -= unidad.obtenerCosto();
 		unidades.add(unidad);
 		tablero.colocarUnidad(unidad, posicion);
+		puntos -= unidad.obtenerCosto();
 	}
 
 	public void comprarSoldado(Tablero tablero, Posicion posicion) {
@@ -79,4 +79,9 @@ public class Jugador {
     public String obtenerNombreDeEquipo() {
 		return equipo.obtenerNombre();
     }
+
+	public int obtenerPuntosRestantes() {
+
+		return puntos;
+	}
 }
