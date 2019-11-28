@@ -1,5 +1,6 @@
 package fiuba.algo3.algochess.view;
 
+import fiuba.algo3.algochess.controller.ComenzarJuegoEventHandler;
 import fiuba.algo3.algochess.controller.ComprarUnidadEventHandler;
 import fiuba.algo3.algochess.model.juego.AlgoChess;
 import javafx.geometry.Insets;
@@ -36,9 +37,12 @@ public class ContenedorComprarUnidades {
         btnCatapulta.setMaxWidth(Double.MAX_VALUE);
         btnCurandero.setMaxWidth(Double.MAX_VALUE);
 
+        Button btnComenzarJuego = new Button("Empezar a jugar");
+        btnComenzarJuego.setOnAction(new ComenzarJuegoEventHandler(app));
+
         contenedor.setPadding(new Insets(5,5,5,5));
         contenedor.setSpacing(10);
-        contenedor.getChildren().addAll(instrucciones, turnoJugador, btnJinete, btnSoldado, btnCatapulta, btnCurandero, puntosJ1, puntosJ2, advertencias);
+        contenedor.getChildren().addAll(instrucciones, turnoJugador, btnJinete, btnSoldado, btnCatapulta, btnCurandero, puntosJ1, puntosJ2, advertencias, btnComenzarJuego);
     }
 
     public VBox construir() {

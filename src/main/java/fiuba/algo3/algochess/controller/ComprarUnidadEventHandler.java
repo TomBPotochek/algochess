@@ -8,7 +8,7 @@ import fiuba.algo3.algochess.view.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class ComprarUnidadEventHandler  implements EventHandler<ActionEvent> {
+public class ComprarUnidadEventHandler implements EventHandler<ActionEvent> {
 
     private Main app;
     private String nombreUnidad;
