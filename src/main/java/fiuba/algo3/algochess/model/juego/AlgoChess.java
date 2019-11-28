@@ -43,8 +43,13 @@ public class AlgoChess {
 		this.turnoSiguiente();
 	}
 
-	public String obtenerTurno() {
+	public String obtenerEquipoTurnoActual() {
 		return jugadores.peek().obtenerNombreDeEquipo();
+	}
+	
+	public int obtenerPuntosTurnoActual() {
+		
+		return jugadores.peek().obtenerPuntosRestantes();
 	}
 
 	private void turnoSiguiente() {

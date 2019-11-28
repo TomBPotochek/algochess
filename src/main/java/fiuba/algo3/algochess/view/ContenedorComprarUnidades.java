@@ -13,15 +13,14 @@ public class ContenedorComprarUnidades {
     private String unidadSeleccionada = "";
     private Text turnoJugador;
     private Text advertencias;
-    private Text puntosJ1;
-    private Text puntosJ2;
+    private Text puntosJugador;
 
     public ContenedorComprarUnidades(AlgoChess algoChess) {
         contenedor = new VBox();
-        turnoJugador = new Text(algoChess.obtenerTurno());
         advertencias = new Text();
-        puntosJ1 = new Text("Puntos restantes de Jugador1");
-        puntosJ2 = new Text("Puntos restantes de Jugador2");
+        turnoJugador = new Text();
+        puntosJugador = new Text(); 
+        actualizar(algoChess);
         Button btnJinete = new Button("Comprar Jinete");
         btnJinete.setOnAction(new ComprarUnidadEventHandler(this, "Jinete"));
         Button btnSoldado = new Button("Comprar Soldado");
@@ -37,7 +36,7 @@ public class ContenedorComprarUnidades {
 
         contenedor.setPadding(new Insets(5,5,5,5));
         contenedor.setSpacing(10);
-        contenedor.getChildren().addAll(turnoJugador, btnJinete, btnSoldado, btnCatapulta, btnCurandero, puntosJ1, puntosJ2, advertencias);
+        contenedor.getChildren().addAll(turnoJugador, btnJinete, btnSoldado, btnCatapulta, btnCurandero, puntosJugador, advertencias);
     }
 
     public VBox construir() {
@@ -49,7 +48,8 @@ public class ContenedorComprarUnidades {
     }
 
     public void actualizar(AlgoChess algoChess) {
-        turnoJugador.setText(algoChess.obtenerTurno());
+        turnoJugador.setText(algoChess.obtenerEquipoTurnoActual());
+        puntosJugador.setText("Puntos restantes: " + String.valueOf(algoChess.obtenerPuntosTurnoActual()));
     }
 
     public void setNombreUnidadSeleccionada(String nombreUnidad) {
