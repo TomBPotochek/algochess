@@ -27,6 +27,14 @@ public class Controller {
         }
     }
 
+    public void comenzarJuegoPrincipal() {
+        try {
+            contenedorGlobal.set(new ContenedorControlesJuego(this), new ContenedorTablero(this, algoChess));
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setPosicionSeleccionada(Posicion posicion) {
         this.posicionSeleccionada = posicion;
     }

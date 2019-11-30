@@ -6,6 +6,7 @@ import fiuba.algo3.algochess.model.juego.AlgoChess;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class ContenedorComprarUnidades extends Contenedor {
@@ -18,6 +19,7 @@ public class ContenedorComprarUnidades extends Contenedor {
     public ContenedorComprarUnidades(Controller controller) {
         contenedor = new VBox();
         advertencias = new Text();
+        advertencias.setFill(Color.RED);
         turnoJugador = new Text();
         puntosJugador = new Text(); 
         actualizar(controller.algoChess);
@@ -34,8 +36,10 @@ public class ContenedorComprarUnidades extends Contenedor {
         btnCatapulta.setMaxWidth(Double.MAX_VALUE);
         btnCurandero.setMaxWidth(Double.MAX_VALUE);
 
-        contenedor.setPadding(new Insets(5,5,5,5));
-        contenedor.getChildren().addAll(turnoJugador, btnJinete, btnSoldado, btnCatapulta, btnCurandero, puntosJugador, advertencias);
+        Button btnComenzarJuegoPrincipal = new Button("Jugar!");
+        btnComenzarJuegoPrincipal.setOnAction(e -> controller.comenzarJuegoPrincipal());
+
+        contenedor.getChildren().addAll(turnoJugador, btnJinete, btnSoldado, btnCatapulta, btnCurandero, puntosJugador, advertencias, btnComenzarJuegoPrincipal);
     }
 
     public String obtenerNombreUnidadSeleccionada() {
