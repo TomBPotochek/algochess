@@ -35,7 +35,8 @@ public abstract class UnidadMovible extends Unidad {
     }
 
     //catapulta no puede recibir vida. solo las unidades movibles
-	public void recibirVida(int vida) {
+    @Override
+	public void recibirVida(float vida) {
 		
 		if (this.vidaRestante + vida < this.vidaInicial)
 			this.vidaRestante += vida;

@@ -18,13 +18,13 @@ public class Catapulta extends Unidad {
         this.vidaRestante = vidaInicial;
         this.costo = COSTO_CATAPULTA;
 		this.posicion = unaPosicion;
-		this.danioAtaqueADistancia = DANIO_DISTANCIA_CATAPULTA;
-		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_CATAPULTA;
+//		this.danioAtaqueADistancia = DANIO_DISTANCIA_CATAPULTA;
+//		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_CATAPULTA;
 		this.arma = new Piedra();
    }
 
 	@Override
-	public void recibirVida(int vida) {
+	public void recibirVida(float vida) {
 		throw new AtaqueInvalidoException();
 	}
 

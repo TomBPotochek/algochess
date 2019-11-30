@@ -23,8 +23,8 @@ public class Soldado extends UnidadMovible {
 		this.vidaInicial = VIDA_SOLDADO;
 		this.vidaRestante = vidaInicial;
 		this.costo = COSTO_SOLDADO;
-		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_SOLDADO;
-		this.danioAtaqueADistancia = DANIO_DISTANCIA_SOLDADO;
+	//	this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_SOLDADO;
+	//	this.danioAtaqueADistancia = DANIO_DISTANCIA_SOLDADO;
 		this.arma = new EspadaLarga();
 
 	}

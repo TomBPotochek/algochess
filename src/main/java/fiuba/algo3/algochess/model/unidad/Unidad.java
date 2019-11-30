@@ -8,12 +8,12 @@ import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 
 public abstract class Unidad {
-    protected int vidaInicial;
-    protected int vidaRestante;
+    protected float vidaInicial;
+    protected float vidaRestante;
     protected int costo;
     protected Posicion posicion;
-    protected int danioAtaqueCuerpoACuerpo;
-    protected int danioAtaqueADistancia;
+   // protected int danioAtaqueCuerpoACuerpo;
+   // protected int danioAtaqueADistancia;
     protected Equipo equipo;
 	protected Arma arma;
 	protected estaQuemado quemado;
@@ -29,7 +29,7 @@ public abstract class Unidad {
         return posicion;
     }
     
-    public void recibirDanio(int danio) throws UnidadDestruidaException {
+    public void recibirDanio(float danio) throws UnidadDestruidaException {
     	
     	this.vidaRestante -= danio;
     	
@@ -38,7 +38,7 @@ public abstract class Unidad {
     	}
     }
     
-    public int getVidaRestante() {
+    public float getVidaRestante() {
 
     	return vidaRestante;
     }
@@ -52,13 +52,7 @@ public abstract class Unidad {
     }
 
     
-	public void recibirVida(int vida) {
-		
-		this.vidaRestante += vida;
-		
-		if (this.vidaRestante > this.vidaInicial)
-			this.vidaRestante = this.vidaInicial;
-	}
+	public abstract void recibirVida(float vida);
     
 
 	public boolean estaMuerto() {

@@ -8,7 +8,7 @@ import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 
 public class Curandero extends UnidadMovible {
-    private int curacion;
+    //private int curacion;
 
     public Curandero(Posicion unaPosicion, Equipo equipo) {
     	super(unaPosicion, equipo);
