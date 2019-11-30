@@ -23,8 +23,7 @@ public class CasilleroEventHandler implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent actionEvent) {
-
         controller.setPosicionSeleccionada(posicion);
-        ((Button) actionEvent.getSource()).setStyle("-fx-background-color: #4AB43F");
+        controller.actualizar();
     }
 }

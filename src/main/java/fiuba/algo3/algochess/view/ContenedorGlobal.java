@@ -2,12 +2,11 @@ package fiuba.algo3.algochess.view;
 
 import fiuba.algo3.algochess.model.juego.AlgoChess;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 
 public class ContenedorGlobal {
     private Stage stage;

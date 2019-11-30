@@ -32,6 +32,7 @@ public class CasillaView {
         } catch (Exception e) {
             button.setText("-");
         }
+        if(posicion.equals(controller.getPosicionSeleccionada())) button.setStyle("-fx-background-color: #4AB43F");
         return button;
     }
 

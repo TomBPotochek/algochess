@@ -1,14 +1,9 @@
 package fiuba.algo3.algochess.view;
 
-import fiuba.algo3.algochess.controller.CasilleroEventHandler;
 import fiuba.algo3.algochess.controller.Controller;
 import fiuba.algo3.algochess.model.juego.AlgoChess;
-import fiuba.algo3.algochess.model.tablero.Casilla;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
