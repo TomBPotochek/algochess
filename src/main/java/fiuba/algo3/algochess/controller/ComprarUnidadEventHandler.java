@@ -10,11 +10,11 @@ import javafx.event.EventHandler;
 
 public class ComprarUnidadEventHandler implements EventHandler<ActionEvent> {
 
-    private Main app;
+    private Controller controller;
     private String nombreUnidad;
 
-    public ComprarUnidadEventHandler(Main app, String nombreUnidad) {
-        this.app = app;
+    public ComprarUnidadEventHandler(Controller controller, String nombreUnidad) {
+        this.controller = controller;
         this.nombreUnidad = nombreUnidad;
     }
 
@@ -22,17 +22,17 @@ public class ComprarUnidadEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
 
         try {
-            app.algoChess.comprar(nombreUnidad, app.getPosicionSeleccionada());
-            app.contenedorComprarUnidades.agregarAdvertencia(null);
+            controller.algoChess.comprar(nombreUnidad, controller.getPosicionSeleccionada());
+            controller.agregarAdvertencia(null);
         } catch (CasillaEnemigaException e) {
-            app.contenedorComprarUnidades.agregarAdvertencia("No se puede colocar unidades en terreno enemigo");
+            controller.agregarAdvertencia("No se puede colocar unidades en terreno enemigo");
         } catch (CasillaOcupadaException e) {
-            app.contenedorComprarUnidades.agregarAdvertencia("No se puede colocar una unidad en una casilla ocupada");
+            controller.agregarAdvertencia("No se puede colocar una unidad en una casilla ocupada");
         } catch (PuntosInsuficientesException e){
-            app.contenedorComprarUnidades.agregarAdvertencia("No podes comprar mas unidades, te quedaste sin puntos");
+            controller.agregarAdvertencia("No podes comprar mas unidades, te quedaste sin puntos");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        app.actualizar();
+        controller.actualizar();
     }
 }

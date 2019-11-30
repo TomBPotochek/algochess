@@ -14,17 +14,17 @@ import javafx.scene.control.Button;
 
 public class CasilleroEventHandler implements EventHandler<ActionEvent> {
 
-    Main app;
+    Controller controller;
     Posicion posicion;
 
-    public CasilleroEventHandler(Main app, Posicion posicion) {
-        this.app = app;
+    public CasilleroEventHandler(Controller controller, Posicion posicion) {
+        this.controller = controller;
         this.posicion = posicion;
     }
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        app.setPosicionSeleccionada(posicion);
+        controller.setPosicionSeleccionada(posicion);
         ((Button) actionEvent.getSource()).setStyle("-fx-background-color: #4AB43F");
     }
 }
