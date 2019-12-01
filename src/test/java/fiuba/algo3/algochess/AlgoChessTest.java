@@ -24,9 +24,7 @@ public class AlgoChessTest {
         algoChess.comprar("Jinete", pos);
         algoChess.mover(pos, direccion);
 
-        Field fieldTablero = AlgoChess.class.getDeclaredField("tablero");
-        fieldTablero.setAccessible(true);
-        Tablero tablero = (Tablero) fieldTablero.get(algoChess);
+        Tablero tablero = algoChess.obtenerTablero();
 
         Assert.assertEquals(tablero.obtenerUnidad(direccion.calcularPosicionSiguiente(pos)).getClass(), Jinete.class);
     }
