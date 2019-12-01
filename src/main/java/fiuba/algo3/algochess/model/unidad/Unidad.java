@@ -1,6 +1,7 @@
 package fiuba.algo3.algochess.model.unidad;
 
 import fiuba.algo3.algochess.model.distancia.Distancia;
+import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
 import fiuba.algo3.algochess.model.tablero.Direccion;
@@ -24,6 +25,8 @@ public abstract class Unidad {
     	this.equipo = equipo;
     	this.quemado = new NoQuemado();
 	}
+
+	public abstract void mover(Direccion direccion, Tablero tablero) throws MovimientoInvalidoException;
 
     public Posicion obtenerPosicion() {
         return posicion;

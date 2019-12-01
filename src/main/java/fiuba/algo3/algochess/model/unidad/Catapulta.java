@@ -4,8 +4,10 @@ import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.*;
 
 import fiuba.algo3.algochess.model.distancia.Distancia;
 import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
+import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 
@@ -22,6 +24,11 @@ public class Catapulta extends Unidad {
 		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_CATAPULTA;
 		this.arma = new Piedra();
    }
+
+	@Override
+	public void mover(Direccion direccion, Tablero tablero) throws MovimientoInvalidoException {
+		throw new MovimientoInvalidoException("La catapulta no puede moverse");
+	}
 
 	@Override
 	public void recibirVida(int vida) {

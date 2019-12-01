@@ -1,5 +1,6 @@
 package fiuba.algo3.algochess.model.juego;
 
+import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 
@@ -54,5 +55,9 @@ public class AlgoChess {
 
 	private void turnoSiguiente() {
 		jugadores.add(jugadores.remove());
+	}
+
+	public void mover(Posicion pos, Direccion direccion) {
+		tablero.obtenerUnidad(pos).mover(direccion, tablero);
 	}
 }
