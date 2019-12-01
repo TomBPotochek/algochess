@@ -1,6 +1,10 @@
 package fiuba.algo3.algochess.model.excepciones;
 
-@SuppressWarnings("serial")
-public class BatallonIncompletoException extends RuntimeException {
+import fiuba.algo3.algochess.model.unidad.Batallon;
 
+@SuppressWarnings("serial")
+public class BatallonIncompletoException extends ModelException {
+    public BatallonIncompletoException() {
+
+    }
 }
