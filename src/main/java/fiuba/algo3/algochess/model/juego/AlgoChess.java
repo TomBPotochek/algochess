@@ -54,10 +54,15 @@ public class AlgoChess {
 	}
 
 	private void turnoSiguiente() {
+	
 		jugadores.add(jugadores.remove());
 	}
 
 	public void mover(Posicion pos, Direccion direccion) {
 		tablero.obtenerUnidad(pos).mover(direccion, tablero);
+	}
+
+	public Tablero obtenerTablero() {
+		return tablero;
 	}
 }

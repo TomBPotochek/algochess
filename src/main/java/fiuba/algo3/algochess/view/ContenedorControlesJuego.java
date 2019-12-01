@@ -26,9 +26,4 @@ public class ContenedorControlesJuego extends Contenedor {
 
         contenedor.getChildren().addAll(btnAtaque, grillaFlechas);
     }
-
-    @Override
-    public void actualizar(AlgoChess algoChess) {
-
-    }
 }

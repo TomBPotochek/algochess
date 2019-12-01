@@ -1,6 +1,5 @@
 package fiuba.algo3.algochess.view;
 
-import fiuba.algo3.algochess.model.juego.AlgoChess;
 import javafx.scene.layout.Pane;
 
 public abstract class Contenedor {
@@ -9,6 +8,4 @@ public abstract class Contenedor {
     public Pane dibujar() {
         return contenedor;
     }
-
-    public abstract void actualizar(AlgoChess algoChess);
 }

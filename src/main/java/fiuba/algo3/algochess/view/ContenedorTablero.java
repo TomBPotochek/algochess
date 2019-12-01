@@ -13,30 +13,27 @@ import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.TAMANIO_TABL
 
 public class ContenedorTablero extends Contenedor {
 
-    private Controller controller;
+    private GridPane contenedor;
     private Tablero tablero;
 
-    public ContenedorTablero(Controller controller, AlgoChess algoChess) throws IllegalAccessException, NoSuchFieldException {
+    public ContenedorTablero(Tablero tablero) {
 
-        Field field = AlgoChess.class.getDeclaredField("tablero");
-        field.setAccessible(true);
-        this.tablero = (Tablero) field.get(algoChess);
-        this.controller = controller;
-        this.contenedor = new GridPane();
+    	this.tablero = tablero;
+    	this.contenedor = new GridPane();
 
         contenedor.setMaxWidth(600);
         contenedor.setMaxHeight(600);
 
-        this.actualizar(algoChess);
+        this.actualizar();
     }
 
-    public void actualizar(AlgoChess algoChess) {
+    public void actualizar() {
         Posicion posicion;
         for(int i = 1; i <= TAMANIO_TABLERO; i++) {
             for(int j = 1; j <= TAMANIO_TABLERO; j++) {
                 posicion = new Posicion(i,j);
                 CasillaView casilla = new CasillaView(tablero.obtenerCasilla(posicion), posicion);
-                ((GridPane)contenedor).add(casilla.construir(this.controller) , i, j);
+           //     ((GridPane)contenedor).add(casilla.construir(this.controller) , i, j);
             }
         }
     }

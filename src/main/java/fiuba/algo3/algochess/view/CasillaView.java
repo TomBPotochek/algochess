@@ -5,7 +5,6 @@ import fiuba.algo3.algochess.controller.Controller;
 import fiuba.algo3.algochess.model.tablero.Casilla;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.unidad.Unidad;
-import fiuba.algo3.algochess.view.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -14,6 +13,7 @@ import javafx.scene.control.Button;
 public class CasillaView {
     Casilla casilla;
     Posicion posicion;
+    Button boton;
 
     public CasillaView(Casilla casilla, Posicion posicion) {
         this.casilla = casilla;
@@ -38,5 +38,10 @@ public class CasillaView {
 
     public Posicion obtenerPosicion() {
         return posicion;
+    }
+    
+    public void onCasillaClick(EventHandler<ActionEvent> e) {
+
+    	boton.setOnAction(e);
     }
 }

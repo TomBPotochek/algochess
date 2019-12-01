@@ -18,8 +18,8 @@ public class ContenedorGlobal {
         this.stage = stage;
     }
 
-    public void set(ComienzoJuegoView comienzoJuegoView)  {
-        stage.setScene(comienzoJuegoView.dibujarEscena());
+    public void cambiarEscena(Scene escena) {
+    	stage.setScene(escena);
     }
 
     public void set(Contenedor contenedorLateral, ContenedorTablero contenedorTablero) {
@@ -43,7 +43,7 @@ public class ContenedorGlobal {
     }
 
     public void actualizar(AlgoChess algoChess) {
-        contenedorLateral.actualizar(algoChess);
-        contenedorTablero.actualizar(algoChess);
+//        contenedorLateral.actualizar(algoChess);
+//        contenedorTablero.actualizar(algoChess);
     }
 }
