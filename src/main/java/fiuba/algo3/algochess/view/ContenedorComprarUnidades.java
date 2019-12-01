@@ -85,4 +85,10 @@ public class ContenedorComprarUnidades extends Contenedor {
     	
     	this.btnComenzarBatalla.setOnAction(e);
     }
+    
+    public void mostrarError(String error) {
+    	
+    	Text errorText = new Text(error);
+    	contenedor.getChildren().add(errorText);
+    }
 }
