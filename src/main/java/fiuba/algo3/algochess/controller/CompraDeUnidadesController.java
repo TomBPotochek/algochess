@@ -18,12 +18,17 @@ public class CompraDeUnidadesController extends AbstractController {
 	@Override
 	public void inicializar() {
 		
-		this.vista.onComprarCatapultaClick(new ComprarUnidadEventHandler(algochess, "Catapulta"));
-		this.vista.onComprarJineteClick(new ComprarUnidadEventHandler(algochess, "Jinete"));
-		this.vista.onComprarCuranderoClick(new ComprarUnidadEventHandler(algochess, "Curandero"));
-		this.vista.onComprarSoldadoClick(new ComprarUnidadEventHandler(algochess, "Soldado"));
-		
-		
+		this.vista.onComprarCatapultaClick(new ComprarUnidadEventHandler(algochess, vista, "Catapulta"));
+		this.vista.onComprarJineteClick(new ComprarUnidadEventHandler(algochess, vista, "Jinete"));
+		this.vista.onComprarCuranderoClick(new ComprarUnidadEventHandler(algochess, vista, "Curandero"));
+		this.vista.onComprarSoldadoClick(new ComprarUnidadEventHandler(algochess, vista, "Soldado"));
+
+		this.vista.onComenzarBatallaClick(e -> {
+			BatallaController siguiente = new BatallaController(contenedorGlobal);
+			siguiente.inicializar();
+		});
+
+		this.renderizar(this.vista);
 	}
 
 }

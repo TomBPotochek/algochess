@@ -29,6 +29,7 @@ public class CasillaView {
         try {
             String unidad = this.casilla.getUnidad().getClass().getName();
             button.setText(String.valueOf(unidad.charAt(35))); // fiuba.algo3.algochess.model.unidad.Soldado hay 35 caracteres hasta la primera letra del nombre de la unidad
+            button.setUserData(posicion);
         } catch (Exception e) {
             button.setText("-");
         }
