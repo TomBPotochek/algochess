@@ -4,9 +4,10 @@ import fiuba.algo3.algochess.model.excepciones.CasillaEnemigaException;
 import fiuba.algo3.algochess.model.excepciones.CasillaLibreException;
 import fiuba.algo3.algochess.model.excepciones.CasillaOcupadaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
+import fiuba.algo3.algochess.model.juego.Observable;
 import fiuba.algo3.algochess.model.unidad.Unidad;
 
-public class Casilla {
+public class Casilla extends Observable {
 	private EstadoCasilla estado;
 	private Equipo equipo;
     
@@ -24,11 +25,16 @@ public class Casilla {
     		this.estado = this.estado.colocarUnidad(unidad);
     	else 
     		throw new CasillaEnemigaException();
+    	
+    	this.notifyObservers();
     }
     
     public Unidad quitar() throws CasillaLibreException {
     	Unidad unidad = this.estado.obtenerUnidad();
     	this.estado = this.estado.quitarUnidad();
+    	
+    	this.notifyObservers();
+
     	return unidad;
     	
     }

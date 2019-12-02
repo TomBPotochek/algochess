@@ -8,22 +8,23 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.TAMANIO_TABLERO;
 
 public class ContenedorTablero extends Contenedor {
 
-    private GridPane contenedor;
     private Tablero tablero;
     private List<CasillaView> casillaViews;
     private TurnoActual turnoActual;
 
     public ContenedorTablero(Tablero tablero, TurnoActual turnoActual) {
 
+    	super();
     	this.tablero = tablero;
     	this.turnoActual = turnoActual;
-    	this.contenedor = new GridPane();
+    	this.casillaViews = new ArrayList<CasillaView>();
 
         contenedor.setMaxWidth(600);
         contenedor.setMaxHeight(600);
@@ -39,7 +40,7 @@ public class ContenedorTablero extends Contenedor {
                 posicion = new Posicion(i,j);
                 CasillaView casilla = new CasillaView(this.turnoActual, tablero.obtenerCasilla(posicion), posicion);
                 casillaViews.add(casilla);
-                ((GridPane)contenedor).add(casilla.construir() , i, j); // TODO: como le llevo el equipo
+                ((GridPane)contenedor).add(casilla.construir() , i, j);
             }
         }
     }

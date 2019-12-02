@@ -8,7 +8,7 @@ import java.util.Queue;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
  
-public class TurnoActual {
+public class TurnoActual extends Observable{
 
 	private Queue<Jugador> jugadores;
 	private Tablero tablero;
@@ -51,6 +51,8 @@ public class TurnoActual {
 	private void turnoSiguiente() {
 
 		jugadores.add(jugadores.remove());		
+		
+		this.notifyObservers();
 	}
 
 	private Jugador obtenerJugador() {
