@@ -2,6 +2,7 @@ package fiuba.algo3.algochess.view;
 
 
 import fiuba.algo3.algochess.model.juego.AlgoChess;
+import fiuba.algo3.algochess.model.juego.TurnoActual;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -11,7 +12,7 @@ import javafx.scene.text.Text;
 
 public class ContenedorComprarUnidades extends Contenedor {
 
-	private AlgoChess algochess;
+	private TurnoActual turnoActual;
     private String unidadSeleccionada = "";
     private Text turnoJugador;
     private Text advertencias;
@@ -22,8 +23,9 @@ public class ContenedorComprarUnidades extends Contenedor {
     private Button btnCurandero;
     private Button btnComenzarBatalla;
 
-    public ContenedorComprarUnidades(AlgoChess algochess) {
-        contenedor = new VBox();
+    public ContenedorComprarUnidades(TurnoActual turnoActual) {
+        this.turnoActual = turnoActual;
+    	contenedor = new VBox();
         advertencias = new Text();
         advertencias.setFill(Color.RED);
         turnoJugador = new Text();
@@ -49,8 +51,8 @@ public class ContenedorComprarUnidades extends Contenedor {
 
 
     public void actualizar() {
-        turnoJugador.setText(algochess.obtenerEquipoTurnoActual());
-        puntosJugador.setText("Puntos restantes: " + String.valueOf(algochess.obtenerPuntosTurnoActual()));
+        turnoJugador.setText(turnoActual.getEquipo().obtenerNombre());
+        puntosJugador.setText("Puntos restantes: " + String.valueOf(turnoActual.obtenerPuntos()));
     }
 
     public void setNombreUnidadSeleccionada(String nombreUnidad) {

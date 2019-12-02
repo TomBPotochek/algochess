@@ -1,20 +1,21 @@
 package fiuba.algo3.algochess.controller;
 
-import fiuba.algo3.algochess.model.juego.AlgoChess;
+import fiuba.algo3.algochess.model.juego.TurnoActual;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.view.CompraDeUnidadesView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
+import javafx.scene.Node;
+
 
 public class ComprarUnidadEventHandler implements EventHandler<ActionEvent> {
 
     private String nombreUnidad;
-    private AlgoChess algochess;
+    private TurnoActual turnoActual;
     private CompraDeUnidadesView vista;
 
-    public ComprarUnidadEventHandler(AlgoChess algochess, CompraDeUnidadesView vista, String nombreUnidad) {
-        this.algochess = algochess;
+    public ComprarUnidadEventHandler(TurnoActual turnoActual, CompraDeUnidadesView vista, String nombreUnidad) {
+        this.turnoActual = turnoActual;
         this.nombreUnidad = nombreUnidad;
         this.vista = vista;
     }
@@ -25,10 +26,10 @@ public class ComprarUnidadEventHandler implements EventHandler<ActionEvent> {
     	vista.pintarTablero();
 
     	vista.onCasillaClick(e -> {
-    		Posicion posicion = (Posicion) ((Button) e.getSource()).getUserData();
-    		
+    		Posicion posicion = (Posicion) ((Node) e.getSource()).getUserData();
+
     		try {
-    			algochess.comprar(this.nombreUnidad, posicion);
+    			turnoActual.comprar(this.nombreUnidad, posicion);
 
     		} catch (Exception ex) {
     			vista.mostrarError(ex.getMessage());

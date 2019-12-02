@@ -16,8 +16,8 @@ public class CompraDeUnidadesView implements AbstractView {
 	
 	public CompraDeUnidadesView(AlgoChess algochess) {
 
-		this.contenedorTablero = new ContenedorTablero(algochess.obtenerTablero());
-		this.contenedorComprarUnidades = new ContenedorComprarUnidades(algochess);
+		this.contenedorTablero = new ContenedorTablero(algochess.obtenerTablero(), algochess.getTurnoActual());
+		this.contenedorComprarUnidades = new ContenedorComprarUnidades(algochess.getTurnoActual());
 	}
 	
 	@Override
@@ -31,9 +31,8 @@ public class CompraDeUnidadesView implements AbstractView {
         tableroBox.setPadding(new Insets(20,20,20,20));
         contenedorPrincipal.setLeft(lateralBox);
         contenedorPrincipal.setCenter(tableroBox);
-//       contenedorPrincipal.setPrefSize(stage.getWidth(), stage.getHeight());
-//        stage.setScene(new Scene(contenedorPrincipal));
-		return new Scene(contenedorPrincipal);
+
+        return new Scene(contenedorPrincipal);
 	}
 
 	public String getTipoDeUnidadSeleccionada() {
@@ -71,7 +70,8 @@ public class CompraDeUnidadesView implements AbstractView {
 	}
 
 	public void onCasillaClick(EventHandler<ActionEvent> e) {
-		// TODO Auto-generated method stub
+
+		this.contenedorTablero.onCasillaClick(e);
 		
 	}
 
