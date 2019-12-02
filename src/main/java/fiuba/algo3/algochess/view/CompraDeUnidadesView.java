@@ -72,7 +72,6 @@ public class CompraDeUnidadesView implements AbstractView {
 	public void onCasillaClick(EventHandler<ActionEvent> e) {
 
 		this.contenedorTablero.onCasillaClick(e);
-		
 	}
 
 	public void mostrarError(String error) {

@@ -49,11 +49,11 @@ public class CasillaView implements Observer {
         boton.setStyle("-fx-border-color: black; -fx-background-color: " + backgroundColor + ";");
         boton.setAlignment(Pos.CENTER);
         boton.setPrefSize(50,50);
+        boton.setUserData(posicion);
 
         try {
             String unidad = this.casilla.getUnidad().getClass().getName();
             boton.setText(String.valueOf(unidad.charAt(35))); // fiuba.algo3.algochess.model.unidad.Soldado hay 35 caracteres hasta la primera letra del nombre de la unidad
-            boton.setUserData(posicion);
         } catch (Exception e) {
             boton.setText("-");
         }

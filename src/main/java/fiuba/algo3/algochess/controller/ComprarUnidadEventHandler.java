@@ -26,6 +26,7 @@ public class ComprarUnidadEventHandler implements EventHandler<ActionEvent> {
     	vista.pintarTablero();
 
     	vista.onCasillaClick(e -> {
+
     		Posicion posicion = (Posicion) ((Node) e.getSource()).getUserData();
 
     		try {

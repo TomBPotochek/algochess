@@ -1,7 +1,7 @@
 package fiuba.algo3.algochess.view;
 
 
-import fiuba.algo3.algochess.model.juego.AlgoChess;
+import fiuba.algo3.algochess.model.juego.Observer;
 import fiuba.algo3.algochess.model.juego.TurnoActual;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class ContenedorComprarUnidades extends Contenedor {
+public class ContenedorComprarUnidades extends Contenedor implements Observer {
 
 	private TurnoActual turnoActual;
     private String unidadSeleccionada = "";
@@ -25,6 +25,7 @@ public class ContenedorComprarUnidades extends Contenedor {
 
     public ContenedorComprarUnidades(TurnoActual turnoActual) {
         this.turnoActual = turnoActual;
+        this.turnoActual.addObserver(this);
     	contenedor = new VBox();
         advertencias = new Text();
         advertencias.setFill(Color.RED);
@@ -49,10 +50,11 @@ public class ContenedorComprarUnidades extends Contenedor {
         return unidadSeleccionada;
     }
 
-
+    @Override
     public void actualizar() {
         turnoJugador.setText(turnoActual.getEquipo().obtenerNombre());
         puntosJugador.setText("Puntos restantes: " + String.valueOf(turnoActual.obtenerPuntos()));
+        advertencias.setText("");
     }
 
     public void setNombreUnidadSeleccionada(String nombreUnidad) {
@@ -89,8 +91,7 @@ public class ContenedorComprarUnidades extends Contenedor {
     }
     
     public void mostrarError(String error) {
-    	
-    	Text errorText = new Text(error);
-    	contenedor.getChildren().add(errorText);
+ 
+    	this.advertencias.setText(error);
     }
 }
