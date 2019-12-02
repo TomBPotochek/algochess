@@ -42,4 +42,8 @@ public class Casilla {
 		return this.estado.obtenerUnidad();
 	}
     
+    public boolean esAliada(Equipo otroEquipo) {
+    	return (this.equipo == otroEquipo);
+	}
+
 }

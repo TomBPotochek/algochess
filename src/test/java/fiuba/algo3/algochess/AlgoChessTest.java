@@ -9,7 +9,6 @@ import fiuba.algo3.algochess.model.unidad.Jinete;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.lang.reflect.Field;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -21,7 +20,7 @@ public class AlgoChessTest {
         Posicion pos = new Posicion(2, 2);
         Direccion direccion = Direccion.NE;
 
-        algoChess.comprar("Jinete", pos);
+        algoChess.getTurnoActual().comprar("Jinete", pos);
         algoChess.mover(pos, direccion);
 
         Tablero tablero = algoChess.obtenerTablero();
@@ -35,7 +34,7 @@ public class AlgoChessTest {
         Posicion pos = new Posicion(2, 2);
         Direccion direccion = Direccion.NE;
 
-        algoChess.comprar("Catapulta", pos);
+        algoChess.getTurnoActual().comprar("Catapulta", pos);
 
         assertThrows(MovimientoInvalidoException.class, () -> {
             algoChess.mover(pos, direccion);

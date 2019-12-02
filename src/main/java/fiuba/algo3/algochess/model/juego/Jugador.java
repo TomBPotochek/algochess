@@ -84,4 +84,9 @@ public class Jugador {
 
 		return puntos;
 	}
+
+	public Equipo getEquipo() {
+		
+		return this.equipo;
+	}
 }

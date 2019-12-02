@@ -4,65 +4,40 @@ import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
 import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.TAMANIO_TABLERO;
 
 public class AlgoChess {
 
 	private Tablero tablero;
-	Queue<Jugador> jugadores;
+	private TurnoActual turnoActual;
 
 	public AlgoChess(String nombreEquipo1, String nombreEquipo2) {
 
 		Equipo equipo1 = new Equipo(nombreEquipo1);
 		Equipo equipo2 = new Equipo(nombreEquipo2);
-		jugadores = new LinkedList<Jugador>();
-
+		List<Jugador> jugadores = new ArrayList<Jugador>();
 		jugadores.add(new Jugador(equipo1));
 		jugadores.add(new Jugador(equipo2));
+
 		this.tablero = new Tablero(TAMANIO_TABLERO, equipo1, equipo2);
-	}
-
-	public void comprar(String nombreUnidad, Posicion posicion) throws Exception {
-		switch (nombreUnidad) {
-			case "Soldado":
-				jugadores.peek().comprarSoldado(tablero, posicion);
-				break;
-			case "Jinete":
-				jugadores.peek().comprarJinete(tablero, posicion);
-				break;
-			case "Catapulta":
-				jugadores.peek().comprarCatapulta(tablero, posicion);
-				break;
-			case "Curandero":
-				jugadores.peek().comprarCurandero(tablero, posicion);
-				break;
-		}
-
-		this.turnoSiguiente();
-	}
-
-	public String obtenerEquipoTurnoActual() {
-		return jugadores.peek().obtenerNombreDeEquipo();
+		this.turnoActual = new TurnoActual(jugadores, tablero);
 	}
 	
-	public int obtenerPuntosTurnoActual() {
-		
-		return jugadores.peek().obtenerPuntosRestantes();
-	}
-
-	private void turnoSiguiente() {
-	
-		jugadores.add(jugadores.remove());
-	}
 
 	public void mover(Posicion pos, Direccion direccion) {
+		
 		tablero.obtenerUnidad(pos).mover(direccion, tablero);
 	}
 
 	public Tablero obtenerTablero() {
 		return tablero;
+	}
+
+	public TurnoActual getTurnoActual() {
+		
+		return turnoActual;
 	}
 }
