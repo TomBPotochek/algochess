@@ -23,7 +23,6 @@ public class BatallaView implements AbstractView {
 		BorderPane contenedorPrincipal = new BorderPane();
 		Pane lateralBox = contenedorControlesJuego.dibujar();
 		Pane tableroBox = contenedorTablero.dibujar();
-		lateralBox.setPrefWidth(400);
 		lateralBox.setPadding(new Insets(20,20,20,20));
 		tableroBox.setPadding(new Insets(20,20,20,20));
 		contenedorPrincipal.setLeft(lateralBox);

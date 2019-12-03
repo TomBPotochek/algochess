@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
 
 public class CompraDeUnidadesView implements AbstractView {
 
@@ -26,13 +27,12 @@ public class CompraDeUnidadesView implements AbstractView {
         BorderPane contenedorPrincipal = new BorderPane();
         Pane lateralBox = contenedorComprarUnidades.dibujar();
         Pane tableroBox = contenedorTablero.dibujar();
-        lateralBox.setPrefWidth(400);
         lateralBox.setPadding(new Insets(20,20,20,20));
         tableroBox.setPadding(new Insets(20,20,20,20));
         contenedorPrincipal.setLeft(lateralBox);
         contenedorPrincipal.setCenter(tableroBox);
 
-        return new Scene(contenedorPrincipal);
+        return new Scene(contenedorPrincipal, Screen.getPrimary().getVisualBounds().getWidth(), Screen.getPrimary().getVisualBounds().getHeight());
 	}
 
 	public String getTipoDeUnidadSeleccionada() {
