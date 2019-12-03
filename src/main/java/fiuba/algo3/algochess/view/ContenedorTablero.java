@@ -6,6 +6,7 @@ import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
@@ -26,11 +27,7 @@ public class ContenedorTablero extends Contenedor {
     	this.turnoActual = turnoActual;
     	this.casillaViews = new ArrayList<CasillaView>();
 
-        contenedor.setMaxWidth(600);
-        contenedor.setMaxHeight(600);
-
-        // TODO: observar a tablero
-        this.actualizar();
+		this.actualizar();
     }
 
     public void actualizar() {
@@ -43,6 +40,8 @@ public class ContenedorTablero extends Contenedor {
                 ((GridPane)contenedor).add(casilla.construir() , i, j);
             }
         }
+        
+        contenedor.setPadding(new Insets(10));
     }
 
 	public void onCasillaClick(EventHandler<ActionEvent> e) {

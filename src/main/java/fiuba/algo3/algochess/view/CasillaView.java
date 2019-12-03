@@ -48,7 +48,7 @@ public class CasillaView implements Observer {
         String backgroundColor = casilla.esAliada(this.turnoActual.getEquipo()) ? "#56ff00" : "#ff0000";
         boton.setStyle("-fx-border-color: black; -fx-background-color: " + backgroundColor + ";");
         boton.setAlignment(Pos.CENTER);
-        boton.setPrefSize(50,50);
+        boton.setPrefSize(50,37);
         boton.setUserData(posicion);
 
         try {
