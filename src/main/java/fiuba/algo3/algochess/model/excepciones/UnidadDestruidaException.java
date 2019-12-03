@@ -6,6 +6,6 @@ public class UnidadDestruidaException extends ModelException {
     }
 
     public UnidadDestruidaException() {
-        
+
     }
 }

@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
  
@@ -40,6 +41,12 @@ public class TurnoActual extends Observable{
 				break;
 		}
 
+		this.turnoSiguiente();
+	}
+
+	public void mover(Posicion pos, Direccion direccion) {
+
+		obtenerJugador().mover(tablero, pos, direccion);
 		this.turnoSiguiente();
 	}
 

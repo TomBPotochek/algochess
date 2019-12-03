@@ -6,6 +6,6 @@ public class MovimientoInvalidoException extends ModelException {
 		super(string);
 	}
 	public MovimientoInvalidoException() {
-
+		super("Movimiento invalido");
 	}
 }

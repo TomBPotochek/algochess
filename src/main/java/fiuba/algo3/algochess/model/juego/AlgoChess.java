@@ -25,12 +25,7 @@ public class AlgoChess {
 		this.tablero = new Tablero(TAMANIO_TABLERO, equipo1, equipo2);
 		this.turnoActual = new TurnoActual(jugadores, tablero);
 	}
-	
 
-	public void mover(Posicion pos, Direccion direccion) {
-		
-		tablero.obtenerUnidad(pos).mover(direccion, tablero);
-	}
 
 	public Tablero obtenerTablero() {
 		return tablero;

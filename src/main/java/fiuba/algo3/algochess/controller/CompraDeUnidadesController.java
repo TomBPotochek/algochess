@@ -24,7 +24,7 @@ public class CompraDeUnidadesController extends AbstractController {
 		this.vista.onComprarSoldadoClick(new ComprarUnidadEventHandler(algochess.getTurnoActual(), vista, "Soldado"));
 
 		this.vista.onComenzarBatallaClick(e -> {
-			BatallaController siguiente = new BatallaController(contenedorGlobal);
+			BatallaController siguiente = new BatallaController(contenedorGlobal, algochess);
 			siguiente.inicializar();
 		});
 

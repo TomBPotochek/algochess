@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class AlgoChessTest {
+public class TurnoActualTest {
 
     @Test
     public void test01seMueveUnaUnidadCorrectamente() throws Exception {
@@ -21,7 +21,9 @@ public class AlgoChessTest {
         Direccion direccion = Direccion.NE;
 
         algoChess.getTurnoActual().comprar("Jinete", pos);
-        algoChess.mover(pos, direccion);
+        // hago una compra para que sea el turno de Equipo1
+        algoChess.getTurnoActual().comprar("Jinete", new Posicion(12,12));
+        algoChess.getTurnoActual().mover(pos, direccion);
 
         Tablero tablero = algoChess.obtenerTablero();
 
@@ -37,7 +39,7 @@ public class AlgoChessTest {
         algoChess.getTurnoActual().comprar("Catapulta", pos);
 
         assertThrows(MovimientoInvalidoException.class, () -> {
-            algoChess.mover(pos, direccion);
+            algoChess.getTurnoActual().mover(pos, direccion);
         });
     }
 }
