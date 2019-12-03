@@ -52,12 +52,28 @@ public class ContenedorComprarUnidades extends Contenedor implements Observer {
 
     @Override
     public void actualizar() {
-        turnoJugador.setText(turnoActual.getEquipo().obtenerNombre());
-        puntosJugador.setText("Puntos restantes: " + String.valueOf(turnoActual.obtenerPuntos()));
+        
+    	int puntosJugador = turnoActual.obtenerPuntos();
+    	
+    	turnoJugador.setText(turnoActual.getEquipo().obtenerNombre());
+        this.puntosJugador.setText("Puntos restantes: " + String.valueOf(puntosJugador));
+        
+        if (puntosJugador == 0)
+        	this.deshabilitarCompra();
+
         advertencias.setText("");
     }
 
-    public void setNombreUnidadSeleccionada(String nombreUnidad) {
+    private void deshabilitarCompra() {
+		
+    	btnCatapulta.setDisable(true);
+    	btnCurandero.setDisable(true);
+    	btnJinete.setDisable(true);
+    	btnSoldado.setDisable(true);
+		
+	}
+
+	public void setNombreUnidadSeleccionada(String nombreUnidad) {
         this.unidadSeleccionada = nombreUnidad;
     }
 

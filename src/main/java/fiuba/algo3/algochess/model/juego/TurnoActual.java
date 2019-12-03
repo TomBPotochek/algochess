@@ -11,13 +11,17 @@ import fiuba.algo3.algochess.model.tablero.Tablero;
  
 public class TurnoActual extends Observable{
 
-	private Queue<Jugador> jugadores;
+	private Queue<Jugador> colaJugadores;
+	private List<Jugador> jugadores;
 	private Tablero tablero;
+	private boolean jugadoresListos;
 
 	public TurnoActual(List<Jugador> jugadores, Tablero tablero) {
 		
 		this.tablero = tablero;
-		this.jugadores = new LinkedList<Jugador>(jugadores);
+		this.jugadores = jugadores;
+		this.jugadoresListos = false;
+		this.colaJugadores = new LinkedList<Jugador>(jugadores);
 	}
 
 	public Equipo getEquipo() {
@@ -57,14 +61,30 @@ public class TurnoActual extends Observable{
 
 	private void turnoSiguiente() {
 
-		jugadores.add(jugadores.remove());		
+		colaJugadores.add(colaJugadores.remove());		
 		
 		this.notifyObservers();
 	}
 
 	private Jugador obtenerJugador() {
 		
-		return jugadores.peek();
+		return colaJugadores.peek();
 	}
 
+	public void finalizarCompra() {
+
+		colaJugadores.remove();
+		
+		if (colaJugadores.isEmpty()) {
+			colaJugadores = new LinkedList<Jugador>(jugadores);
+			jugadoresListos = true;
+		}
+		
+		this.notifyObservers();
+	}
+
+	public boolean jugadoresListos() {
+
+		return jugadoresListos;
+	}
 }
