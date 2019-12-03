@@ -1,13 +1,16 @@
 package fiuba.algo3.algochess.view;
 
+import fiuba.algo3.algochess.model.juego.Observer;
+import fiuba.algo3.algochess.model.juego.TurnoActual;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class ContenedorControlesJuego extends Contenedor {
+public class ContenedorControlesJuego extends Contenedor implements Observer {
 
     GridPane grillaFlechas;
     Button btnFlechaNorte;
@@ -18,12 +21,21 @@ public class ContenedorControlesJuego extends Contenedor {
     Button btnFlechaSurOeste;
     Button btnFlechaOeste;
     Button btnFlechaNorOeste;
+    private TurnoActual turnoActual;
+    private Text turnoJugador;
     private Text advertencias;
 
-    public ContenedorControlesJuego() {
+    public ContenedorControlesJuego(TurnoActual turnoActual) {
+        this.turnoActual = turnoActual;
+        this.turnoActual.addObserver(this);
+        turnoJugador = new Text();
+        advertencias = new Text();
+        advertencias.setFill(Color.RED);
+
+        actualizar();
+
         contenedor = new VBox();
         Button btnAtaque = new Button("Atacar");
-
         grillaFlechas = new GridPane();
         btnFlechaNorte = new Button("->");
         grillaFlechas.add(btnFlechaNorte, 1, 0);
@@ -42,9 +54,13 @@ public class ContenedorControlesJuego extends Contenedor {
         btnFlechaNorOeste = new Button("->");
         grillaFlechas.add(btnFlechaNorOeste, 0, 0);
 
-        advertencias = new Text();
+        contenedor.getChildren().addAll(turnoJugador, btnAtaque, grillaFlechas, advertencias);
+    }
 
-        contenedor.getChildren().addAll(btnAtaque, grillaFlechas, advertencias);
+    public void actualizar() {
+
+        turnoJugador.setText(turnoActual.getEquipo().obtenerNombre());
+        advertencias.setText("");
     }
 
     public void onMoverNorteClick(EventHandler<ActionEvent> e) {
