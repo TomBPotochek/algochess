@@ -4,6 +4,7 @@ import fiuba.algo3.algochess.model.distancia.Distancia;
 import fiuba.algo3.algochess.model.distancia.DistanciaCorta;
 import fiuba.algo3.algochess.model.distancia.DistanciaLarga;
 import fiuba.algo3.algochess.model.distancia.DistanciaMedia;
+import fiuba.algo3.algochess.model.excepciones.PosicionFueraDeRangoException;
 import fiuba.algo3.algochess.model.excepciones.PosicionInvalidaException;
 
 import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.TAMANIO_TABLERO;
@@ -20,7 +21,7 @@ public class Posicion {
     		posX = coordenadaX;
     		posY = coordenadaY;
     	}
-    	else throw new PosicionInvalidaException("posicion fuera de rango");
+    	else throw new PosicionFueraDeRangoException();
     }
     public int obtenerCoordenadaX() {
         return posX;

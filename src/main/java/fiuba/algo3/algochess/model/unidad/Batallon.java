@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import fiuba.algo3.algochess.model.excepciones.BatallonIncompletoException;
+import fiuba.algo3.algochess.model.excepciones.MovimientoBatallonInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
@@ -52,7 +53,7 @@ public class Batallon {
 		}
 
 		if (this.soldados.size() == CANTIDAD_SOLDADOS_BATALLON)
-			throw new MovimientoInvalidoException("Movimiento de batallon invalido");
+			throw new MovimientoBatallonInvalidoException();
 		
 	}
 }

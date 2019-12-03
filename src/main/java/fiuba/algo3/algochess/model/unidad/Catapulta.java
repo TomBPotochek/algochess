@@ -4,6 +4,7 @@ import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.*;
 
 import fiuba.algo3.algochess.model.distancia.Distancia;
 import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
+import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoCatapultaException;
 import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
@@ -27,7 +28,7 @@ public class Catapulta extends Unidad {
 
 	@Override
 	public void mover(Direccion direccion, Tablero tablero) throws MovimientoInvalidoException {
-		throw new MovimientoInvalidoException("La catapulta no puede moverse");
+		throw new MovimientoInvalidoCatapultaException();
 	}
 
 	@Override

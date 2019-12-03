@@ -24,7 +24,7 @@ public class Casilla extends Observable {
     	if (unidad.esAliada(this.equipo))
     		this.estado = this.estado.colocarUnidad(unidad);
     	else 
-    		throw new CasillaEnemigaException("No es posible colocar una unidad aliada en territorio enemigo");
+    		throw new CasillaEnemigaException();
     	
     	this.notifyObservers();
     }
