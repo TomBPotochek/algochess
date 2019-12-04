@@ -67,7 +67,9 @@ public class TurnoActual extends Observable{
 
 	private void turnoSiguiente() {
 
-		colaJugadores.add(colaJugadores.remove());		
+		obtenerJugador().limpiarUnidadesMuertas(tablero);
+		colaJugadores.add(colaJugadores.remove());
+		obtenerJugador().limpiarUnidadesMuertas(tablero);
 		
 		this.notifyObservers();
 	}

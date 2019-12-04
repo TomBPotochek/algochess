@@ -78,7 +78,7 @@ public class Jugador {
 		}
 	}
 
-	public void limpiarUnidadesMuertas() {
+	public void limpiarUnidadesMuertas(Tablero tablero) {
 
 		Iterator<Unidad> iter = unidades.iterator();
 		Unidad unidad;
@@ -87,6 +87,7 @@ public class Jugador {
 			unidad = (Unidad) iter.next();
 			if(unidad.estaMuerto()) {
 				iter.remove();
+				tablero.quitarUnidad(unidad);
 			}
 		}
 	 }

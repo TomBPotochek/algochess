@@ -68,7 +68,7 @@ public class JugadorTest {
 			soldadoGanador2.atacar(posSoldadoPerdedor2, tablero);
     	}
     	
-    	jugadorPerdedor.limpiarUnidadesMuertas();
+    	jugadorPerdedor.limpiarUnidadesMuertas(tablero);
 
     	assertEquals(jugadorPerdedor.esPerdedor(), true);
     }
