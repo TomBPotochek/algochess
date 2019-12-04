@@ -87,15 +87,17 @@ public abstract class Unidad {
 	
 	public void reclutar(Soldado unSoldado, Direccion direccionReclutamiento, Tablero tablero) {}
 
-	public void quemar(Tablero tablero) {
-		try {
-			quemado.quemar(this, tablero);
-			this.quemado = new NoQuemado();
-		} catch (UnidadQuemadaException e) {}
+	public void quemar(Tablero tablero, Catapulta catapulta) {
+		quemado.quemar(this, tablero, catapulta);
+		catapulta.agregarAMatafuego(this);
 	}
 
 	public void cambiarEstadoQuemado(){
     	quemado = new Quemado();
+	}
+
+	public void cambiarEstadoNoQuemado(){
+		quemado = new NoQuemado();
 	}
 }
 

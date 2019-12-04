@@ -14,7 +14,6 @@ import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.*;
 
 public class Soldado extends UnidadMovible {
 
-
 	private Batallon batallon;
 
 	public Soldado(Posicion unaPosicion, Equipo equipo) {
