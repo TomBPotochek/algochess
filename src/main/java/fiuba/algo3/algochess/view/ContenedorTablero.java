@@ -50,4 +50,11 @@ public class ContenedorTablero extends Contenedor {
 		}
 	}
 
+	public void onUnidadClick(EventHandler<ActionEvent> e) {
+
+		for (CasillaView casillaView : casillaViews) {
+			casillaView.onUnidadClick(e);
+		}
+	}
+
 }

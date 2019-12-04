@@ -2,6 +2,7 @@ package fiuba.algo3.algochess.model.unidad;
 
 import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.CasillaLibreException;
+import fiuba.algo3.algochess.model.excepciones.PosicionFueraDeRangoException;
 import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
@@ -9,7 +10,8 @@ import fiuba.algo3.algochess.model.tablero.Tablero;
 public class NoQuemado extends estaQuemado {
 
     @Override
-    public void quemar(Posicion posicion, float danio, Tablero tablero) {
+    public void quemar(Posicion posicion, float danio, Tablero tablero, Catapulta catapulta) {
+
 
         tablero.atacar(posicion, danio);
         tablero.obtenerUnidad(posicion).cambiarEstadoQuemado();
@@ -17,9 +19,8 @@ public class NoQuemado extends estaQuemado {
         for (Direccion unaDireccion : Direccion.values()) {
             try{
                 Unidad unaUnidadContigua = tablero.obtenerUnidad(unaDireccion.calcularPosicionSiguiente(posicion));
-                unaUnidadContigua.quemar(danio, tablero);
-            } catch (CasillaLibreException e) {}
+                unaUnidadContigua.quemar(danio, tablero, catapulta);
+            } catch (CasillaLibreException | PosicionFueraDeRangoException e) {}
         }
-
     }
 }

@@ -1,5 +1,6 @@
 package fiuba.algo3.algochess.model.juego;
 
+import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.PuntosInsuficientesException;
 import fiuba.algo3.algochess.model.tablero.Direccion;
@@ -66,6 +67,14 @@ public class Jugador {
 			tablero.obtenerUnidad(posicion).mover(direccion, tablero);
 		} else {
 			throw new MovimientoInvalidoException();
+		}
+	}
+
+	public void atacar(Posicion pos, Posicion posEnemigo, Tablero tablero) {
+		if (tablero.obtenerUnidad(pos).esAliada(equipo)) {
+			tablero.obtenerUnidad(pos).atacar(posEnemigo, tablero);
+		} else {
+			throw new AtaqueInvalidoException();
 		}
 	}
 

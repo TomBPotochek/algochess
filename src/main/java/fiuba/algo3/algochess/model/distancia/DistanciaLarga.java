@@ -1,5 +1,6 @@
 package fiuba.algo3.algochess.model.distancia;
 
+import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.DISTANCIA_LARGA_DESDE;
 import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.TAMANIO_TABLERO;
 
 import fiuba.algo3.algochess.model.unidad.Arma;
@@ -7,7 +8,7 @@ import fiuba.algo3.algochess.model.unidad.Arma;
 public class DistanciaLarga extends Distancia {
 	
 	public DistanciaLarga() {
-		super(6, TAMANIO_TABLERO);
+		super(DISTANCIA_LARGA_DESDE, TAMANIO_TABLERO);
 	}
 
 	@Override

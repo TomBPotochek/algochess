@@ -13,6 +13,9 @@ import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 
 public class Catapulta extends Unidad {
+
+	private Matafuego matafuego;
+
     public Catapulta(Posicion unaPosicion, Equipo equipo) {
 
     	super(unaPosicion, equipo);
@@ -21,9 +24,8 @@ public class Catapulta extends Unidad {
         this.vidaRestante = vidaInicial;
         this.costo = COSTO_CATAPULTA;
 		this.posicion = unaPosicion;
-//		this.danioAtaqueADistancia = DANIO_DISTANCIA_CATAPULTA;
-//		this.danioAtaqueCuerpoACuerpo = DANIO_ARMA_CATAPULTA;
 		this.arma = new Piedra();
+		this.matafuego = new Matafuego();
    }
 
 	@Override
@@ -41,7 +43,16 @@ public class Catapulta extends Unidad {
 		Distancia distancia = this.obtenerPosicion().calcularDistancia(posicion);
 		float danio = distancia.atacar(this.arma);
 		Unidad unidad = tablero.obtenerUnidad(posicion);
-		unidad.quemar(danio, tablero);
+		unidad.quemar(danio, tablero, this);
+		this.matafuego.usar();
+	}
+
+	public void agregarAMatafuego(Unidad unidad) {
+    	this.matafuego.agregar(unidad);
+	}
+
+	public void usarMatafuego() {
+    	this.matafuego.usar();
 	}
 	
 }

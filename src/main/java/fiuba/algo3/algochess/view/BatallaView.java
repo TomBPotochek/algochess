@@ -34,6 +34,10 @@ public class BatallaView implements AbstractView {
 		this.contenedorTablero.onCasillaClick(e);
 	}
 
+	public void onAtacarClick(EventHandler<ActionEvent> e) {
+		this.contenedorControlesJuego.onAtacarClick(e);
+	}
+
 	public void onMoverNorteClick(EventHandler<ActionEvent> e) {
 		this.contenedorControlesJuego.onMoverNorteClick(e);
 	}
@@ -67,4 +71,18 @@ public class BatallaView implements AbstractView {
 		this.contenedorTablero.actualizar();
 	}
 
+	public void onUnidadClick(EventHandler<ActionEvent> e) {
+
+		this.contenedorTablero.onUnidadClick(e);
+	}
+
+	public void habilitarControles() {
+
+		this.contenedorControlesJuego.deshabilitarControles(false);
+	}
+
+	public void deshabilitarControles() {
+		
+		this.contenedorControlesJuego.deshabilitarControles(true);
+	}
 }

@@ -8,8 +8,8 @@ import fiuba.algo3.algochess.model.excepciones.PosicionFueraDeRangoException;
 import fiuba.algo3.algochess.model.excepciones.PosicionInvalidaException;
 
 import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.TAMANIO_TABLERO;
-import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.DISTANCIA_CORTA;
-import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.DISTANCIA_MEDIA;
+import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.DISTANCIA_CORTA_HASTA;
+import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.DISTANCIA_MEDIA_HASTA;
 
 //import java.util.ArrayList;
 import java.util.Objects;
@@ -43,8 +43,8 @@ public class Posicion {
         int ladoA =  Math.abs(this.posX - otraPosicion.obtenerCoordenadaX());
         int ladoB = Math.abs(this.posY - otraPosicion.obtenerCoordenadaY());
         int distancia = Math.max(ladoA, ladoB);
-        if(distancia < DISTANCIA_CORTA) return new DistanciaCorta();
-        else if(distancia < DISTANCIA_MEDIA) return new DistanciaMedia();
+        if(distancia <= DISTANCIA_CORTA_HASTA) return new DistanciaCorta();
+        else if(distancia <= DISTANCIA_MEDIA_HASTA) return new DistanciaMedia();
         else return new DistanciaLarga();
     }
     

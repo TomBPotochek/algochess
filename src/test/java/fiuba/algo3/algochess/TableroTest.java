@@ -127,7 +127,7 @@ public class TableroTest {
 
 		assertThrows(CasillaLibreException.class, () -> {
 
-			tablero.obtenerCasilla(otraPosicion).getEstado().obtenerUnidad();
+			tablero.obtenerCasilla(otraPosicion).getUnidad();
 		});
 
 
