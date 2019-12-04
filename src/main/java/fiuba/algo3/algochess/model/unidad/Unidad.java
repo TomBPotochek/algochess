@@ -3,6 +3,7 @@ package fiuba.algo3.algochess.model.unidad;
 import fiuba.algo3.algochess.model.distancia.Distancia;
 import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
+import fiuba.algo3.algochess.model.excepciones.UnidadQuemadaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
 import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
@@ -86,9 +87,11 @@ public abstract class Unidad {
 	
 	public void reclutar(Soldado unSoldado, Direccion direccionReclutamiento, Tablero tablero) {}
 
-	public void quemar(Tablero tablero){
-    	quemado.quemar(this, tablero);
-    	this.quemado = new NoQuemado();
+	public void quemar(Tablero tablero) {
+		try {
+			quemado.quemar(this, tablero);
+			this.quemado = new NoQuemado();
+		} catch (UnidadQuemadaException e) {}
 	}
 
 	public void cambiarEstadoQuemado(){
