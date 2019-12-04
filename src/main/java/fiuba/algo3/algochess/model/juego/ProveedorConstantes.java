@@ -19,4 +19,9 @@ public class ProveedorConstantes {
     public static int PUNTOS_INICIALES = 20;
     public static int TAMANIO_TABLERO = 20;
     public static int CANTIDAD_SOLDADOS_BATALLON = 3;
+    public static int DISTANCIA_CORTA_DESDE = 1;
+    public static int DISTANCIA_CORTA_HASTA = 2;
+    public static int DISTANCIA_MEDIA_DESDE = 3;
+    public static int DISTANCIA_MEDIA_HASTA = 5;
+    public static int DISTANCIA_LARGA_DESDE = 6;
 }

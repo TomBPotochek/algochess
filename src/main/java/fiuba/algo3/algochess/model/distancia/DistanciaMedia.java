@@ -3,10 +3,13 @@ package fiuba.algo3.algochess.model.distancia;
 import fiuba.algo3.algochess.model.unidad.Arma;
 import fiuba.algo3.algochess.model.unidad.Unidad;
 
+import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.DISTANCIA_MEDIA_DESDE;
+import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.DISTANCIA_MEDIA_HASTA;
+
 public class DistanciaMedia extends Distancia {
 	
 	public DistanciaMedia() {
-		super(3,5);
+		super(DISTANCIA_MEDIA_DESDE, DISTANCIA_MEDIA_HASTA);
 	}
 
 	@Override
