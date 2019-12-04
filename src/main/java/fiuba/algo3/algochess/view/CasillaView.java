@@ -1,6 +1,7 @@
 package fiuba.algo3.algochess.view;
 
 
+import fiuba.algo3.algochess.model.excepciones.CasillaLibreException;
 import fiuba.algo3.algochess.model.juego.Observer;
 import fiuba.algo3.algochess.model.juego.TurnoActual;
 import fiuba.algo3.algochess.model.tablero.Casilla;
@@ -58,5 +59,15 @@ public class CasillaView implements Observer {
             boton.setText("-");
         }
 
+	}
+
+	public void onUnidadClick(EventHandler<ActionEvent> e) {
+		
+		try {
+			this.casilla.getUnidad();
+			this.boton.setOnAction(e);
+		
+		} catch (CasillaLibreException ex) {}
+		
 	}
 }

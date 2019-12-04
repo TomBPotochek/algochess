@@ -1,14 +1,14 @@
 package fiuba.algo3.algochess.controller;
 
 import fiuba.algo3.algochess.model.juego.AlgoChess;
-import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.view.BatallaView;
 import fiuba.algo3.algochess.view.ContenedorGlobal;
 
-public class BatallaController extends AbstractController {
+public class BatallaController extends AbstractController{
 
 	private BatallaView vista;
 	private AlgoChess algoChess;
+	
 
 	public BatallaController(ContenedorGlobal contenedorGlobal, AlgoChess algoChess) {
 
@@ -22,18 +22,8 @@ public class BatallaController extends AbstractController {
 	public void inicializar() {
 		// TODO Auto-generated method stub
 
-		vista.onAtacarClick(new AtacarEventHandler(algoChess.getTurnoActual(), vista));
-		vista.onMoverNorteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.N));
-		vista.onMoverNorEsteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.NE));
-		vista.onMoverEsteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.E));
-		vista.onMoverSurEsteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.SE));
-		vista.onMoverSurClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.S));
-		vista.onMoverSurOesteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.SO));
-		vista.onMoverOesteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.O));
-		vista.onMoverNorOesteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.NO));
-
-
+		vista.onUnidadClick(new UnidadClickEventHandler(vista, algoChess.getTurnoActual()));
 		this.renderizar(this.vista);
+		vista.deshabilitarControles();
 	}
-
 }

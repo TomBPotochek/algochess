@@ -71,4 +71,18 @@ public class BatallaView implements AbstractView {
 		this.contenedorTablero.actualizar();
 	}
 
+	public void onUnidadClick(EventHandler<ActionEvent> e) {
+
+		this.contenedorTablero.onUnidadClick(e);
+	}
+
+	public void habilitarControles() {
+
+		this.contenedorControlesJuego.deshabilitarControles(false);
+	}
+
+	public void deshabilitarControles() {
+		
+		this.contenedorControlesJuego.deshabilitarControles(true);
+	}
 }

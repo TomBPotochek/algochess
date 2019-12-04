@@ -12,19 +12,19 @@ import javafx.scene.text.Text;
 
 public class ContenedorControlesJuego extends Contenedor implements Observer {
 
-    GridPane grillaFlechas;
-    Button btnAtaque;
-    Button btnFlechaNorte;
-    Button btnFlechaNorEste;
-    Button btnFlechaEste;
-    Button btnFlechaSurEste;
-    Button btnFlechaSur;
-    Button btnFlechaSurOeste;
-    Button btnFlechaOeste;
-    Button btnFlechaNorOeste;
     private TurnoActual turnoActual;
     private Text turnoJugador;
     private Text advertencias;
+    private GridPane grillaFlechas;
+    private Button btnFlechaNorte;
+    private Button btnFlechaNorEste;
+    private Button btnFlechaEste;
+    private Button btnFlechaSurEste;
+    private Button btnFlechaSur;
+    private Button btnFlechaSurOeste;
+    private Button btnFlechaOeste;
+    private Button btnFlechaNorOeste;
+    private Button btnAtaque;
 
     public ContenedorControlesJuego(TurnoActual turnoActual) {
         this.turnoActual = turnoActual;
@@ -32,11 +32,11 @@ public class ContenedorControlesJuego extends Contenedor implements Observer {
         turnoJugador = new Text();
         advertencias = new Text();
         advertencias.setFill(Color.RED);
+        contenedor = new VBox();
+        btnAtaque = new Button("Atacar");
 
         actualizar();
 
-        contenedor = new VBox();
-        btnAtaque = new Button("Atacar");
         grillaFlechas = new GridPane();
         btnFlechaNorte = new Button("->");
         grillaFlechas.add(btnFlechaNorte, 1, 0);
@@ -96,4 +96,16 @@ public class ContenedorControlesJuego extends Contenedor implements Observer {
     public void mostrarError(String error) {
         this.advertencias.setText(error);
     }
+
+	public void deshabilitarControles(boolean deshabilitar) {
+		    this.btnFlechaNorte.setDisable(deshabilitar);
+		    this.btnFlechaNorEste.setDisable(deshabilitar);
+		    this.btnFlechaEste.setDisable(deshabilitar);
+		    this.btnFlechaSurEste.setDisable(deshabilitar);
+		    this.btnFlechaSur.setDisable(deshabilitar);
+		    this.btnFlechaSurOeste.setDisable(deshabilitar);
+		    this.btnFlechaOeste.setDisable(deshabilitar);
+		    this.btnFlechaNorOeste.setDisable(deshabilitar);
+		    this.btnAtaque.setDisable(deshabilitar);
+	}
 }
