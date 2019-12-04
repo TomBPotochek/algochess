@@ -102,4 +102,42 @@ public class UnidadMovibleTest {
 
     	assertTrue(tablero.obtenerCasilla(posFinal).quitar().equals(soldado));
     }
+
+	@Test
+	public void test05UnidadMovibleEnBordeDelTableroPuedeMoverseEnUnaDireccionValida() {
+		Equipo Equipo1 = new Equipo("Equipo 1");
+		Equipo Equipo2 = new Equipo("Equipo 2");
+
+		Posicion posicion = new Posicion(1,1);
+		Posicion posFinal = new Posicion(2,1);
+		UnidadMovible jinete = new Jinete(posicion, Equipo1);
+
+		Direccion dir = Direccion.E;
+		Tablero tablero = new Tablero(TAMANIO_TABLERO, Equipo1, Equipo2);
+
+		tablero.colocarUnidad(jinete, posicion);
+
+		jinete.mover(dir, tablero);
+
+		assertTrue(tablero.obtenerCasilla(posFinal).quitar().equals(jinete));
+	}
+
+	@Test
+	public void test06SoldadoEnBordeDelTableroPuedeMoverseEnUnaDireccionValida() {
+		Equipo Equipo1 = new Equipo("Equipo 1");
+		Equipo Equipo2 = new Equipo("Equipo 2");
+
+		Posicion posicion = new Posicion(1,1);
+		Posicion posFinal = new Posicion(2,1);
+		UnidadMovible soldado = new Soldado(posicion, Equipo1);
+
+		Direccion dir = Direccion.E;
+		Tablero tablero = new Tablero(TAMANIO_TABLERO, Equipo1, Equipo2);
+
+		tablero.colocarUnidad(soldado, posicion);
+
+		soldado.mover(dir, tablero);
+
+		assertTrue(tablero.obtenerCasilla(posFinal).quitar().equals(soldado));
+	}
 }

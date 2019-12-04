@@ -1,6 +1,8 @@
 package fiuba.algo3.algochess.model.juego;
 
+import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.PuntosInsuficientesException;
+import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
 import fiuba.algo3.algochess.model.unidad.Catapulta;
@@ -57,7 +59,16 @@ public class Jugador {
 		Catapulta catapulta = new Catapulta(posicion, this.equipo);
 		this.guardarUnidad(tablero, catapulta, posicion);
 	}
-	
+
+	public void mover(Tablero tablero, Posicion posicion, Direccion direccion) {
+		// TODO: como hacemos para sacar este if?
+		if(tablero.obtenerUnidad(posicion).esAliada(equipo)) {
+			tablero.obtenerUnidad(posicion).mover(direccion, tablero);
+		} else {
+			throw new MovimientoInvalidoException();
+		}
+	}
+
 	public void limpiarUnidadesMuertas() {
 
 		Iterator<Unidad> iter = unidades.iterator();
@@ -70,7 +81,7 @@ public class Jugador {
 			}
 		}
 	 }
-	
+
 	public boolean esPerdedor() {
 
 		return unidades.isEmpty();
@@ -83,5 +94,10 @@ public class Jugador {
 	public int obtenerPuntosRestantes() {
 
 		return puntos;
+	}
+
+	public Equipo getEquipo() {
+
+		return this.equipo;
 	}
 }

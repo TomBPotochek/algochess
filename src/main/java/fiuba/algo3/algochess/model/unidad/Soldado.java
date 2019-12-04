@@ -3,6 +3,7 @@ package fiuba.algo3.algochess.model.unidad;
 import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
 import fiuba.algo3.algochess.model.excepciones.BatallonIncompletoException;
 import fiuba.algo3.algochess.model.excepciones.CasillaLibreException;
+import fiuba.algo3.algochess.model.excepciones.PosicionFueraDeRangoException;
 import fiuba.algo3.algochess.model.juego.Equipo;
 import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
@@ -71,7 +72,7 @@ public class Soldado extends UnidadMovible {
 					Unidad unaUnidadContigua = tablero.obtenerUnidad(unaDireccion.calcularPosicionSiguiente(this.posicion));
 					unaUnidadContigua.reclutar(this, unaDireccion, tablero);
 
-				} catch (CasillaLibreException ex) {}
+				} catch (CasillaLibreException | PosicionFueraDeRangoException ex) {}
 				
 				Direccion direccionOpuesta = unaDireccion.direccionOpuesta();
 
@@ -79,7 +80,7 @@ public class Soldado extends UnidadMovible {
 					Unidad otraUnidadContigua = tablero.obtenerUnidad(direccionOpuesta.calcularPosicionSiguiente(this.posicion));
 					otraUnidadContigua.reclutar(this, direccionOpuesta, tablero);
 				
-				} catch (CasillaLibreException ex) {}
+				} catch (CasillaLibreException | PosicionFueraDeRangoException ex) {}
 
 				try {
 					this.batallon.mover(direccionMovimiento, tablero);

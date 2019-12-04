@@ -1,6 +1,5 @@
 package fiuba.algo3.algochess.view;
 
-import fiuba.algo3.algochess.model.juego.AlgoChess;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -18,8 +17,9 @@ public class ContenedorGlobal {
         this.stage = stage;
     }
 
-    public void set(ComienzoJuegoView comienzoJuegoView)  {
-        stage.setScene(comienzoJuegoView.dibujarEscena());
+    public void cambiarEscena(Scene escena) {
+
+    	stage.setScene(escena);
     }
 
     public void set(Contenedor contenedorLateral, ContenedorTablero contenedorTablero) {
@@ -35,15 +35,5 @@ public class ContenedorGlobal {
         this.contenedorPrincipal.setCenter(tableroBox);
         this.contenedorPrincipal.setPrefSize(stage.getWidth(), stage.getHeight());
         stage.setScene(new Scene(contenedorPrincipal));
-    }
-
-
-    public void agregarAdvertencia(String advertencia) {
-        ((ContenedorComprarUnidades) contenedorLateral).agregarAdvertencia(advertencia);
-    }
-
-    public void actualizar(AlgoChess algoChess) {
-        contenedorLateral.actualizar(algoChess);
-        contenedorTablero.actualizar(algoChess);
     }
 }

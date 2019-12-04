@@ -1,10 +1,15 @@
 package fiuba.algo3.algochess.model.excepciones;
 
-@SuppressWarnings("serial")
-public class PosicionInvalidaException extends RuntimeException {
+import fiuba.algo3.algochess.model.tablero.Posicion;
 
-	public PosicionInvalidaException(String mensaje) {
-		
-		super(mensaje);
+@SuppressWarnings("serial")
+public class PosicionInvalidaException extends ModelException {
+
+	public PosicionInvalidaException() {
+		super("Error: Posicion invalida");
+	}
+
+	public PosicionInvalidaException(String string) {
+		super(string);
 	}
 }

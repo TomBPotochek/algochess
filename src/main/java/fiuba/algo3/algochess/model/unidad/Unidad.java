@@ -1,6 +1,9 @@
 package fiuba.algo3.algochess.model.unidad;
 
 import fiuba.algo3.algochess.model.distancia.Distancia;
+
+import fiuba.algo3.algochess.model.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algochess.model.excepciones.UnidadQuemadaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
 import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
@@ -23,6 +26,8 @@ public abstract class Unidad {
     	this.equipo = equipo;
     	this.quemado = new NoQuemado();
 	}
+
+	public abstract void mover(Direccion direccion, Tablero tablero) throws MovimientoInvalidoException;
 
     public Posicion obtenerPosicion() {
         return posicion;
@@ -71,8 +76,10 @@ public abstract class Unidad {
 	public void reclutar(Soldado unSoldado, Direccion direccionReclutamiento, Tablero tablero) {}
 
 	public void quemar(float danio, Tablero tablero){
-    	quemado.quemar(this.posicion, danio, tablero);
-    	this.quemado = new NoQuemado();
+		try {
+			quemado.quemar(this.posicion, danio, tablero);
+			this.quemado = new NoQuemado();
+		} catch (UnidadQuemadaException e) {}
 	}
 
 	public void cambiarEstadoQuemado(){
