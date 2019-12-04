@@ -22,18 +22,21 @@ public class SoldadoTest {
 	@Test
 	public void testSoldadoAtacaUnidadEnemigaADistanciaCortaYSeLeRestaLaVidaCorrespondiente() {
 
-		Posicion unaPosicionMock = mock(Posicion.class);
-		Posicion otraPosicionMock = mock(Posicion.class);
-		Equipo unEquipoMock = mock(Equipo.class);
-		Equipo otroEquipoMock = mock(Equipo.class);
-		Tablero tableroMock = mock(Tablero.class);
-		when(unaPosicionMock.calcularDistancia(otraPosicionMock)).thenReturn(new DistanciaCorta());
-		Soldado unSoldadoAliado = new Soldado(unaPosicionMock, unEquipoMock);
-		Soldado unSoldadoEnemigo = new Soldado(otraPosicionMock, otroEquipoMock);
+		Posicion unaPosicion = new Posicion(1,10);
+		Posicion otraPosicion = new Posicion(1,11);
+		Equipo unEquipo = new Equipo("hola");
+		Equipo otroEquipo = new Equipo("chau");
+		Tablero tablero = new Tablero(20, unEquipo, otroEquipo);
 
-		unSoldadoAliado.atacar(unSoldadoEnemigo, tableroMock);
+		Soldado unSoldadoAliado = new Soldado(unaPosicion, unEquipo);
+		Soldado unSoldadoEnemigo = new Soldado(otraPosicion, otroEquipo);
+		
+		tablero.colocarUnidad(unSoldadoAliado, unaPosicion);
+		tablero.colocarUnidad(unSoldadoEnemigo, otraPosicion);
 
-		assertEquals(unSoldadoEnemigo.getVidaRestante(), 90);
+		unSoldadoAliado.atacar(otraPosicion, tablero);
+
+		assertEquals(unSoldadoEnemigo.getVidaRestante(), 90, 0);
 	}
 
 	@Test
@@ -50,7 +53,7 @@ public class SoldadoTest {
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 
-			unSoldadoAliado.atacar(unSoldadoEnemigo, tableroMock);
+			unSoldadoAliado.atacar(otraPosicionMock, tableroMock);
 		});
 
 	}
@@ -70,7 +73,7 @@ public class SoldadoTest {
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 
-			unSoldadoAliado.atacar(unSoldadoEnemigo, tableroMock);
+			unSoldadoAliado.atacar(otraPosicionMock, tableroMock);
 		});
 
 	}

@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.unidad.Arma;
-//import static fiuba.algo3.algochess.juego.ProveedorConstantes.TAMANIO_TABLERO;
-import fiuba.algo3.algochess.model.unidad.Unidad;
 
 
 
@@ -20,7 +18,7 @@ public abstract class Distancia {
 		this.hasta = hasta;
 	}
 	
-    public abstract void atacar(Unidad unidad, Arma arma);
+    public abstract float atacar(Arma arma);
     
     public ArrayList<Posicion> obtenerPosicionesCercanas(Posicion unaPosicion) {
     	ArrayList<Posicion> posiciones = new ArrayList<Posicion>();

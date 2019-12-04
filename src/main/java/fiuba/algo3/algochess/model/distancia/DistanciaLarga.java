@@ -3,7 +3,6 @@ package fiuba.algo3.algochess.model.distancia;
 import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.TAMANIO_TABLERO;
 
 import fiuba.algo3.algochess.model.unidad.Arma;
-import fiuba.algo3.algochess.model.unidad.Unidad;
 
 public class DistanciaLarga extends Distancia {
 	
@@ -12,8 +11,8 @@ public class DistanciaLarga extends Distancia {
 	}
 
 	@Override
-	public void atacar(Unidad unidad, Arma arma) {
-		arma.ataqueLargo(unidad);
+	public float atacar(Arma arma) {
+		return arma.ataqueLargo();
 		
 	}
 	

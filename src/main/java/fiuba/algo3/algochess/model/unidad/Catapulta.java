@@ -4,7 +4,6 @@ import static fiuba.algo3.algochess.model.juego.ProveedorConstantes.*;
 
 import fiuba.algo3.algochess.model.distancia.Distancia;
 import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
-import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.tablero.Tablero;
@@ -29,15 +28,11 @@ public class Catapulta extends Unidad {
 	}
 
 	@Override
-	public void atacar(Unidad unidad, Tablero tablero) {
-		Distancia distancia = this.obtenerPosicion().calcularDistancia(unidad.obtenerPosicion());
-		try {
-			distancia.atacar(unidad, this.arma);
-			unidad.quemar(tablero);
-		} catch (UnidadDestruidaException e) {
-			tablero.quitarUnidad(unidad);
-			throw e;
-		}
+	public void atacar(Posicion posicion, Tablero tablero) {
+		Distancia distancia = this.obtenerPosicion().calcularDistancia(posicion);
+		float danio = distancia.atacar(this.arma);
+		Unidad unidad = tablero.obtenerUnidad(posicion);
+		unidad.quemar(danio, tablero);
 	}
 	
 }

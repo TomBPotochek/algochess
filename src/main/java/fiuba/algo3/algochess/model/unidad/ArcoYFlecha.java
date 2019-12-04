@@ -7,19 +7,20 @@ import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
 public class ArcoYFlecha implements Arma {
 
 	@Override
-	public void ataqueCorto(Unidad unaUnidad) throws AtaqueInvalidoException {
+	public float ataqueCorto() throws AtaqueInvalidoException {
 		throw new AtaqueInvalidoException();
 		
 	}
 
 	@Override
-	public void ataqueMedio(Unidad unaUnidad) {
-		unaUnidad.recibirDanio(DANIO_DISTANCIA_JINETE);
+	public float ataqueMedio() {
+		//unaUnidad.recibirDanio(DANIO_DISTANCIA_JINETE);
+		return DANIO_DISTANCIA_JINETE;
 		
 	}
 
 	@Override
-	public void ataqueLargo(Unidad unaUnidad) throws AtaqueInvalidoException {
+	public float ataqueLargo() throws AtaqueInvalidoException {
 		throw new AtaqueInvalidoException();
 		
 	}

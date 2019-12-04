@@ -27,14 +27,15 @@ public class CuranderoTest {
 		Curandero unCuranderoAliado = new Curandero(unaPosicionMock, unEquipoMock);
 		Jinete unJineteAliado = new Jinete(otraPosicionMock, unEquipoMock);
 
+		when(tablero.obtenerUnidad(otraPosicionMock)).thenReturn(unJineteAliado);
 
 		unJineteAliado.recibirDanio(20);
-		unCuranderoAliado.atacar(unJineteAliado, tablero);
+		unCuranderoAliado.atacar(otraPosicionMock, tablero);
 		
 		assertTrue(unJineteAliado.getVidaRestante() == 95);
 		
 		unJineteAliado.recibirDanio(5);
-		unCuranderoAliado.atacar(unJineteAliado, tablero);
+		unCuranderoAliado.atacar(otraPosicionMock, tablero);
 		
 		assertTrue(unJineteAliado.getVidaRestante() == 100);
 	}

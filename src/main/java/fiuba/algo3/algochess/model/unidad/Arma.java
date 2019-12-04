@@ -6,13 +6,13 @@ public interface Arma {
 
 
 	
-	public void ataqueCorto(Unidad unaUnidad) throws AtaqueInvalidoException;
+	public float ataqueCorto() throws AtaqueInvalidoException;
 
 	
-	public void ataqueMedio(Unidad unaUnidad) throws AtaqueInvalidoException;
+	public float ataqueMedio() throws AtaqueInvalidoException;
 
 	
-	public void ataqueLargo(Unidad unaUnidad) throws AtaqueInvalidoException;
+	public float ataqueLargo() throws AtaqueInvalidoException;
 
 		
 }

@@ -41,5 +41,13 @@ public class Casilla {
 		
 		return this.estado.obtenerUnidad();
 	}
+	
+	public void atacar(float danio) {
+		Unidad unidad = this.estado.obtenerUnidad();
+		if (unidad.esAliada(this.equipo))
+			unidad.recibirDanio(danio);
+		else
+			unidad.recibirDanio((float) (danio*1.05)); //extra 5% de danio
+	}
     
 }

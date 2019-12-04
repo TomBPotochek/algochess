@@ -33,9 +33,9 @@ public class JineteTest {
 		tablero.colocarUnidad(jineteBueno, posicion);
 		tablero.colocarUnidad(jineteMalo, otraPosicion);
 		
-		jineteBueno.atacar(jineteMalo, tablero);
+		jineteBueno.atacar(otraPosicion, tablero);
 
-		assertEquals(jineteMalo.getVidaRestante(), 95);
+		assertEquals(jineteMalo.getVidaRestante(), 95, 0);
 	}
 
 	@Test
@@ -54,9 +54,9 @@ public class JineteTest {
 		tablero.colocarUnidad(jineteMalo, otraPosicion);
 		tablero.colocarUnidad(soldadoBueno, otraPos);
 		
-		jineteBueno.atacar(jineteMalo, tablero);
+		jineteBueno.atacar(otraPosicion, tablero);
 
-		assertEquals(jineteMalo.getVidaRestante(),85);
+		assertEquals(jineteMalo.getVidaRestante(),85, 0);
 	}
 	
 	
@@ -72,9 +72,9 @@ public class JineteTest {
 		tablero.colocarUnidad(jineteBueno, posicion);
 		tablero.colocarUnidad(jineteMalo, otraPosicion);
 		
-		jineteBueno.atacar(jineteMalo, tablero);
+		jineteBueno.atacar(otraPosicion, tablero);
 		
-		assertEquals(jineteMalo.getVidaRestante(),85);
+		assertEquals(jineteMalo.getVidaRestante(),85, 0);
 	}
 	
 	@Test
@@ -94,7 +94,7 @@ public class JineteTest {
 		tablero.colocarUnidad(soldadoBueno, otraPos);
 		
 		assertThrows(AtaqueInvalidoException.class, () -> {
-			jineteBueno.atacar(jineteMalo, tablero);			
+			jineteBueno.atacar(otraPosicion, tablero);			
 		});
 	}
 
@@ -112,7 +112,7 @@ public class JineteTest {
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 
-			unJineteAliado.atacar(unJineteEnemigo, tableroMock);
+			unJineteAliado.atacar(otraPosicionMock, tableroMock);
 		});
 
 	}

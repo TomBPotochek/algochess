@@ -68,4 +68,9 @@ public class Tablero {
 
 		return this.obtenerCasilla(posicion).getUnidad();
 	}
+	
+	public void atacar(Posicion posicion, float danio) {
+		Casilla casilla = this.tablero.get(posicion);
+		casilla.atacar(danio);
+	}
 }

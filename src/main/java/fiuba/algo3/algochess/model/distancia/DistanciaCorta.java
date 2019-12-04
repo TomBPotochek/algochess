@@ -1,7 +1,6 @@
 package fiuba.algo3.algochess.model.distancia;
 
 import fiuba.algo3.algochess.model.unidad.Arma;
-import fiuba.algo3.algochess.model.unidad.Unidad;
 
 public class DistanciaCorta extends Distancia {
 	
@@ -11,8 +10,8 @@ public class DistanciaCorta extends Distancia {
 	}
 
 	@Override
-	public void atacar(Unidad unidad, Arma arma) {
-		arma.ataqueCorto(unidad);
+	public float atacar(Arma arma) {
+		return arma.ataqueCorto();
 	}
 	
 	@Override

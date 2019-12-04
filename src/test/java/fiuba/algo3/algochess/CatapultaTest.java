@@ -35,7 +35,7 @@ public class CatapultaTest {
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 
-			unCatapultaAliado.atacar(unCatapultaEnemigo, tableroMock);
+			unCatapultaAliado.atacar(otraPosicionMock, tableroMock);
 		});
 	}
 
@@ -53,7 +53,7 @@ public class CatapultaTest {
 
 		assertThrows(AtaqueInvalidoException.class, () -> {
 
-			unCatapultaAliado.atacar(unCatapultaEnemigo, tableroMock);
+			unCatapultaAliado.atacar(otraPosicionMock, tableroMock);
 		});
 
 	}
@@ -62,31 +62,28 @@ public class CatapultaTest {
 	public void testCatapultaAtacaUnidadEnemigaADistanciaLargaYSeLeRestaLaVidaCorrespondiente() {
 
 		Posicion unaPosicion = new Posicion(2, 3);
-		Posicion otraPosicion = new Posicion(7, 9);
+		Posicion otraPosicion = new Posicion(7, 11);
 		Equipo unEquipo = new Equipo("equipo1");
 		Equipo otroEquipo = new Equipo("equipo2");
-		Tablero tablero = new Tablero(20, unEquipo, otroEquipo) ;
+		Tablero tablero = new Tablero(20, unEquipo, otroEquipo);
 		Catapulta unCatapultaAliado = new Catapulta(unaPosicion, unEquipo);
 		Catapulta unCatapultaEnemigo = new Catapulta(otraPosicion, otroEquipo);
-		unCatapultaAliado.atacar(unCatapultaEnemigo, tablero);
-		assertEquals(unCatapultaEnemigo.getVidaRestante(), 30);
+		tablero.colocarUnidad(unCatapultaAliado, unaPosicion);
+		tablero.colocarUnidad(unCatapultaEnemigo, otraPosicion);
+		unCatapultaAliado.atacar(otraPosicion, tablero);
+		assertEquals(unCatapultaEnemigo.getVidaRestante(), 30, 0);
 	}
 
 	@Test
 	public void testCatapultaNoPuedeRecibirVida() {
-		Posicion unaPosicion = mock(Posicion.class);
 		Equipo unEquipo = mock(Equipo.class);
 		Posicion otraPosicion = mock(Posicion.class);
-		Tablero tablero = mock(Tablero.class);
-
-		Curandero unCurandero = new Curandero(unaPosicion, unEquipo);
 		Catapulta unaCatapulta = new Catapulta(otraPosicion, unEquipo);
 
-		when(unaPosicion.calcularDistancia(otraPosicion)).thenReturn(new DistanciaCorta());
-
+		
 		assertThrows(AtaqueInvalidoException.class, () -> {
 
-			unCurandero.atacar(unaCatapulta, tablero);
+			unaCatapulta.recibirVida(50);
 		});
 
 	}
@@ -108,9 +105,10 @@ public class CatapultaTest {
 		tablero.colocarUnidad(unCatapultaEnemigo,otraPosicion);
 		tablero.colocarUnidad(unSoldadoEnemigo, segundaPosicion);
 		tablero.colocarUnidad(otroSoldadoEnemigo, terceraPosicion);
-		unCatapultaAliado.atacar(unCatapultaEnemigo, tablero);
+		unCatapultaAliado.atacar(otraPosicion, tablero);
 
-		assertEquals(otroSoldadoEnemigo.getVidaRestante(), 80);
+		assertEquals(unSoldadoEnemigo.getVidaRestante(), 80, 0);
+		assertEquals(otroSoldadoEnemigo.getVidaRestante(), 80, 0);
 
 	}
 
@@ -131,9 +129,9 @@ public class CatapultaTest {
 		tablero.colocarUnidad(unCatapultaEnemigo,otraPosicion);
 		tablero.colocarUnidad(unSoldadoEnemigo, segundaPosicion);
 		tablero.colocarUnidad(otroSoldadoEnemigo, terceraPosicion);
-		unCatapultaAliado.atacar(unCatapultaEnemigo, tablero);
+		unCatapultaAliado.atacar(otraPosicion, tablero);
 
-		assertEquals(unCatapultaEnemigo.getVidaRestante(), 30);
+		assertEquals(unCatapultaEnemigo.getVidaRestante(), 30, 0);
 
 	}
 

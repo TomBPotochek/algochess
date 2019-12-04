@@ -1,7 +1,6 @@
 package fiuba.algo3.algochess.model.unidad;
 
 import fiuba.algo3.algochess.model.distancia.Distancia;
-import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
 import fiuba.algo3.algochess.model.tablero.Direccion;
 import fiuba.algo3.algochess.model.tablero.Posicion;
@@ -29,13 +28,10 @@ public abstract class Unidad {
         return posicion;
     }
     
-    public void recibirDanio(float danio) throws UnidadDestruidaException {
+    public void recibirDanio(float danio) {
     	
     	this.vidaRestante -= danio;
     	
-    	if (this.vidaRestante <= 0) {
-    		throw new UnidadDestruidaException();
-    	}
     }
     
     public float getVidaRestante() {
@@ -60,14 +56,11 @@ public abstract class Unidad {
     }
 	
 
-	public void atacar(Unidad unidad, Tablero tablero) {
-		Distancia distancia = this.obtenerPosicion().calcularDistancia(unidad.obtenerPosicion());
-		try {
-			distancia.atacar(unidad, this.arma);
-		} catch (UnidadDestruidaException e) {
-			tablero.quitarUnidad(unidad);
-			throw e;
-		}
+	public void atacar(Posicion posicion, Tablero tablero) {
+		Distancia distancia = this.obtenerPosicion().calcularDistancia(posicion);
+		float danio = distancia.atacar(this.arma);
+		tablero.atacar(posicion, danio);
+		
 	}
 
 	protected void cambiarEstadoDeUnidad(Jinete jinete) {
@@ -77,8 +70,8 @@ public abstract class Unidad {
 	
 	public void reclutar(Soldado unSoldado, Direccion direccionReclutamiento, Tablero tablero) {}
 
-	public void quemar(Tablero tablero){
-    	quemado.quemar(this, tablero);
+	public void quemar(float danio, Tablero tablero){
+    	quemado.quemar(this.posicion, danio, tablero);
     	this.quemado = new NoQuemado();
 	}
 

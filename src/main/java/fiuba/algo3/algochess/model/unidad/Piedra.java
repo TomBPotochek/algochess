@@ -8,21 +8,21 @@ import fiuba.algo3.algochess.model.excepciones.AtaqueInvalidoException;
 public class Piedra implements Arma {
 
 	@Override
-	public void ataqueCorto(Unidad unaUnidad) throws AtaqueInvalidoException {
+	public float ataqueCorto() throws AtaqueInvalidoException {
 		throw new AtaqueInvalidoException();
 	}
 
 	@Override
-	public void ataqueMedio(Unidad unaUnidad) throws AtaqueInvalidoException {
+	public float ataqueMedio() throws AtaqueInvalidoException {
 		throw new AtaqueInvalidoException();
 	}
 
 	@Override
-	public void ataqueLargo(Unidad unaUnidad) {
+	public float ataqueLargo() {
 //		unaUnidad.quemar();
 //		unaUnidad.recibirDanio(DANIO_DISTANCIA_CATAPULTA);
 		//esto no contempla el danio recursivo de catapulta
-
+		return DANIO_DISTANCIA_CATAPULTA;
 	}
 
 }

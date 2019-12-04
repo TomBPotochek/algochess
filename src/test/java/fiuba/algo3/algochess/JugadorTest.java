@@ -1,7 +1,6 @@
 package fiuba.algo3.algochess;
 
 import fiuba.algo3.algochess.model.excepciones.PuntosInsuficientesException;
-import fiuba.algo3.algochess.model.excepciones.UnidadDestruidaException;
 import fiuba.algo3.algochess.model.juego.Equipo;
 import fiuba.algo3.algochess.model.juego.Jugador;
 import fiuba.algo3.algochess.model.tablero.Posicion;
@@ -63,19 +62,13 @@ public class JugadorTest {
 		Unidad soldadoGanador2 = tablero.obtenerUnidad(posSoldadoGanador2);
 
     	for (int i = 0; i < 10; i++) {
-    		try {
-    			soldadoGanador1.atacar(tablero.obtenerUnidad(posSoldadoPerdedor1), tablero);
-    		} catch (UnidadDestruidaException e) {
-    			jugadorPerdedor.limpiarUnidadesMuertas();
-    		}
-    		
-    		try {
-    			soldadoGanador2.atacar(tablero.obtenerUnidad(posSoldadoPerdedor2), tablero);
-    		} catch (UnidadDestruidaException e) {
-    			jugadorPerdedor.limpiarUnidadesMuertas();
-    		}
+
+			soldadoGanador1.atacar(posSoldadoPerdedor1, tablero);
+    	
+			soldadoGanador2.atacar(posSoldadoPerdedor2, tablero);
     	}
     	
+    	jugadorPerdedor.limpiarUnidadesMuertas();
 
     	assertEquals(jugadorPerdedor.esPerdedor(), true);
     }
