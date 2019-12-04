@@ -25,6 +25,7 @@ public class UnidadClickEventHandler implements EventHandler<ActionEvent> {
 		
 		Posicion posSeleccionada = (Posicion) ((Node) e.getSource()).getUserData();
 
+		vista.onAtacarClick(new AtacarEventHandler(turnoActual, vista, posSeleccionada));
 		vista.onMoverNorteClick(new MoverUnidadEventHandler(turnoActual, vista, Direccion.N, posSeleccionada));
 		vista.onMoverNorEsteClick(new MoverUnidadEventHandler(turnoActual, vista, Direccion.NE, posSeleccionada));
 		vista.onMoverEsteClick(new MoverUnidadEventHandler(turnoActual, vista, Direccion.E, posSeleccionada));
