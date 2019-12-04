@@ -2,11 +2,9 @@ package fiuba.algo3.algochess.controller;
 
 import fiuba.algo3.algochess.model.juego.TurnoActual;
 import fiuba.algo3.algochess.model.tablero.Posicion;
-import fiuba.algo3.algochess.model.tablero.Tablero;
 import fiuba.algo3.algochess.view.BatallaView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 
 public class AtacarEventHandler implements EventHandler<ActionEvent>  {
