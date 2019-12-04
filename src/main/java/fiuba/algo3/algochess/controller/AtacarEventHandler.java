@@ -13,7 +13,7 @@ public class AtacarEventHandler implements EventHandler<ActionEvent>  {
     private BatallaView vista;
     private TurnoActual turnoActual;
 
-    public AtacarEventHandler(TurnoActual turnoActual, BatallaView vista, Tablero tablero) {
+    public AtacarEventHandler(TurnoActual turnoActual, BatallaView vista) {
         this.turnoActual = turnoActual;
         this.vista = vista;
     }

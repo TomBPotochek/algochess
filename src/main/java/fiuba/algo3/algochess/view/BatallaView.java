@@ -34,6 +34,10 @@ public class BatallaView implements AbstractView {
 		this.contenedorTablero.onCasillaClick(e);
 	}
 
+	public void onAtacarClick(EventHandler<ActionEvent> e) {
+		this.contenedorControlesJuego.onAtacarClick(e);
+	}
+
 	public void onMoverNorteClick(EventHandler<ActionEvent> e) {
 		this.contenedorControlesJuego.onMoverNorteClick(e);
 	}

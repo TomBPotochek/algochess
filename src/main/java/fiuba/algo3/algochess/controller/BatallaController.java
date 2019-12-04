@@ -22,6 +22,7 @@ public class BatallaController extends AbstractController {
 	public void inicializar() {
 		// TODO Auto-generated method stub
 
+		vista.onAtacarClick(new AtacarEventHandler(algoChess.getTurnoActual(), vista));
 		vista.onMoverNorteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.N));
 		vista.onMoverNorEsteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.NE));
 		vista.onMoverEsteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.E));

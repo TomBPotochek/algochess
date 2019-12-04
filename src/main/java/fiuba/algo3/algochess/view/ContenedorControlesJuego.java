@@ -13,6 +13,7 @@ import javafx.scene.text.Text;
 public class ContenedorControlesJuego extends Contenedor implements Observer {
 
     GridPane grillaFlechas;
+    Button btnAtaque;
     Button btnFlechaNorte;
     Button btnFlechaNorEste;
     Button btnFlechaEste;
@@ -35,7 +36,7 @@ public class ContenedorControlesJuego extends Contenedor implements Observer {
         actualizar();
 
         contenedor = new VBox();
-        Button btnAtaque = new Button("Atacar");
+        btnAtaque = new Button("Atacar");
         grillaFlechas = new GridPane();
         btnFlechaNorte = new Button("->");
         grillaFlechas.add(btnFlechaNorte, 1, 0);
@@ -61,6 +62,10 @@ public class ContenedorControlesJuego extends Contenedor implements Observer {
 
         turnoJugador.setText(turnoActual.getEquipo().obtenerNombre());
         advertencias.setText("");
+    }
+
+    public void onAtacarClick(EventHandler<ActionEvent> e) {
+        this.btnAtaque.setOnAction(e);
     }
 
     public void onMoverNorteClick(EventHandler<ActionEvent> e) {
