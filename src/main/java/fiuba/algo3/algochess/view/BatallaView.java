@@ -15,7 +15,7 @@ public class BatallaView implements AbstractView {
 
 	public BatallaView(AlgoChess algoChess) {
 		this.contenedorTablero = new ContenedorTablero(algoChess.obtenerTablero(), algoChess.getTurnoActual());
-		this.contenedorControlesJuego = new ContenedorControlesJuego();
+		this.contenedorControlesJuego = new ContenedorControlesJuego(algoChess.getTurnoActual());
 	}
 
 	@Override
