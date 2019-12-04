@@ -31,6 +31,7 @@ public class BatallaController extends AbstractController {
 		vista.onMoverOesteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.O));
 		vista.onMoverNorOesteClick(new MoverUnidadEventHandler(algoChess.getTurnoActual(), vista, Direccion.NO));
 
+
 		this.renderizar(this.vista);
 	}
 

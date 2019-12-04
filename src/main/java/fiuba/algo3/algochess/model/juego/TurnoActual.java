@@ -54,6 +54,11 @@ public class TurnoActual extends Observable{
 		this.turnoSiguiente();
 	}
 
+	public void atacar(Posicion pos, Posicion posEnemigo) {
+		obtenerJugador().atacar(pos, posEnemigo, tablero);
+		this.turnoSiguiente();
+	}
+
 	public int obtenerPuntos() {
 		
 		return obtenerJugador().obtenerPuntosRestantes();
