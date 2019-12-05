@@ -65,7 +65,10 @@ public class CasillaView implements Observer {
 		
 		try {
 			this.casilla.getUnidad();
-			this.boton.setOnAction(e);
+			this.boton.setOnAction(evt -> {
+				this.boton.setStyle("-fx-border-color: white");
+				e.handle(evt);
+			});
 		
 		} catch (CasillaLibreException ex) {}
 		
