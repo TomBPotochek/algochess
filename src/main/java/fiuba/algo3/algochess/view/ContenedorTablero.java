@@ -57,4 +57,12 @@ public class ContenedorTablero extends Contenedor {
 		}
 	}
 
+	public void deshabilitarControles() {
+		
+		for (CasillaView casillaView : casillaViews) {
+			casillaView.deshabilitar();
+		}
+		
+	}
+
 }

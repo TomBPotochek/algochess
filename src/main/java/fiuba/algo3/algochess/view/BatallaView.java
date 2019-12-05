@@ -12,10 +12,12 @@ public class BatallaView implements AbstractView {
 
 	private ContenedorTablero contenedorTablero;
 	private ContenedorControlesJuego contenedorControlesJuego;
+	private AlgoChess algochess;
 
 	public BatallaView(AlgoChess algoChess) {
 		this.contenedorTablero = new ContenedorTablero(algoChess.obtenerTablero(), algoChess.getTurnoActual());
 		this.contenedorControlesJuego = new ContenedorControlesJuego(algoChess.getTurnoActual());
+		this.algochess = algoChess;
 	}
 
 	@Override
@@ -84,5 +86,10 @@ public class BatallaView implements AbstractView {
 	public void deshabilitarControles() {
 		
 		this.contenedorControlesJuego.deshabilitarControles(true);
+	}
+
+	public void mostrarFinDePartida() {
+		this.mostrarError("PARTIDA FINALIZADA! Ha ganado " + this.algochess.getGanador());
+		this.contenedorTablero.deshabilitarControles();
 	}
 }

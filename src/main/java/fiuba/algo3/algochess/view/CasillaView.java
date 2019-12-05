@@ -70,4 +70,9 @@ public class CasillaView implements Observer {
 		} catch (CasillaLibreException ex) {}
 		
 	}
+
+	public void deshabilitar() {
+
+		this.boton.setDisable(true);
+	}
 }

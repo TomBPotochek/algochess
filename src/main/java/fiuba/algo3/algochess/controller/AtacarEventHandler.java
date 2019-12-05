@@ -32,6 +32,11 @@ public class AtacarEventHandler implements EventHandler<ActionEvent>  {
                 vista.onUnidadClick(new UnidadClickEventHandler(vista, turnoActual));
                 turnoActual.atacar(posicionUnidad, posicionEnemigo);
                 vista.deshabilitarControles();
+                
+                if (turnoActual.finalizoPartida()) {
+                	vista.mostrarFinDePartida();
+                }
+                	
             } catch (Exception ex) {
                 vista.mostrarError(ex.getMessage());
             }
