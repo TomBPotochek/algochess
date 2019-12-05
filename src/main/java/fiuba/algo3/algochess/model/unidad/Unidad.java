@@ -88,6 +88,10 @@ public abstract class Unidad {
 	public void cambiarEstadoNoQuemado(){
 		quemado = new NoQuemado();
 	}
+
+	public Equipo getEquipo() {
+		return this.equipo;
+	}
 }
 
 

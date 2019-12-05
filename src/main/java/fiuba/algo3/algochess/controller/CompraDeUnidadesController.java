@@ -36,7 +36,7 @@ public class CompraDeUnidadesController extends AbstractController {
 			
 			if (turnoActual.jugadoresListos()) {
 				
-				BatallaController siguiente = new BatallaController(contenedorGlobal, algochess);
+				BatallaController siguiente = new BatallaController(contenedorGlobal, algochess, coloresEquipo);
 				
 				siguiente.inicializar();
 			}

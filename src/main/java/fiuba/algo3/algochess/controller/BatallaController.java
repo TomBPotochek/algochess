@@ -3,6 +3,8 @@ package fiuba.algo3.algochess.controller;
 import fiuba.algo3.algochess.model.juego.AlgoChess;
 import fiuba.algo3.algochess.view.BatallaView;
 import fiuba.algo3.algochess.view.ContenedorGlobal;
+import java.util.HashMap;
+
 
 public class BatallaController extends AbstractController{
 
@@ -10,11 +12,11 @@ public class BatallaController extends AbstractController{
 	private AlgoChess algoChess;
 	
 
-	public BatallaController(ContenedorGlobal contenedorGlobal, AlgoChess algoChess) {
+	public BatallaController(ContenedorGlobal contenedorGlobal, AlgoChess algoChess, HashMap<String,String> colores) {
 
 		// TODO : mandar controller final
 		super(contenedorGlobal);
-		this.vista = new BatallaView(algoChess);
+		this.vista = new BatallaView(algoChess, colores);
 		this.algoChess = algoChess;
 	}
 

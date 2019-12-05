@@ -9,6 +9,7 @@ import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.model.unidad.Unidad;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -23,6 +24,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.binding.DoubleBinding;
+
+import java.lang.reflect.Field;
 import java.util.HashMap;
 
 public class CasillaView implements Observer {
@@ -62,11 +65,13 @@ public class CasillaView implements Observer {
 	@Override
 	public void actualizar() {
 		final int width = 50;
+		final int height = 50;
 		
         String backgroundColor = casilla.esAliada(this.turnoActual.getEquipo()) ? "#56ff00" : "#ff0000";
         boton.setStyle("-fx-border-color: black; -fx-background-color: " + backgroundColor + ";");
         boton.setAlignment(Pos.CENTER);
-        boton.setPrefSize(width, width);
+        boton.setPrefSize(width, height);
+        boton.setPadding(new Insets(0));
         boton.setUserData(posicion);
 
         try {
@@ -76,22 +81,34 @@ public class CasillaView implements Observer {
             		BackgroundRepeat.NO_REPEAT,
             		BackgroundPosition.CENTER,
             		new BackgroundSize(50, 50, false, false, false, false) ));*/
-            this.boton.setGraphic(new ImageView(new Image(nombreArchivo)));
+            this.boton.setGraphic(new ImageView(new Image(nombreArchivo+".png",width-2,width-2,false,false)));
+            //System.out.println(nombreArchivo);
             //boton.setText(String.valueOf(unidad.charAt(35))); // fiuba.algo3.algochess.model.unidad.Soldado hay 35 caracteres hasta la primera letra del nombre de la unidad
             
-        } catch (Exception e) {
-            boton.setText("-");
+        } catch (CasillaLibreException e) {
+        	System.out.println(e.getMessage());
+            boton.setGraphic(null);
         }
 
 	}
 	
-	private String elegirImagen(Unidad unidad) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
-		Class unidadClass = unidad.getClass();
-		String nombreJugador =(String) unidadClass.getDeclaredField("equipo").get(unidad);
+	private String elegirImagen(Unidad unidad) {
+		/*Class<?> unidadClass = unidad.getClass();
+		Field campo = unidadClass.getDeclaredField("equipo");
+		campo.setAccessible(true);
+		String nombreJugador = (String) campo.get(unidad);
+		System.out.println(nombreJugador);
 		String color = this.colores.get(nombreJugador);
 		String nombreUnidad = unidadClass.getName();
 		String nombreArchivo = nombreUnidad.substring(36);
+		return nombreArchivo+"_"+color;*/
+		Class<?> unidadClass = unidad.getClass();
+		String nombreJugador = unidad.getEquipo().obtenerNombre();
+		String color = this.colores.get(nombreJugador);
+		String nombreUnidad = unidadClass.getName();
+		String nombreArchivo = nombreUnidad.substring(35);
 		return nombreArchivo+"_"+color;
+		
 		
 	}
 	

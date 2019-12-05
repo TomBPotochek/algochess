@@ -18,6 +18,8 @@ public class Casilla extends Observable {
     
     public void mover(Unidad unidad) throws CasillaOcupadaException {
     	this.estado = this.estado.colocarUnidad(unidad);
+    	this.notifyObservers();
+
     }
     
     public void colocar(Unidad unidad) throws CasillaOcupadaException, CasillaEnemigaException {

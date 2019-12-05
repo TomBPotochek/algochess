@@ -7,14 +7,16 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import java.util.HashMap;
+
 
 public class BatallaView implements AbstractView {
 
 	private ContenedorTablero contenedorTablero;
 	private ContenedorControlesJuego contenedorControlesJuego;
 
-	public BatallaView(AlgoChess algoChess) {
-		this.contenedorTablero = new ContenedorTablero(algoChess.obtenerTablero(), algoChess.getTurnoActual());
+	public BatallaView(AlgoChess algoChess, HashMap<String,String> colores) {
+		this.contenedorTablero = new ContenedorTablero(algoChess.obtenerTablero(), algoChess.getTurnoActual(), colores);
 		this.contenedorControlesJuego = new ContenedorControlesJuego(algoChess.getTurnoActual());
 	}
 
