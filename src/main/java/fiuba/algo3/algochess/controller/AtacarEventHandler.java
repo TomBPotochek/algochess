@@ -22,7 +22,6 @@ public class AtacarEventHandler implements EventHandler<ActionEvent>  {
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        vista.pintarTablero();
 
         vista.onCasillaClick(e -> {
 
