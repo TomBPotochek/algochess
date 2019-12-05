@@ -38,6 +38,8 @@ public class Soldado extends UnidadMovible {
 	
 	@Override
 	public void reclutar(Soldado reclutador, Direccion direccionReclutamiento, Tablero tablero) {
+
+		if(!this.esAliada(reclutador.equipo)) return;
 		
 		reclutador.agregarAlBatallon(this);
 	
