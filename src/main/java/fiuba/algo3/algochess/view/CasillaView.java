@@ -14,6 +14,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import java.lang.reflect.Field; 
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -79,6 +80,7 @@ public class CasillaView implements Observer {
             String nombreArchivo = elegirImagen(unidad);
             this.boton.setGraphic(new ImageView(new Image(nombreArchivo+".png",width-2,width-2,false,false)));
             //boton.setText(String.valueOf(unidad.charAt(35))); // fiuba.algo3.algochess.model.unidad.Soldado hay 35 caracteres hasta la primera letra del nombre de la unidad
+            //this.crearBarravida(unidad);
             
         } catch (CasillaLibreException e) {
             boton.setGraphic(null);
@@ -106,12 +108,25 @@ public class CasillaView implements Observer {
 		
 	}
 	
-	/*
-	private void crearBarravida() {
-		Rectangle barraVida = new Rectangle(50.0, 5.0, Color.RED);
-		DoubleProperty porcentajeVida = new SimpleDoubleProperty(1.0);
-		DoubleBinding b1 = barraVida.widthProperty().multiply(porcentajeVida);
-		barraVida.widthProperty().bind(b1);
+	// WIP
+	/* 
+	private void crearBarravida(Unidad unidad) {
+		try {	
+			Class<?> unidadClass = unidad.getClass();
+			Field vidaFull = unidadClass.getDeclaredField("vidaInicial");
+			Field vidaActual = unidadClass.getDeclaredField("vidaRestante");
+			vidaFull.setAccessible(true);
+			vidaActual.setAccessible(true);
+			float vidaInicial = (float) vidaFull.get(unidad);
+			float vidaRestante = (float) vidaActual.get(unidad);
+			float porcentaje = (float) (100*vidaRestante/vidaInicial);
+			
+			
+			Rectangle barraVida = new Rectangle(50.0, 5.0, Color.RED);
+			DoubleProperty porcentajeVida = new SimpleDoubleProperty(porcentaje);
+			DoubleBinding b1 = barraVida.widthProperty().multiply(porcentajeVida);
+			barraVida.widthProperty().bind(b1);
+		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {System.out.println(e.getMessage());}
 	}*/
 
 	public void onUnidadClick(EventHandler<ActionEvent> e) {
