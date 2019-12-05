@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
+import java.util.HashMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +20,15 @@ public class ContenedorTablero extends Contenedor {
     private Tablero tablero;
     private List<CasillaView> casillaViews;
     private TurnoActual turnoActual;
+    private HashMap<String,String> coloresEquipo;
 
-    public ContenedorTablero(Tablero tablero, TurnoActual turnoActual) {
+    public ContenedorTablero(Tablero tablero, TurnoActual turnoActual, HashMap<String,String> colores) {
 
     	super();
     	this.tablero = tablero;
     	this.turnoActual = turnoActual;
     	this.casillaViews = new ArrayList<CasillaView>();
+    	this.coloresEquipo = colores;
 
 		this.actualizar();
     }
@@ -35,7 +38,7 @@ public class ContenedorTablero extends Contenedor {
         for(int i = 1; i <= TAMANIO_TABLERO; i++) {
             for(int j = 1; j <= TAMANIO_TABLERO; j++) {
                 posicion = new Posicion(i,j);
-                CasillaView casilla = new CasillaView(this.turnoActual, tablero.obtenerCasilla(posicion), posicion);
+                CasillaView casilla = new CasillaView(this.turnoActual, tablero.obtenerCasilla(posicion), posicion, this.coloresEquipo);
                 casillaViews.add(casilla);
                 ((GridPane)contenedor).add(casilla.construir() , i, j);
             }

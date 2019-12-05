@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
+import java.util.HashMap;
 
 public class CompraDeUnidadesView implements AbstractView {
 
@@ -15,9 +16,9 @@ public class CompraDeUnidadesView implements AbstractView {
 	private ContenedorComprarUnidades contenedorComprarUnidades;
 	private String tipoDeUnidadSeleccionada;
 	
-	public CompraDeUnidadesView(AlgoChess algochess) {
+	public CompraDeUnidadesView(AlgoChess algochess, HashMap<String,String> colores) {
 
-		this.contenedorTablero = new ContenedorTablero(algochess.obtenerTablero(), algochess.getTurnoActual());
+		this.contenedorTablero = new ContenedorTablero(algochess.obtenerTablero(), algochess.getTurnoActual(), colores);
 		this.contenedorComprarUnidades = new ContenedorComprarUnidades(algochess.getTurnoActual());
 	}
 	
