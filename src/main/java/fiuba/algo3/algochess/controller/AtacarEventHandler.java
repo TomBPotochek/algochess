@@ -1,5 +1,6 @@
 package fiuba.algo3.algochess.controller;
 
+
 import fiuba.algo3.algochess.model.juego.TurnoActual;
 import fiuba.algo3.algochess.model.tablero.Posicion;
 import fiuba.algo3.algochess.view.BatallaView;
@@ -22,23 +23,28 @@ public class AtacarEventHandler implements EventHandler<ActionEvent>  {
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        vista.pintarTablero();
 
         vista.onCasillaClick(e -> {
 
             Posicion posicionEnemigo = (Posicion) ((Node) e.getSource()).getUserData();
 
             try {
-                vista.onUnidadClick(new UnidadClickEventHandler(vista, turnoActual));
+
+            	vista.onUnidadClick(new UnidadClickEventHandler(vista, turnoActual));
+
+            	Util.reproducirSonido("Catapulta.mp3");
                 turnoActual.atacar(posicionUnidad, posicionEnemigo);
+                
                 vista.deshabilitarControles();
+                
+                if (turnoActual.finalizoPartida()) {
+                	vista.mostrarFinDePartida();
+                }
+                	
             } catch (Exception ex) {
                 vista.mostrarError(ex.getMessage());
             }
 
         });
     }
-
-
-
 }

@@ -95,4 +95,14 @@ public class TurnoActual extends Observable{
 
 		return jugadoresListos;
 	}
+	
+	public boolean finalizoPartida() {
+
+		boolean finalizo = obtenerJugador().esPerdedor();
+
+		if (finalizo)
+			colaJugadores.remove();
+		
+		return finalizo;
+	}
 }

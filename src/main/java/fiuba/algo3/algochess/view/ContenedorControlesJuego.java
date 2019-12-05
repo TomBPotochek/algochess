@@ -5,6 +5,8 @@ import fiuba.algo3.algochess.model.juego.TurnoActual;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -39,21 +41,22 @@ public class ContenedorControlesJuego extends Contenedor implements Observer {
 
         grillaFlechas = new GridPane();
         btnFlechaNorte = new Button("->");
-        grillaFlechas.add(btnFlechaNorte, 1, 0);
+        grillaFlechas.add(btnFlechaNorte, 1, 2);
         btnFlechaNorEste = new Button("->");
-        grillaFlechas.add(btnFlechaNorEste, 2, 0);
+        grillaFlechas.add(btnFlechaNorEste, 2, 2);
         btnFlechaEste = new Button("->");
         grillaFlechas.add(btnFlechaEste, 2, 1);
         btnFlechaSurEste = new Button("->");
-        grillaFlechas.add(btnFlechaSurEste, 2, 2);
-        btnFlechaSur = new Button("->");
-        grillaFlechas.add(btnFlechaSur, 1, 2);
+        grillaFlechas.add(btnFlechaSurEste, 2, 0);
+        btnFlechaSur = new Button();
+        btnFlechaSur.setGraphic(new ImageView(new Image("flecha.png")));
+        grillaFlechas.add(btnFlechaSur, 1, 0);
         btnFlechaSurOeste = new Button("->");
-        grillaFlechas.add(btnFlechaSurOeste, 0, 2);
+        grillaFlechas.add(btnFlechaSurOeste, 0, 0);
         btnFlechaOeste = new Button("->");
         grillaFlechas.add(btnFlechaOeste, 0, 1);
         btnFlechaNorOeste = new Button("->");
-        grillaFlechas.add(btnFlechaNorOeste, 0, 0);
+        grillaFlechas.add(btnFlechaNorOeste, 0, 2);
 
         contenedor.getChildren().addAll(turnoJugador, btnAtaque, grillaFlechas, advertencias);
     }

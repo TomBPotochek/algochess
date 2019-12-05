@@ -27,5 +27,7 @@ public class BatallaController extends AbstractController{
 		vista.onUnidadClick(new UnidadClickEventHandler(vista, algoChess.getTurnoActual()));
 		this.renderizar(this.vista);
 		vista.deshabilitarControles();
+		
+		Util.reproducirSonido("star-wars.mp3");
 	}
 }

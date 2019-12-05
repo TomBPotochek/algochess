@@ -1,7 +1,6 @@
 package fiuba.algo3.algochess.model.juego;
 
-import fiuba.algo3.algochess.model.tablero.Direccion;
-import fiuba.algo3.algochess.model.tablero.Posicion;
+
 import fiuba.algo3.algochess.model.tablero.Tablero;
 
 import java.util.ArrayList;
@@ -34,5 +33,11 @@ public class AlgoChess {
 	public TurnoActual getTurnoActual() {
 		
 		return turnoActual;
+	}
+
+
+	public String getGanador() {
+
+		return turnoActual.getEquipo().obtenerNombre();
 	}
 }
