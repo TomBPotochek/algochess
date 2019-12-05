@@ -77,16 +77,10 @@ public class CasillaView implements Observer {
         try {
             Unidad unidad = this.casilla.getUnidad();
             String nombreArchivo = elegirImagen(unidad);
-            /*Background bi = new Background(new BackgroundImage(new Image(nombreArchivo+".png"),BackgroundRepeat.NO_REPEAT,
-            		BackgroundRepeat.NO_REPEAT,
-            		BackgroundPosition.CENTER,
-            		new BackgroundSize(50, 50, false, false, false, false) ));*/
             this.boton.setGraphic(new ImageView(new Image(nombreArchivo+".png",width-2,width-2,false,false)));
-            //System.out.println(nombreArchivo);
             //boton.setText(String.valueOf(unidad.charAt(35))); // fiuba.algo3.algochess.model.unidad.Soldado hay 35 caracteres hasta la primera letra del nombre de la unidad
             
         } catch (CasillaLibreException e) {
-        	System.out.println(e.getMessage());
             boton.setGraphic(null);
         }
 
