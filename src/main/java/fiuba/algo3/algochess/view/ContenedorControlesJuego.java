@@ -1,5 +1,7 @@
 package fiuba.algo3.algochess.view;
 
+import java.util.HashMap;
+
 import fiuba.algo3.algochess.model.juego.Observer;
 import fiuba.algo3.algochess.model.juego.TurnoActual;
 import javafx.event.ActionEvent;
@@ -28,13 +30,15 @@ public class ContenedorControlesJuego extends Contenedor implements Observer {
     private Button btnFlechaOeste;
     private Button btnFlechaNorOeste;
     private Button btnAtaque;
+	private HashMap<String, String> colores;
 
-    public ContenedorControlesJuego(TurnoActual turnoActual) {
+    public ContenedorControlesJuego(TurnoActual turnoActual, HashMap<String, String> colores) {
     	final int width = 35;
         
     	
     	this.turnoActual = turnoActual;
         this.turnoActual.addObserver(this);
+        this.colores = colores;
         turnoJugador = new Text();
         advertencias = new Text();
         advertencias.setFill(Color.RED);
@@ -101,8 +105,13 @@ public class ContenedorControlesJuego extends Contenedor implements Observer {
 
     public void actualizar() {
 
+    	String equipoActual = turnoActual.getEquipo().obtenerNombre(); 
+    	String background = colores.get(equipoActual) == "AZUL" ? "#0000ff" : "#ff7400";
+
         turnoJugador.setText(turnoActual.getEquipo().obtenerNombre());
         advertencias.setText("");
+        
+        contenedor.setStyle("-fx-background-color: " + background + ";");
     }
 
     public void onAtacarClick(EventHandler<ActionEvent> e) {

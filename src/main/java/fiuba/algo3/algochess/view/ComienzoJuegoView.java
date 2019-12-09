@@ -23,6 +23,10 @@ public class ComienzoJuegoView implements AbstractView {
 
         inputEquipo1 = new TextField("Nombre jugador 1");
         inputEquipo2 = new TextField("Nombre jugador 2");
+
+        inputEquipo1.setStyle("-fx-background-color: #0000ff;");
+        inputEquipo2.setStyle("-fx-background-color: #ff7400;");
+
         btnEquiposSeleccionados = new Button("Listo!");
     }
 

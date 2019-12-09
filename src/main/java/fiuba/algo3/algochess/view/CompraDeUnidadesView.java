@@ -19,7 +19,7 @@ public class CompraDeUnidadesView implements AbstractView {
 	public CompraDeUnidadesView(AlgoChess algochess, HashMap<String,String> colores) {
 
 		this.contenedorTablero = new ContenedorTablero(algochess.obtenerTablero(), algochess.getTurnoActual(), colores);
-		this.contenedorComprarUnidades = new ContenedorComprarUnidades(algochess.getTurnoActual());
+		this.contenedorComprarUnidades = new ContenedorComprarUnidades(algochess.getTurnoActual(), colores);
 	}
 	
 	@Override

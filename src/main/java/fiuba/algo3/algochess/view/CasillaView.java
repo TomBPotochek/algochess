@@ -14,19 +14,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import java.lang.reflect.Field; 
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
-import javafx.scene.paint.Color; 
-import javafx.scene.shape.Rectangle;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.binding.DoubleBinding;
-
-import java.lang.reflect.Field;
 import java.util.HashMap;
 
 public class CasillaView implements Observer {
@@ -68,7 +55,7 @@ public class CasillaView implements Observer {
 		final int width = 50;
 		final int height = 50;
 		
-        String backgroundColor = casilla.esAliada(this.turnoActual.getEquipo()) ? "#56ff00" : "#ff0000";
+        String backgroundColor = colores.get(this.casilla.getEquipo().obtenerNombre()) == "AZUL" ? "#0000ff" : "#ff7400";
         boton.setStyle("-fx-border-color: black; -fx-background-color: " + backgroundColor + ";");
         boton.setAlignment(Pos.CENTER);
         boton.setPrefSize(width, height);

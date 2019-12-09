@@ -1,6 +1,8 @@
 package fiuba.algo3.algochess.view;
 
 
+import java.util.HashMap;
+
 import fiuba.algo3.algochess.model.juego.Observer;
 import fiuba.algo3.algochess.model.juego.TurnoActual;
 import javafx.event.ActionEvent;
@@ -22,10 +24,12 @@ public class ContenedorComprarUnidades extends Contenedor implements Observer {
     private Button btnCatapulta;
     private Button btnCurandero;
     private Button btnComenzarBatalla;
+	private HashMap<String, String> colores;
 
-    public ContenedorComprarUnidades(TurnoActual turnoActual) {
+    public ContenedorComprarUnidades(TurnoActual turnoActual, HashMap<String, String> colores) {
         this.turnoActual = turnoActual;
         this.turnoActual.addObserver(this);
+        this.colores = colores;
     	contenedor = new VBox();
         advertencias = new Text();
         advertencias.setFill(Color.RED);
@@ -54,10 +58,15 @@ public class ContenedorComprarUnidades extends Contenedor implements Observer {
     public void actualizar() {
         
     	int puntosJugador = turnoActual.obtenerPuntos();
-    	
-    	turnoJugador.setText(turnoActual.getEquipo().obtenerNombre());
+    	String equipoActual = turnoActual.getEquipo().obtenerNombre(); 
+    	String background = colores.get(equipoActual) == "AZUL" ? "#0000ff" : "#ff7400";
+
+    	turnoJugador.setText(equipoActual);
+    	    	
         this.puntosJugador.setText("Puntos restantes: " + String.valueOf(puntosJugador));
         
+        contenedor.setStyle("-fx-background-color: " + background + ";");
+
         if (puntosJugador == 0)
         	this.deshabilitarCompra();
 

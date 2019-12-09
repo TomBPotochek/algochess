@@ -62,4 +62,7 @@ public class Casilla extends Observable {
     	return (this.equipo == otroEquipo);
 	}
 
+    public Equipo getEquipo() {
+    	return equipo;
+    }
 }
