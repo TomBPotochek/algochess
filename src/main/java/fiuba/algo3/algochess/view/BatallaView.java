@@ -7,6 +7,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
+
 import java.util.HashMap;
 
 
@@ -31,7 +33,7 @@ public class BatallaView implements AbstractView {
 		tableroBox.setPadding(new Insets(20,20,20,20));
 		contenedorPrincipal.setLeft(lateralBox);
 		contenedorPrincipal.setCenter(tableroBox);
-		return new Scene(contenedorPrincipal);
+		return new Scene(contenedorPrincipal, Screen.getPrimary().getVisualBounds().getWidth(), Screen.getPrimary().getVisualBounds().getHeight());
 	}
 
 	public void onCasillaClick(EventHandler<ActionEvent> e) {

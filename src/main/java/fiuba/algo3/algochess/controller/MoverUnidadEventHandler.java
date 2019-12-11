@@ -29,7 +29,7 @@ public class MoverUnidadEventHandler implements EventHandler<ActionEvent> {
 
 
         try {
-        	vista.onUnidadClick(new UnidadClickEventHandler(vista, turnoActual));
+        	vista.onUnidadClick(new UnidadClickEventHandler(vista, turnoActual, null));
             turnoActual.mover(this.posicionUnidad, this.direccion);
             vista.deshabilitarControles();
         } catch (ModelException ex) {

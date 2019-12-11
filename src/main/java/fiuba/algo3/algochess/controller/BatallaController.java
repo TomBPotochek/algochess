@@ -10,6 +10,7 @@ public class BatallaController extends AbstractController{
 
 	private BatallaView vista;
 	private AlgoChess algoChess;
+	private ContenedorGlobal contenedorGlobal;
 	
 
 	public BatallaController(ContenedorGlobal contenedorGlobal, AlgoChess algoChess, HashMap<String,String> colores) {
@@ -18,13 +19,14 @@ public class BatallaController extends AbstractController{
 		super(contenedorGlobal);
 		this.vista = new BatallaView(algoChess, colores);
 		this.algoChess = algoChess;
+		this.contenedorGlobal = contenedorGlobal;
 	}
 
 	@Override
 	public void inicializar() {
 		// TODO Auto-generated method stub
 
-		vista.onUnidadClick(new UnidadClickEventHandler(vista, algoChess.getTurnoActual()));
+		vista.onUnidadClick(new UnidadClickEventHandler(vista, algoChess.getTurnoActual(), contenedorGlobal));
 		this.renderizar(this.vista);
 		vista.deshabilitarControles();
 		
